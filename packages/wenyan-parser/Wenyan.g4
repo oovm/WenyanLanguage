@@ -43,8 +43,9 @@ declareString
     : DeclareString ValueIs? s = string NameAs v = variable
     | DeclareString NameAs v = variable ValueIs? s = string;
 // $antlr-format alignColons trailing;
-DeclareString : IHave Yan; //吾有一言
-fragment Yan  : '言';
+DeclareString   : IHave Yan; //吾有一言
+DeclareStringIs : DeclareString ValueIs?;
+fragment Yan    : '言';
 
 // $antlr-format alignColons hanging;
 string
@@ -57,11 +58,11 @@ StringEmpty: Left2 Right2 | String3 String3 | Left4 Right4;
 StringEscape1      : Left2 NonEscape+ Right2;
 StringEscape2      : Left2 NonEscape+ Right2;
 StringEscape3      : String3 NonEscape+ String3;
-Left2              : '「「';
-Right2             : '」」';
-Left4              : '『';
-Right4             : '』';
-String3            : '"';
+fragment Left2     : '「「';
+fragment Right2    : '」」';
+fragment Left4     : '『';
+fragment Right4    : '』';
+fragment String3   : '"';
 fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
@@ -92,47 +93,53 @@ FunctionEnd   : ThisIs . MethodOf; //是谓「XX」之术也
 //欲行是術必先得六數
 variables : VariableStart (NameAs variable)+ VariableEnd;
 
-VariableStart : '欲行' Is Shu2 '必先得' Number Shu;
-VariableEnd   : '乃行';
+VariableStart : Yu2 Xing Is Shu2 '必先得' Number Shu;
+VariableEnd   : Nai Xing;
+fragment Yu2  : '欲';
+fragment Xing : '行';
 
 DeclareMethod : IHave Shu2; //吾有一术
 fragment Shu2 : '術' | '术';
-ThisIs        : Shi Wei; // 是谓
-Is            : Shi;
-Said          : Wei;
-MethodOf      : Of Shu2 Ye; // 之术也
-EndDeclare    : Ye;
-fragment Shi  : '是';
-fragment Of   : '之';
-fragment Ye   : '也';
+
+ThisIs       : Shi Wei; // 是谓
+Is           : Shi;
+Said         : Wei;
+MethodOf     : Of Shu2 Ye; // 之术也
+EndDeclare   : Ye;
+fragment Shi : '是';
+fragment Of  : '之';
+fragment Ye  : '也';
 
 //施「翻倍」於「大衍」
 apply : Apply f = variable At x = variable;
-The   : Zhi;
-At    : Yu;
-Apply : '施';
 
-fragment Yu : '於' | '于';
+The           : Zhi;
+At            : Yu;
+Apply         : Shi2;
+fragment Shi2 : '施';
+fragment Yu   : '於' | '于';
+
+End          : Yun Yun; //云云
+fragment Yun : '云';
 /*====================================================================================================================*/
 number : Left3 n = Number Right3 | n = Number;
 Number : [0-9]+ | Digit+;
-Digit  : [零一二三四五六七八九十]| [百千万亿];
-
-End : '云云';
+Digit  : [零一二三四五六七八九十]| [百千万亿兆];
 /*====================================================================================================================*/
 Equal   : '=' | Den Yu;
-Unequal : '≠' | '!=' | '不' Den Yu;
+Unequal : '≠' | '!=' | Bu Den Yu;
 
+fragment Bu  : '不';
 fragment Den : '等';
 /*====================================================================================================================*/
 Identifier : Character+;
 Character  : Underline | [\p{Latin}]| [\p{Han}] | [\p{Hiragana}] | [\p{Katakana}];
 Underline  : '_' | '-';
 /*====================================================================================================================*/
-LineComment                : Sharp ~[\r\n]* -> channel(HIDDEN);
+LineComment                : CommentStart ~[\r\n]* -> channel(HIDDEN);
 PartComment                : Comment .*? Comment -> channel(HIDDEN);
 WhiteSpace                 : UnicodeWhiteSpace+ -> skip;
-fragment Sharp             : ('注' | '疏' | '批') Yue;
-fragment Comment           : '%%%';
+fragment CommentStart      : ('注' | '疏' | '批') Yue;
+fragment Comment           : ('注' | '疏' | '批') '毕';
 fragment UnicodeWhiteSpace : [\p{White_Space}]| Delimiter;
 fragment Delimiter         : '。' | '，' | ',';
