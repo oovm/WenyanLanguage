@@ -6,15 +6,20 @@
     "main": "source/index.ts",
     "license": "MPL-2.0",
     "scripts": {
-        "antlr": "antlr4ts -visitor Wenyan.g4 -o ./gen/source",
+        "antlr": "antlr4ts -visitor Wenyan.g4 -o ./source/gen",
         "build": "yarn antlr && tsc -b",
-        "upload": "yarn antlr && npm publish --access public"
+        "upload": "yarn antlr && npm publish --access public",
+        "start": "vuepress dev docs",
+        "update": "yarn upgrade-interactive --latest",
+        "test": "yarn install && yarn start",
+        "deploy": "vuepress build docs"
     },
     "dependencies": {
-        "antlr4ts": "^0.5.0-alpha.3"
+        "antlr4ts": "^0.5.0-alpha.3",
+        "vuepress": "^1.2.0"
     },
     "devDependencies": {
-        "@types/node": "^11.13.7",
+        "@types/node": "^12.12.21",
         "antlr4ts-cli": "^0.5.0-alpha.3"
     }
 }
