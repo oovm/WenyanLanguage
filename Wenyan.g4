@@ -32,19 +32,18 @@ declareString
     : DeclareString ValueIs? s = string NameAs v = variable
     | DeclareString NameAs v = variable ValueIs? s = string;
 // $antlr-format alignColons trailing;
-DeclareString : IHaveA Yan;
+DeclareString : IHaveA Yan; //吾有一言
 fragment Yan  : '言';
 
 // $antlr-format alignColons hanging;
 string
-    : Left2 Right2    # StringEmpty
-    | String3 String3 # StringEmpty
-    | Left4 Right4    # StringEmpty
-    | StringEscape    # StringRemove2
-    | StringEscape2   # StringRemove1
-    | StringEscape3   # StringRemove1;
+    : StringEmpty   # StringRemove0
+    | StringEscape1 # StringRemove2
+    | StringEscape2 # StringRemove1
+    | StringEscape3 # StringRemove1;
 // $antlr-format alignColons trailing;
-StringEscape       : Left2 NonEscape+ Right2;
+StringEmpty        : Left2 Right2 | String3 String3 | Left4 Right4;
+StringEscape1      : Left2 NonEscape+ Right2;
 StringEscape2      : Left2 NonEscape+ Right2;
 StringEscape3      : String3 NonEscape+ String3;
 Left2              : '「「';
@@ -55,7 +54,7 @@ String3            : '"';
 fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
 //吾有一數。曰三。名之曰「甲」。
-declareNumber : DeclareDigit ValueIs . NameAs variable;
+declareNumber : DeclareDigit ValueIs? Number NameAs variable;
 
 DeclareDigit : IHaveA Shu; //吾有一数
 fragment Shu : '數' | '数';
@@ -73,23 +72,23 @@ declarefunction
     : DeclareMethod NameAs variable variables FunctionStart FunctionEnd
     | DeclareMethod NameAs variable;
 // $antlr-format alignColons trailing;
-FunctionStart : Is Method ValueIs; //是术曰
+FunctionStart : Is Shu2 ValueIs; //是术曰
 FunctionEnd   : ThisIs . MethodOf; //是谓「XX」之术也
 
 //欲行是術必先得六數
 variables : VariableStart (NameAs variable)+ VariableEnd;
 
-VariableStart : '欲行' Is Method '必先得' Number Shu;
+VariableStart : '欲行' Is Shu2 '必先得' Number Shu;
 VariableEnd   : '乃行';
 
-DeclareMethod   : IHaveA Method; //吾有一术
-fragment Method : '術' | '术';
-ThisIs          : Is Said; // 是谓
-fragment Is     : '是';
-fragment Said   : '謂' | '谓';
-MethodOf        : Of Method Ye; // 之术也
-fragment Of     : '之';
-fragment Ye     : '也';
+DeclareMethod : IHaveA Shu2; //吾有一术
+fragment Shu2 : '術' | '术';
+ThisIs        : Is Said; // 是谓
+Is            : '是';
+Said          : '謂' | '谓';
+MethodOf      : Of Shu2 Ye; // 之术也
+fragment Of   : '之';
+fragment Ye   : '也';
 
 //施「翻倍」於「大衍」
 apply : Apply f = variable At x = variable;

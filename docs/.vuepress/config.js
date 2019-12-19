@@ -22,8 +22,11 @@ module.exports = {
                 title: 'Basic',
                 collapsable: true,
                 children: [
-                    ['/basic/', 'Banner'],
-                    ['/basic/types.md', 'Basic Types'],
+                    ['/basic/', 'Syntax'],
+                    ['/basic/type.md', 'Basic Types'],
+                    ['/basic/list.md', 'List'],
+                    ['/basic/dict.md', 'Dict'],
+                    ['/basic/function.md', 'Function'],
                 ]
             },
         ]
