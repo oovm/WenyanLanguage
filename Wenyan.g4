@@ -3,30 +3,51 @@ grammar Wenyan;
 // $antlr-format columnLimit 160;
 // $antlr-format alignColons trailing;
 program   : statement* EOF;
-statement : (declaration | data);
+statement : (declaration);
 /*====================================================================================================================*/
-declaration : '吾有一[' Digit ']';
+declaration : declareNumber;
 ifStatement : If statement EndIf Else statement;
 If          : 'if' | '若';
-EndIf : '者';
-Else: '若非';
-Return : 'return' | '乃得';
+EndIf       : '者';
+Else        : '若非';
+Return      : 'return' | '乃得';
 /*====================================================================================================================*/
-data : (string);
+//data : (string);
+Declaration : '吾有一';
+ValueIs     : '曰';
+NameAs      : '名之曰';
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
 string
-    : StringAStart StringAEnd
+    : Left2 Right2
     | StringPair StringPair
-    | StringAStart text = NonEscape+? StringAEnd
+    | Left2 text = NonEscape+? Right2
     | StringPair text = NonEscape+? StringPair;
 // $antlr-format alignColons trailing;
-StringAStart : '「「';
-StringAEnd   : '」」';
-StringPair  : '"';
-NonEscape   : ~[\u0001]+?;
+Left2      : '「「';
+Right2     : '」」';
+StringPair : '"';
+NonEscape  : ~[\u0001]+?;
 /*====================================================================================================================*/
-Digit : Zero | One;
+//吾有一數。曰三。名之曰「甲」。
+declareNumber : Declaration Digit ValueIs NameAs variable;
+Digit         : '數' | '数';
+/*====================================================================================================================*/
+variable : Left . Right | Left3 . Right3;
+Left     : '「';
+Right    : '」';
+Left3    : '(';
+Right3   : ')';
+
+Function : Declaration Method;
+
+//施「翻倍」於「大衍」
+apply : Apply f = variable At x = variable;
+
+fragment Method : '術';
+Apply           : '施';
+At              : '於';
+/*====================================================================================================================*/
 Zero  : '零';
 One   : '一';
 Two   : '二';
