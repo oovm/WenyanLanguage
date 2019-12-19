@@ -1,25 +1,29 @@
 {
-    "name": "@wenyan/antlr",
-    "displayName": "Wenyan Language ANTLR Parser",
-    "description": "Wenyan Language ANTLR Definition",
-    "version": "0.1.0",
-    "main": "source/index.ts",
-    "license": "MPL-2.0",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
     "scripts": {
-        "antlr": "antlr4ts -visitor Wenyan.g4 -o ./source/gen",
-        "build": "yarn antlr && tsc -b",
-        "upload": "yarn antlr && npm publish --access public",
-        "start": "vuepress dev docs",
+        "tsc": "tsc -b",
         "update": "yarn upgrade-interactive --latest",
-        "test": "yarn install && yarn start",
-        "deploy": "vuepress build docs"
-    },
-    "dependencies": {
-        "antlr4ts": "^0.5.0-alpha.3",
-        "vuepress": "^1.2.0"
+        "vuepress": "yarn workspace @wenyan/site deploy",
+        "start": "yarn workspace @wenyan/site start http://localhost:8080",
+        "bootstrap": "lerna bootstrap --no-ci --npm-client yarn",
+        "deploy": "bash scripts/deploy.sh",
+        "lint": "tslint */source/*.ts && eslint .",
+        "lint:fix": "tslint */source/*.ts --fix && eslint . --fix"
     },
     "devDependencies": {
-        "@types/node": "^12.12.21",
+        "@types/node": "^12.0.10",
+        "chalk": "^2.4.2",
+        "commander": "^2.20.0",
+        "eslint": "^6.0.1",
+        "eslint-plugin-vue": "^5.2.3",
+        "semver": "^6.1.2",
+        "ts-loader": "^6.0.4",
+        "tslint": "^5.18.0",
+        "typescript": "^3.5.2",
         "antlr4ts-cli": "^0.5.0-alpha.3"
-    }
+    },
+    "dependencies": {}
 }

@@ -1,5 +1,5 @@
 module.exports = {
-    dest: 'docs/.build',
+    dest: '.build',
     locales: {
         '/': {
             lang: 'zh-CN',
@@ -13,7 +13,7 @@ module.exports = {
     themeConfig: {
         repo: 'GalAster/WenyanLanguage',
         editLinks: true,
-        docsDir: 'docs',
+        docsDir: 'packages/wenyan-site',
         markdown: {
             lineNumbers: true
         },

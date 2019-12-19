@@ -1,6 +1,6 @@
 Wengyan Language
 ================
-[![Site](https://img.shields.io/badge/ARC-v0.4-%23FF4D5B.svg?style=flat-square)](https://github.com/toml-lang/toml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/223529b0-a6da-43a2-8b93-4adf538fa875/deploy-status)](https://app.netlify.com/sites/wenyan/deploys)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 [![LICENSE](https://img.shields.io/badge/license-MPL%202.0-blue.svg?style=flat-square)](https://github.com/GalAster/vscode-toml/blob/master/License.md)
 

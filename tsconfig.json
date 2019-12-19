@@ -1,0 +1,8 @@
+{
+    "references": [
+        {
+            "path": "./packages/wenyan-parser"
+        }
+    ],
+    "files": []
+}

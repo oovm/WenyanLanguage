@@ -1,0 +1,16 @@
+{
+    "name": "@wenyan/site",
+    "displayName": "Wenyan Language ANTLR Parser",
+    "description": "Wenyan Language ANTLR Definition",
+    "version": "0.1.0",
+    "main": "source/index.ts",
+    "license": "MPL-2.0",
+    "scripts": {
+        "start": "vuepress dev .",
+        "update": "yarn upgrade --latest",
+        "deploy": "vuepress build ."
+    },
+    "dependencies": {
+        "vuepress": "^1.2.0"
+    }
+}

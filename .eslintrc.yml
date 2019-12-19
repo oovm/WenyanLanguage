@@ -1,0 +1,53 @@
+env: 
+  es6: true
+  node: true
+  browser: true
+
+extends: eslint:recommended
+
+parserOptions: 
+  ecmaVersion: 2018
+
+rules: 
+  arrow-spacing: warn
+  block-spacing: warn
+  brace-style: warn
+  comma-spacing: warn
+  computed-property-spacing: warn
+  dot-location:
+    - warn
+    - property
+  eqeqeq:
+    - warn
+    - always
+  func-call-spacing: warn
+  generator-star-spacing:
+    - warn
+    - before: false
+      after: true
+  indent:
+    - warn
+    - 4
+    - SwitchCase: 1
+  key-spacing: warn
+  keyword-spacing: warn
+  no-console: off
+  no-var: error
+  no-unused-vars: warn
+  object-curly-spacing:
+    - warn
+    - always
+  quotes:
+    - warn
+    - single
+  rest-spread-spacing: warn
+  semi: off
+  semi-spacing: warn
+  space-before-function-paren:
+    - warn
+    - never
+  switch-colon-spacing: warn
+  yield-star-spacing:
+    - warn
+    - before: false
+      after: true
