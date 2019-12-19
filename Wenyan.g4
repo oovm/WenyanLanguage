@@ -6,19 +6,23 @@ program   : statement* EOF;
 statement : (declaration | data);
 /*====================================================================================================================*/
 declaration : '吾有一[' Digit ']';
-
+ifStatement : If statement EndIf Else statement;
+If          : 'if' | '若';
+EndIf : '者';
+Else: '若非';
+Return : 'return' | '乃得';
 /*====================================================================================================================*/
 data : (string);
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
 string
-    : StringStart StringEnd
+    : StringAStart StringAEnd
     | StringPair StringPair
-    | StringStart text = NonEscape+? StringEnd
+    | StringAStart text = NonEscape+? StringAEnd
     | StringPair text = NonEscape+? StringPair;
 // $antlr-format alignColons trailing;
-StringStart : '「「';
-StringEnd   : '」」';
+StringAStart : '「「';
+StringAEnd   : '」」';
 StringPair  : '"';
 NonEscape   : ~[\u0001]+?;
 /*====================================================================================================================*/
