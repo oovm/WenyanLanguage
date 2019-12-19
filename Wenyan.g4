@@ -3,26 +3,36 @@ grammar Wenyan;
 // $antlr-format columnLimit 160;
 // $antlr-format alignColons trailing;
 program   : statement* EOF;
-statement : (declaration);
+statement : (declareNumber | declareString | declarefunction) | ifStatement;
 /*====================================================================================================================*/
-declaration : declareNumber | declarefunction;
 ifStatement : If statement EndIf Else statement;
-If          : 'if' | '若';
+If          : '若';
 EndIf       : '者';
 Else        : '若非';
-Return      : 'return' | '乃得';
+Return      : '乃得';
 /*====================================================================================================================*/
-//data : (string);
+data    : (string);
 IHaveA  : '吾有一';
 ValueIs : '曰';
 NameAs  : '名之曰';
 /*====================================================================================================================*/
+declareString : DeclareString ValueIs? s = string NameAs v = variable;
+
+DeclareString   : IHaveA String;
+fragment String : '言';
+
 // $antlr-format alignColons hanging;
-string: Left2 Right2 | StringPair StringPair | Left2 text = . Right2 | StringPair text = . StringPair;
+string
+    : Left2 Right2             # StringEmpty
+    | String3 String3          # StringEmpty
+    | StringEscape             # StringRemove2
+    | String3 text = . String3 # StringRemove1;
 // $antlr-format alignColons trailing;
-Left2      : '「「';
-Right2     : '」」';
-StringPair : '"';
+Left2              : '「「';
+Right2             : '」」';
+String3            : '"';
+StringEscape       : Left2 NonEscape+ Right2;
+fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
 //吾有一數。曰三。名之曰「甲」。
 declareNumber : DeclareDigit ValueIs . NameAs variable;
@@ -67,18 +77,19 @@ apply : Apply f = variable At x = variable;
 Apply : '施';
 At    : '於' | '于';
 /*====================================================================================================================*/
-Number : Zero;
-Zero   : '零';
-One    : '一';
-Two    : '二';
-Three  : '三';
-Four   : '四';
-Five   : '五';
-Six    : '六';
-Seven  : '七';
-Eight  : '八';
-Nine   : '九';
-Ten    : '十';
+Number   : TheDigit+;
+TheDigit : [0-9]| [零一二三四五六七八九十];
+Zero     : '零';
+One      : '一';
+Two      : '二';
+Three    : '三';
+Four     : '四';
+Five     : '五';
+Six      : '六';
+Seven    : '七';
+Eight    : '八';
+Nine     : '九';
+Ten      : '十';
 
 End : '云云';
 /*====================================================================================================================*/
@@ -94,5 +105,4 @@ PartComment                : Comment .*? Comment -> channel(HIDDEN);
 WhiteSpace                 : UnicodeWhiteSpace+ -> skip;
 fragment Sharp             : '%';
 fragment Comment           : '%%%';
-fragment UnicodeWhiteSpace : [\p{White_Space}]| '。';
-
+fragment UnicodeWhiteSpace : [\p{White_Space}]| '。' | '，' | ',';
