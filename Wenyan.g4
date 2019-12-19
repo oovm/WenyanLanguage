@@ -17,7 +17,7 @@ fragment Nai : '乃';
 fragment De  : '得';
 fragment Zhe : '者';
 /*====================================================================================================================*/
-data : (string);
+data : (string) | Identifier;
 
 IHave : (Jin | Wu | Zi | You | You2)? You Yi?; //吾有一
 
@@ -28,8 +28,9 @@ fragment You  : '有';
 fragment You2 : '又';
 fragment Yi   : '一';
 
-NameAs        : Ming Zhi? Yue | Ci? Suo Wei | Wei Zhi Yue?; //名之曰
-ValueIs       : Yue; //曰
+NameAs  : Ming Zhi? Yue | Ci? Suo Wei | Wei Zhi Yue?; //名之曰
+ValueIs : Yue; //曰
+
 fragment Ming : '名';
 fragment Zhi  : '之';
 fragment Yue  : '曰';
@@ -51,8 +52,8 @@ string
     | StringEscape1 # StringRemove2
     | StringEscape2 # StringRemove1
     | StringEscape3 # StringRemove1;
+StringEmpty: Left2 Right2 | String3 String3 | Left4 Right4;
 // $antlr-format alignColons trailing;
-StringEmpty        : Left2 Right2 | String3 String3 | Left4 Right4;
 StringEscape1      : Left2 NonEscape+ Right2;
 StringEscape2      : Left2 NonEscape+ Right2;
 StringEscape3      : String3 NonEscape+ String3;
@@ -65,14 +66,11 @@ fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
 declareNumber
-    : DeclareDigit ValueIs? n = Number NameAs v = variable EndDeclare?
-    | DeclareDigitIs n = Number NameAs v = variable EndDeclare?
-    | DeclareDigit ValueIs? Left3 n = Number Right3 NameAs v = variable EndDeclare?
-    | DeclareDigitIs Left3 n = Number Right3 NameAs v = variable EndDeclare?;
+    : DeclareDigit ValueIs? number NameAs v = variable EndDeclare?
+    | DeclareDigitIs number NameAs v = variable EndDeclare?;
 // $antlr-format alignColons trailing;
-DeclareDigit   : IHave TheNumber;
-DeclareDigitIs : IHave TheNumber ValueIs?; //吾有一数
-TheNumber      : Shu;
+DeclareDigit   : IHave Shu;
+DeclareDigitIs : DeclareDigit ValueIs?; //吾有一数
 fragment Shu   : '數' | '数';
 /*====================================================================================================================*/
 variable : Left Identifier Right | Left3 Identifier Right3;
@@ -99,11 +97,12 @@ VariableEnd   : '乃行';
 
 DeclareMethod : IHave Shu2; //吾有一术
 fragment Shu2 : '術' | '术';
-ThisIs        : Is Said; // 是谓
-Is            : '是';
+ThisIs        : Shi Wei; // 是谓
+Is            : Shi;
 Said          : Wei;
 MethodOf      : Of Shu2 Ye; // 之术也
 EndDeclare    : Ye;
+fragment Shi  : '是';
 fragment Of   : '之';
 fragment Ye   : '也';
 
@@ -115,6 +114,7 @@ Apply : '施';
 
 fragment Yu : '於' | '于';
 /*====================================================================================================================*/
+number : Left3 n = Number Right3 | n = Number;
 Number : [0-9]+ | Digit+;
 Digit  : [零一二三四五六七八九十]| [百千万亿];
 
