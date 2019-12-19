@@ -1,8 +1,8 @@
 {
-    "name": "@wengyan/antlr",
-    "displayName": "Arc Language ANTLR Parser",
-    "description": "Arc Readable Configuration Parser ANTLR Definition",
-    "version": "1.0.0",
+    "name": "@wenyan/antlr",
+    "displayName": "Wenyan Language ANTLR Parser",
+    "description": "Wenyan Language ANTLR Definition",
+    "version": "0.1.0",
     "main": "source/index.ts",
     "license": "MPL-2.0",
     "scripts": {

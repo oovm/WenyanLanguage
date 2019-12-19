@@ -3,44 +3,64 @@ grammar Wenyan;
 // $antlr-format columnLimit 160;
 // $antlr-format alignColons trailing;
 program   : statement* EOF;
-statement : (declareNumber | declareString | declarefunction) | ifStatement;
+statement : (declareNumber | declareString | declarefunction) | ifStatement | (apply);
 /*====================================================================================================================*/
 ifStatement : If statement EndIf Else statement;
-If          : '若';
-EndIf       : '者';
-Else        : '若非';
-Return      : '乃得';
-/*====================================================================================================================*/
-data    : (string);
-IHaveA  : '吾有一';
-ValueIs : '曰';
-NameAs  : '名之曰';
-/*====================================================================================================================*/
-declareString : DeclareString ValueIs? s = string NameAs v = variable;
+If          : Ruo; // 若
+EndIf       : Zhe; // 者
+Else        : Ruo Fei; // 若非
+Return      : Nai De; // 乃得
 
-DeclareString   : IHaveA String;
-fragment String : '言';
+fragment Ruo : '若';
+fragment Fei : '非';
+fragment Nai : '乃';
+fragment De  : '得';
+fragment Zhe : '者';
+/*====================================================================================================================*/
+data : (string);
+
+IHaveA  : '吾有一';
+ValueIs : Yue; //曰
+NameAs  : Ming Zhi Yue; //名之曰
+
+fragment Ming : '名';
+fragment Zhi  : '之';
+fragment Yue  : '曰';
+/*====================================================================================================================*/
+// $antlr-format alignColons hanging;
+declareString
+    : DeclareString ValueIs? s = string NameAs v = variable
+    | DeclareString NameAs v = variable ValueIs? s = string;
+// $antlr-format alignColons trailing;
+DeclareString : IHaveA Yan;
+fragment Yan  : '言';
 
 // $antlr-format alignColons hanging;
 string
-    : Left2 Right2             # StringEmpty
-    | String3 String3          # StringEmpty
-    | StringEscape             # StringRemove2
-    | String3 text = . String3 # StringRemove1;
+    : Left2 Right2    # StringEmpty
+    | String3 String3 # StringEmpty
+    | Left4 Right4    # StringEmpty
+    | StringEscape    # StringRemove2
+    | StringEscape2   # StringRemove1
+    | StringEscape3   # StringRemove1;
 // $antlr-format alignColons trailing;
+StringEscape       : Left2 NonEscape+ Right2;
+StringEscape2      : Left2 NonEscape+ Right2;
+StringEscape3      : String3 NonEscape+ String3;
 Left2              : '「「';
 Right2             : '」」';
+Left4              : '『';
+Right4             : '』';
 String3            : '"';
-StringEscape       : Left2 NonEscape+ Right2;
 fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
 //吾有一數。曰三。名之曰「甲」。
 declareNumber : DeclareDigit ValueIs . NameAs variable;
 
-DeclareDigit   : IHaveA Digit; //吾有一数
-fragment Digit : '數' | '数';
+DeclareDigit : IHaveA Shu; //吾有一数
+fragment Shu : '數' | '数';
 /*====================================================================================================================*/
-variable : Left . Right;
+variable : Left Identifier Right | Left3 Identifier Right3;
 Left     : '「';
 Right    : '」';
 Left3    : '(';
@@ -59,7 +79,7 @@ FunctionEnd   : ThisIs . MethodOf; //是谓「XX」之术也
 //欲行是術必先得六數
 variables : VariableStart (NameAs variable)+ VariableEnd;
 
-VariableStart : '欲行' Is Method '必先得' Number Digit;
+VariableStart : '欲行' Is Method '必先得' Number Shu;
 VariableEnd   : '乃行';
 
 DeclareMethod   : IHaveA Method; //吾有一术
@@ -67,34 +87,27 @@ fragment Method : '術' | '术';
 ThisIs          : Is Said; // 是谓
 fragment Is     : '是';
 fragment Said   : '謂' | '谓';
-MethodOf        : Of Method The; // 之术也
+MethodOf        : Of Method Ye; // 之术也
 fragment Of     : '之';
-fragment The    : '也';
+fragment Ye     : '也';
 
 //施「翻倍」於「大衍」
 apply : Apply f = variable At x = variable;
-
+The   : Zhi;
+At    : Yu;
 Apply : '施';
-At    : '於' | '于';
+
+fragment Yu : '於' | '于';
 /*====================================================================================================================*/
-Number   : TheDigit+;
-TheDigit : [0-9]| [零一二三四五六七八九十];
-Zero     : '零';
-One      : '一';
-Two      : '二';
-Three    : '三';
-Four     : '四';
-Five     : '五';
-Six      : '六';
-Seven    : '七';
-Eight    : '八';
-Nine     : '九';
-Ten      : '十';
+Number : Digit+;
+Digit  : [0-9]| [零一二三四五六七八九十]| [百千万亿];
 
 End : '云云';
 /*====================================================================================================================*/
-Equal   : '=' | '等於' | '等于';
-Unequal : '≠' | '!=' | '不等於' | '不等于';
+Equal   : '=' | Den Yu;
+Unequal : '≠' | '!=' | '不' Den Yu;
+
+fragment Den : '等';
 /*====================================================================================================================*/
 Identifier : Character+;
 Character  : Underline | [\p{Latin}]| [\p{Han}] | [\p{Hiragana}] | [\p{Katakana}];
@@ -105,4 +118,5 @@ PartComment                : Comment .*? Comment -> channel(HIDDEN);
 WhiteSpace                 : UnicodeWhiteSpace+ -> skip;
 fragment Sharp             : '%';
 fragment Comment           : '%%%';
-fragment UnicodeWhiteSpace : [\p{White_Space}]| '。' | '，' | ',';
+fragment UnicodeWhiteSpace : [\p{White_Space}]| Delimiter;
+fragment Delimiter         : '。' | '，' | ',';
