@@ -13,5 +13,5 @@ node_modules/
 yarn-error.log
 
 # Build
-# source/*
+docs/.build/*
 *.nb
