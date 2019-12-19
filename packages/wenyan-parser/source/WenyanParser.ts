@@ -36,45 +36,41 @@ export class WenyanParser extends Parser {
 	public static readonly NameAs = 6;
 	public static readonly ValueIs = 7;
 	public static readonly DeclareString = 8;
-	public static readonly StringEmpty = 9;
-	public static readonly StringEscape1 = 10;
-	public static readonly StringEscape2 = 11;
-	public static readonly StringEscape3 = 12;
-	public static readonly Left2 = 13;
-	public static readonly Right2 = 14;
-	public static readonly Left4 = 15;
-	public static readonly Right4 = 16;
-	public static readonly String3 = 17;
-	public static readonly DeclareDigit = 18;
-	public static readonly DeclareDigitIs = 19;
-	public static readonly Left = 20;
-	public static readonly Right = 21;
-	public static readonly Left3 = 22;
-	public static readonly Right3 = 23;
-	public static readonly FunctionStart = 24;
-	public static readonly FunctionEnd = 25;
-	public static readonly VariableStart = 26;
-	public static readonly VariableEnd = 27;
-	public static readonly DeclareMethod = 28;
-	public static readonly ThisIs = 29;
-	public static readonly Is = 30;
-	public static readonly Said = 31;
-	public static readonly MethodOf = 32;
-	public static readonly EndDeclare = 33;
-	public static readonly The = 34;
-	public static readonly At = 35;
-	public static readonly Apply = 36;
-	public static readonly Number = 37;
-	public static readonly Digit = 38;
-	public static readonly End = 39;
-	public static readonly Equal = 40;
-	public static readonly Unequal = 41;
-	public static readonly Identifier = 42;
-	public static readonly Character = 43;
-	public static readonly Underline = 44;
-	public static readonly LineComment = 45;
-	public static readonly PartComment = 46;
-	public static readonly WhiteSpace = 47;
+	public static readonly DeclareStringIs = 9;
+	public static readonly StringEmpty = 10;
+	public static readonly StringEscape1 = 11;
+	public static readonly StringEscape2 = 12;
+	public static readonly StringEscape3 = 13;
+	public static readonly DeclareDigit = 14;
+	public static readonly DeclareDigitIs = 15;
+	public static readonly Left = 16;
+	public static readonly Right = 17;
+	public static readonly Left3 = 18;
+	public static readonly Right3 = 19;
+	public static readonly FunctionStart = 20;
+	public static readonly FunctionEnd = 21;
+	public static readonly VariableStart = 22;
+	public static readonly VariableEnd = 23;
+	public static readonly DeclareMethod = 24;
+	public static readonly ThisIs = 25;
+	public static readonly Is = 26;
+	public static readonly Said = 27;
+	public static readonly MethodOf = 28;
+	public static readonly EndDeclare = 29;
+	public static readonly The = 30;
+	public static readonly At = 31;
+	public static readonly Apply = 32;
+	public static readonly End = 33;
+	public static readonly Number = 34;
+	public static readonly Digit = 35;
+	public static readonly Equal = 36;
+	public static readonly Unequal = 37;
+	public static readonly Identifier = 38;
+	public static readonly Character = 39;
+	public static readonly Underline = 40;
+	public static readonly LineComment = 41;
+	public static readonly PartComment = 42;
+	public static readonly WhiteSpace = 43;
 	public static readonly RULE_program = 0;
 	public static readonly RULE_statement = 1;
 	public static readonly RULE_ifStatement = 2;
@@ -96,19 +92,16 @@ export class WenyanParser extends Parser {
 
 	private static readonly _LITERAL_NAMES: Array<string | undefined> = [
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
-		undefined, undefined, undefined, undefined, undefined, undefined, "'\u300C\u300C'", 
-		"'\u300D\u300D'", "'\u300E'", "'\u300F'", "'\"'", undefined, undefined, 
-		"'\u300C'", "'\u300D'", "'['", "']'", undefined, undefined, undefined, 
-		"'\u4E43\u884C'", undefined, undefined, undefined, undefined, undefined, 
-		undefined, undefined, undefined, "'\u65BD'", undefined, undefined, "'\u4E91\u4E91'",
+		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
+		undefined, undefined, "'\u300C'", "'\u300D'", "'['", "']'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
 		undefined, "If", "EndIf", "Else", "Return", "IHave", "NameAs", "ValueIs", 
-		"DeclareString", "StringEmpty", "StringEscape1", "StringEscape2", "StringEscape3", 
-		"Left2", "Right2", "Left4", "Right4", "String3", "DeclareDigit", "DeclareDigitIs", 
-		"Left", "Right", "Left3", "Right3", "FunctionStart", "FunctionEnd", "VariableStart", 
-		"VariableEnd", "DeclareMethod", "ThisIs", "Is", "Said", "MethodOf", "EndDeclare", 
-		"The", "At", "Apply", "Number", "Digit", "End", "Equal", "Unequal", "Identifier", 
+		"DeclareString", "DeclareStringIs", "StringEmpty", "StringEscape1", "StringEscape2", 
+		"StringEscape3", "DeclareDigit", "DeclareDigitIs", "Left", "Right", "Left3", 
+		"Right3", "FunctionStart", "FunctionEnd", "VariableStart", "VariableEnd", 
+		"DeclareMethod", "ThisIs", "Is", "Said", "MethodOf", "EndDeclare", "The", 
+		"At", "Apply", "End", "Number", "Digit", "Equal", "Unequal", "Identifier", 
 		"Character", "Underline", "LineComment", "PartComment", "WhiteSpace",
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(WenyanParser._LITERAL_NAMES, WenyanParser._SYMBOLIC_NAMES, []);
@@ -772,7 +765,7 @@ export class WenyanParser extends Parser {
 	}
 
 	public static readonly _serializedATN: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x031\x8A\x04\x02" +
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03-\x8A\x04\x02" +
 		"\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" +
 		"\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x03" +
 		"\x02\x07\x02\x1C\n\x02\f\x02\x0E\x02\x1F\v\x02\x03\x02\x03\x02\x03\x03" +
@@ -799,33 +792,34 @@ export class WenyanParser extends Parser {
 		"\x02(+\x05\x16\f\x02)+\x05\b\x05\x02*%\x03\x02\x02\x02*\'\x03\x02\x02" +
 		"\x02*(\x03\x02\x02\x02*)\x03\x02\x02\x02+\x05\x03\x02\x02\x02,-\x07\x03" +
 		"\x02\x02-.\x05\x04\x03\x02./\x07\x04\x02\x02/0\x07\x05\x02\x0201\x05\x04" +
-		"\x03\x021\x07\x03\x02\x02\x0225\x05\f\x07\x0235\x07,\x02\x0242\x03\x02" +
+		"\x03\x021\x07\x03\x02\x02\x0225\x05\f\x07\x0235\x07(\x02\x0242\x03\x02" +
 		"\x02\x0243\x03\x02\x02\x025\t\x03\x02\x02\x0268\x07\n\x02\x0279\x07\t" +
 		"\x02\x0287\x03\x02\x02\x0289\x03\x02\x02\x029:\x03\x02\x02\x02:;\x05\f" +
 		"\x07\x02;<\x07\b\x02\x02<=\x05\x10\t\x02=G\x03\x02\x02\x02>?\x07\n\x02" +
 		"\x02?@\x07\b\x02\x02@B\x05\x10\t\x02AC\x07\t\x02\x02BA\x03\x02\x02\x02" +
 		"BC\x03\x02\x02\x02CD\x03\x02\x02\x02DE\x05\f\x07\x02EG\x03\x02\x02\x02" +
-		"F6\x03\x02\x02\x02F>\x03\x02\x02\x02G\v\x03\x02\x02\x02HM\x07\v\x02\x02" +
-		"IM\x07\f\x02\x02JM\x07\r\x02\x02KM\x07\x0E\x02\x02LH\x03\x02\x02\x02L" +
-		"I\x03\x02\x02\x02LJ\x03\x02\x02\x02LK\x03\x02\x02\x02M\r\x03\x02\x02\x02" +
-		"NP\x07\x14\x02\x02OQ\x07\t\x02\x02PO\x03\x02\x02\x02PQ\x03\x02\x02\x02" +
-		"QR\x03\x02\x02\x02RS\x05\x18\r\x02ST\x07\b\x02\x02TV\x05\x10\t\x02UW\x07" +
-		"#\x02\x02VU\x03\x02\x02\x02VW\x03\x02\x02\x02W`\x03\x02\x02\x02XY\x07" +
-		"\x15\x02\x02YZ\x05\x18\r\x02Z[\x07\b\x02\x02[]\x05\x10\t\x02\\^\x07#\x02" +
-		"\x02]\\\x03\x02\x02\x02]^\x03\x02\x02\x02^`\x03\x02\x02\x02_N\x03\x02" +
-		"\x02\x02_X\x03\x02\x02\x02`\x0F\x03\x02\x02\x02ab\x07\x16\x02\x02bc\x07" +
-		",\x02\x02ch\x07\x17\x02\x02de\x07\x18\x02\x02ef\x07,\x02\x02fh\x07\x19" +
-		"\x02\x02ga\x03\x02\x02\x02gd\x03\x02\x02\x02h\x11\x03\x02\x02\x02ij\x07" +
-		"\x1E\x02\x02jk\x07\b\x02\x02kl\x05\x10\t\x02lm\x05\x14\v\x02mn\x07\x1A" +
-		"\x02\x02no\x07\x1B\x02\x02ot\x03\x02\x02\x02pq\x07\x1E\x02\x02qr\x07\b" +
-		"\x02\x02rt\x05\x10\t\x02si\x03\x02\x02\x02sp\x03\x02\x02\x02t\x13\x03" +
-		"\x02\x02\x02ux\x07\x1C\x02\x02vw\x07\b\x02\x02wy\x05\x10\t\x02xv\x03\x02" +
-		"\x02\x02yz\x03\x02\x02\x02zx\x03\x02\x02\x02z{\x03\x02\x02\x02{|\x03\x02" +
-		"\x02\x02|}\x07\x1D\x02\x02}\x15\x03\x02\x02\x02~\x7F\x07&\x02\x02\x7F" +
-		"\x80\x05\x10\t\x02\x80\x81\x07%\x02\x02\x81\x82\x05\x10\t\x02\x82\x17" +
-		"\x03\x02\x02\x02\x83\x84\x07\x18\x02\x02\x84\x85\x07\'\x02\x02\x85\x88" +
-		"\x07\x19\x02\x02\x86\x88\x07\'\x02\x02\x87\x83\x03\x02\x02\x02\x87\x86" +
-		"\x03\x02\x02\x02\x88\x19\x03\x02\x02\x02\x12\x1D%*48BFLPV]_gsz\x87";
+		"F6\x03\x02\x02\x02F>\x03\x02\x02\x02G\v\x03\x02\x02\x02HM\x07\f\x02\x02" +
+		"IM\x07\r\x02\x02JM\x07\x0E\x02\x02KM\x07\x0F\x02\x02LH\x03\x02\x02\x02" +
+		"LI\x03\x02\x02\x02LJ\x03\x02\x02\x02LK\x03\x02\x02\x02M\r\x03\x02\x02" +
+		"\x02NP\x07\x10\x02\x02OQ\x07\t\x02\x02PO\x03\x02\x02\x02PQ\x03\x02\x02" +
+		"\x02QR\x03\x02\x02\x02RS\x05\x18\r\x02ST\x07\b\x02\x02TV\x05\x10\t\x02" +
+		"UW\x07\x1F\x02\x02VU\x03\x02\x02\x02VW\x03\x02\x02\x02W`\x03\x02\x02\x02" +
+		"XY\x07\x11\x02\x02YZ\x05\x18\r\x02Z[\x07\b\x02\x02[]\x05\x10\t\x02\\^" +
+		"\x07\x1F\x02\x02]\\\x03\x02\x02\x02]^\x03\x02\x02\x02^`\x03\x02\x02\x02" +
+		"_N\x03\x02\x02\x02_X\x03\x02\x02\x02`\x0F\x03\x02\x02\x02ab\x07\x12\x02" +
+		"\x02bc\x07(\x02\x02ch\x07\x13\x02\x02de\x07\x14\x02\x02ef\x07(\x02\x02" +
+		"fh\x07\x15\x02\x02ga\x03\x02\x02\x02gd\x03\x02\x02\x02h\x11\x03\x02\x02" +
+		"\x02ij\x07\x1A\x02\x02jk\x07\b\x02\x02kl\x05\x10\t\x02lm\x05\x14\v\x02" +
+		"mn\x07\x16\x02\x02no\x07\x17\x02\x02ot\x03\x02\x02\x02pq\x07\x1A\x02\x02" +
+		"qr\x07\b\x02\x02rt\x05\x10\t\x02si\x03\x02\x02\x02sp\x03\x02\x02\x02t" +
+		"\x13\x03\x02\x02\x02ux\x07\x18\x02\x02vw\x07\b\x02\x02wy\x05\x10\t\x02" +
+		"xv\x03\x02\x02\x02yz\x03\x02\x02\x02zx\x03\x02\x02\x02z{\x03\x02\x02\x02" +
+		"{|\x03\x02\x02\x02|}\x07\x19\x02\x02}\x15\x03\x02\x02\x02~\x7F\x07\"\x02" +
+		"\x02\x7F\x80\x05\x10\t\x02\x80\x81\x07!\x02\x02\x81\x82\x05\x10\t\x02" +
+		"\x82\x17\x03\x02\x02\x02\x83\x84\x07\x14\x02\x02\x84\x85\x07$\x02\x02" +
+		"\x85\x88\x07\x15\x02\x02\x86\x88\x07$\x02\x02\x87\x83\x03\x02\x02\x02" +
+		"\x87\x86\x03\x02\x02\x02\x88\x19\x03\x02\x02\x02\x12\x1D%*48BFLPV]_gs" +
+		"z\x87";
 	public static __ATN: ATN;
 	public static get _ATN(): ATN {
 		if (!WenyanParser.__ATN) {

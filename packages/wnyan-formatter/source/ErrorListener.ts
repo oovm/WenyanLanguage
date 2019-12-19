@@ -1,7 +1,7 @@
-import { ANTLRErrorListener, Recognizer, RecognitionException } from 'antlr4ts';
+import { ANTLRErrorListener, Recognizer, RecognitionException } from 'antlr4ts'
 
 export default class WenyanErrorListener implements ANTLRErrorListener<any> {
-    private errors: string[] = [];
+    private errors: string[] = []
 
     syntaxError<T>(
         recognizer: Recognizer<T, any>,
@@ -11,14 +11,14 @@ export default class WenyanErrorListener implements ANTLRErrorListener<any> {
         msg: string,
         e: RecognitionException,
     ): void {
-        this.errors.push(`[${line}:${charPositionInLine}] ${msg}`);
+        this.errors.push(`[${line}:${charPositionInLine}] ${msg}`)
     }
 
     hasError() {
-        return this.errors.length > 0;
+        return this.errors.length > 0
     }
 
     print() {
-        return this.errors.join('\n');
+        return this.errors.join('\n')
     }
 }
