@@ -1,9 +1,9 @@
 {
-    "name": "@wenyan/antlr",
+    "name": "@wy-lang/antlr",
     "displayName": "Wenyan Language ANTLR Parser",
     "description": "Wenyan Language ANTLR Definition",
     "version": "0.1.0",
-    "main": "source/index.ts",
+    "main": "dist/index.js",
     "license": "MPL-2.0",
     "scripts": {
         "antlr": "antlr4ts -visitor Wenyan.g4 -o ./source",
