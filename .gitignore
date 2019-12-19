@@ -1,0 +1,17 @@
+# IDE
+.idea/
+.vscode/
+.vs/
+*.iml
+
+# Java
+target/
+.antlr/
+
+# Node
+node_modules/
+yarn-error.log
+
+# Build
+source/*
+*.nb
