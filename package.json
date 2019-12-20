@@ -10,6 +10,7 @@
         "start": "yarn workspace @wy-lang/site start http://localhost:8080",
         "bootstrap": "lerna bootstrap --no-ci --npm-client yarn",
         "deploy": "bash scripts/deploy.sh",
+        "build": "bash scripts/build.sh",
         "lint": "tslint */source/*.ts && eslint .",
         "lint:fix": "tslint */source/*.ts --fix && eslint . --fix"
     },

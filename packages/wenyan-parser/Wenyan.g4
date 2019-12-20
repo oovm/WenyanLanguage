@@ -1,13 +1,22 @@
 grammar Wenyan;
 // $antlr-format useTab false ;
 // $antlr-format columnLimit 160;
-// $antlr-format alignColons trailing;
-program   : statement* EOF;
-statement : (declareNumber | declareString | declarefunction) | ifStatement | (apply) | data;
+// $antlr-format alignColons hanging;
+program: statement* EOF;
+statement
+    : declareNumber
+    | declareString
+    | declarefunction
+    | declareData
+    | ifStatement
+    | apply
+    | data
+    | skipStatement;
 /*====================================================================================================================*/
-ifStatement : If statement EndIf Else statement;
+// $antlr-format alignColons trailing;
+ifStatement : If statement EndDeclare Else statement;
 If          : Ruo; // 若
-EndIf       : Zhe; // 者
+EndDeclare  : Zhe; // 者
 Else        : Ruo Fei; // 若非
 Return      : Nai De; // 乃得
 
@@ -17,7 +26,10 @@ fragment Nai : '乃';
 fragment De  : '得';
 fragment Zhe : '者';
 /*====================================================================================================================*/
-data : (string) | Identifier;
+data        : string | Number | Boolean;
+declareData : variable EndDeclare data EndStatment;
+
+EndStatment : Zhe? Ye;
 
 IHave : (Jin | Wu | Zi | You | You2)? You Yi?; //吾有一
 
@@ -28,7 +40,7 @@ fragment You  : '有';
 fragment You2 : '又';
 fragment Yi   : '一';
 
-NameAs  : Ming Zhi? Yue | Ci? Suo Wei | Wei Zhi Yue?; //名之曰
+NameAs  : Ming Zhi? Yue | Ming Zhi Yue? | Ci? Suo Wei | Wei Zhi Yue?; //名之曰
 ValueIs : Yue; //曰
 
 fragment Ming : '名';
@@ -67,12 +79,25 @@ fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
 declareNumber
-    : DeclareDigit ValueIs? number NameAs v = variable EndDeclare?
-    | DeclareDigitIs number NameAs v = variable EndDeclare?;
+    : DeclareDigit ValueIs? number NameAs v = variable EndStatment?
+    | DeclareDigitIs number NameAs v = variable EndStatment?;
 // $antlr-format alignColons trailing;
 DeclareDigit   : IHave Shu;
 DeclareDigitIs : DeclareDigit ValueIs?; //吾有一数
 fragment Shu   : '數' | '数';
+/*====================================================================================================================*/
+// $antlr-format alignColons hanging;
+declareBoolean
+    : DeclareBoolean ValueIs? number NameAs v = variable EndStatment?
+    | DeclareBooleanIs number NameAs v = variable EndStatment?;
+// $antlr-format alignColons trailing;
+DeclareBoolean   : IHave Bo;
+DeclareBooleanIs : DeclareDigit ValueIs?; //吾有一数
+fragment Bo      : '爻';
+
+Boolean : True | False;
+True    : '阳';
+False   : '阴';
 /*====================================================================================================================*/
 variable : Left Identifier Right | Left3 Identifier Right3;
 Left     : '「';
@@ -105,7 +130,6 @@ ThisIs       : Shi Wei; // 是谓
 Is           : Shi;
 Said         : Wei;
 MethodOf     : Of Shu2 Ye; // 之术也
-EndDeclare   : Ye;
 fragment Shi : '是';
 fragment Of  : '之';
 fragment Ye  : '也';
@@ -132,9 +156,18 @@ Unequal : '≠' | '!=' | Bu Den Yu;
 fragment Bu  : '不';
 fragment Den : '等';
 /*====================================================================================================================*/
-Identifier : Character+;
-Character  : Underline | [\p{Latin}]| [\p{Han}] | [\p{Hiragana}] | [\p{Katakana}];
-Underline  : '_' | '-';
+skipStatement : Identifier;
+Identifier    : ForbiddenHead Character*;
+Character     : Underline | [\p{Latin}]| [\p{Han}] | [\p{Hiragana}] | [\p{Katakana}];
+Underline     : '_' | '-';
+fragment ForbiddenHead:
+    ~(
+        [阴阳零一二三四五六七八九十百千万亿兆]
+        | [有曰吾]
+        | '\u0000' ..'\u2E7F' //Supplemental Punctuation 扇区
+        | '\u3000' ..'\u303F' //CJK Symbols and Punctuation 扇区
+        | '\uFF01' ..'\uFF11' //Halfwidth and Fullwidth Forms 扇区
+    );
 /*====================================================================================================================*/
 LineComment                : CommentStart ~[\r\n]* -> channel(HIDDEN);
 PartComment                : Comment .*? Comment -> channel(HIDDEN);
@@ -142,4 +175,4 @@ WhiteSpace                 : UnicodeWhiteSpace+ -> skip;
 fragment CommentStart      : ('注' | '疏' | '批') Yue;
 fragment Comment           : ('注' | '疏' | '批') '毕';
 fragment UnicodeWhiteSpace : [\p{White_Space}]| Delimiter;
-fragment Delimiter         : '。' | '，' | ',';
+fragment Delimiter         : '。' | '，' | ',' | '！' | '!' | ';';
