@@ -11,6 +11,7 @@
         "bootstrap": "lerna bootstrap --no-ci --npm-client yarn",
         "deploy": "bash scripts/deploy.sh",
         "build": "bash scripts/build.sh",
+        "build:ts": "yarn workspace @wy-lang/typescript build",
         "lint": "tslint */source/*.ts && eslint .",
         "lint:fix": "tslint */source/*.ts --fix && eslint . --fix"
     },

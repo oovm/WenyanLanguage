@@ -805,7 +805,7 @@ export class WenyanParser extends Parser {
                 this.state = 148
                 this.match(WenyanParser.Left)
                 this.state = 149
-                this.match(WenyanParser.Identifier)
+                _localctx._v = this.match(WenyanParser.Identifier)
                 this.state = 150
                 this.match(WenyanParser.Right)
                 }
@@ -816,7 +816,7 @@ export class WenyanParser extends Parser {
                 this.state = 151
                 this.match(WenyanParser.Left3)
                 this.state = 152
-                this.match(WenyanParser.Identifier)
+                _localctx._v = this.match(WenyanParser.Identifier)
                 this.state = 153
                 this.match(WenyanParser.Right3)
                 }
@@ -1643,9 +1643,10 @@ export class DeclareBooleanContext extends ParserRuleContext {
 
 
 export class VariableContext extends ParserRuleContext {
+    public _v: Token
     public Left(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.Left, 0) }
-    public Identifier(): TerminalNode { return this.getToken(WenyanParser.Identifier, 0) }
     public Right(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.Right, 0) }
+    public Identifier(): TerminalNode { return this.getToken(WenyanParser.Identifier, 0) }
     public Left3(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.Left3, 0) }
     public Right3(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.Right3, 0) }
     constructor(parent: ParserRuleContext | undefined, invokingState: number) {

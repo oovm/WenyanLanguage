@@ -115,7 +115,7 @@ Boolean : True | False;
 True    : '阳' | '陽';
 False   : '阴' | '陰';
 /*====================================================================================================================*/
-variable : Left Identifier Right | Left3 Identifier Right3;
+variable : Left v = Identifier Right | Left3  v = Identifier Right3;
 Left     : '「';
 Right    : '」';
 Left3    : '[';

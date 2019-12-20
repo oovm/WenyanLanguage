@@ -6,9 +6,7 @@
     "main": "dist/index.js",
     "license": "MPL-2.0",
     "scripts": {
-        "start": "vuepress dev .",
-        "update": "yarn upgrade --latest",
-        "deploy": "vuepress build ."
+        "build": "tsc -b"
     },
     "dependencies": {
         "@wy-lang/antlr": "^0.1.0",

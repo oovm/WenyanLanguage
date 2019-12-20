@@ -23,5 +23,5 @@ export default function translater(code: string): string {
         return listener.print()
     }
 
-    return result.getText()
+    return ''
 }
