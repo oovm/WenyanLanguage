@@ -1,0 +1,17 @@
+{
+    "name": "@wy-lang/estree",
+    "displayName": "Wenyan Language ANTLR Parser",
+    "description": "Wenyan Language ANTLR Definition",
+    "version": "0.1.0",
+    "main": "dist/index.js",
+    "license": "MPL-2.0",
+    "scripts": {
+        "start": "vuepress dev .",
+        "update": "yarn upgrade --latest",
+        "deploy": "vuepress build ."
+    },
+    "dependencies": {
+        "@wy-lang/antlr": "^0.1.0",
+        "antlr4ts": "^0.5.0-alpha.3"
+    }
+}
