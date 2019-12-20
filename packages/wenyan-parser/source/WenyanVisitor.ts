@@ -11,6 +11,8 @@ import { StatementContext } from './WenyanParser'
 import { IfStatementContext } from './WenyanParser'
 import { DataContext } from './WenyanParser'
 import { DeclareDataContext } from './WenyanParser'
+import { ModuleContext } from './WenyanParser'
+import { DeclaremoduleContext } from './WenyanParser'
 import { DeclareStringContext } from './WenyanParser'
 import { StringContext } from './WenyanParser'
 import { DeclareNumberContext } from './WenyanParser'
@@ -89,6 +91,20 @@ export interface WenyanVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
     visitDeclareData?: (ctx: DeclareDataContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.module`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitModule?: (ctx: ModuleContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.declaremodule`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitDeclaremodule?: (ctx: DeclaremoduleContext) => Result
 
     /**
 	 * Visit a parse tree produced by `WenyanParser.declareString`.

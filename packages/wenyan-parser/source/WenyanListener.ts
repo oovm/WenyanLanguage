@@ -11,6 +11,8 @@ import { StatementContext } from './WenyanParser'
 import { IfStatementContext } from './WenyanParser'
 import { DataContext } from './WenyanParser'
 import { DeclareDataContext } from './WenyanParser'
+import { ModuleContext } from './WenyanParser'
+import { DeclaremoduleContext } from './WenyanParser'
 import { DeclareStringContext } from './WenyanParser'
 import { StringContext } from './WenyanParser'
 import { DeclareNumberContext } from './WenyanParser'
@@ -121,6 +123,28 @@ export interface WenyanListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
     exitDeclareData?: (ctx: DeclareDataContext) => void
+
+    /**
+	 * Enter a parse tree produced by `WenyanParser.module`.
+	 * @param ctx the parse tree
+	 */
+    enterModule?: (ctx: ModuleContext) => void
+    /**
+	 * Exit a parse tree produced by `WenyanParser.module`.
+	 * @param ctx the parse tree
+	 */
+    exitModule?: (ctx: ModuleContext) => void
+
+    /**
+	 * Enter a parse tree produced by `WenyanParser.declaremodule`.
+	 * @param ctx the parse tree
+	 */
+    enterDeclaremodule?: (ctx: DeclaremoduleContext) => void
+    /**
+	 * Exit a parse tree produced by `WenyanParser.declaremodule`.
+	 * @param ctx the parse tree
+	 */
+    exitDeclaremodule?: (ctx: DeclaremoduleContext) => void
 
     /**
 	 * Enter a parse tree produced by `WenyanParser.declareString`.

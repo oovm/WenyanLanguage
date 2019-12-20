@@ -2,6 +2,9 @@
     "references": [
         {
             "path": "./packages/wenyan-parser"
+        },
+        {
+            "path": "./packages/wenyan-typescript"
         }
     ],
     "files": []
