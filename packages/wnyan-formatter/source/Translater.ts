@@ -3,7 +3,7 @@ import { WenyanLexer, WenyanParser } from '@wy-lang/antlr'
 import WenyanErrorListener from './ErrorListener'
 import WenyanTranslationVisitor from './TranslationVisitor'
 
-export default function execute(code: string): string {
+export default function translater(code: string): string {
     const input = new ANTLRInputStream(code)
     const lexer = new WenyanLexer(input)
     const tokens = new CommonTokenStream(lexer)

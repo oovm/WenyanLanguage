@@ -1,5 +1,5 @@
-import Translater from './Translater'
+import formatter from './Translater'
 
 export {
-    Translater as WenyanFormatter
+    formatter as WenyanFormatter
 }

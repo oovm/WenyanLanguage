@@ -1,6 +1,8 @@
 import { ANTLRErrorListener, Recognizer, RecognitionException } from 'antlr4ts'
 
-export default class WenyanErrorListener implements ANTLRErrorListener<any> {
+export default class WenyanErrorListener
+    implements ANTLRErrorListener<any> {
+    
     private errors: string[] = []
 
     syntaxError<T>(
