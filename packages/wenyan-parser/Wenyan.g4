@@ -1,11 +1,13 @@
 grammar Wenyan;
-// $antlr-format useTab false ;
+// $antlr-format useTab false;
 // $antlr-format columnLimit 160;
 // $antlr-format alignColons hanging;
 program: statement* EOF;
 statement
-    : declareNumber
+    : declaremodule
+    | declareNumber
     | declareString
+    | declareBoolean
     | declarefunction
     | declareData
     | ifStatement
@@ -50,6 +52,20 @@ fragment Ci   : '此';
 fragment Suo  : '所';
 fragment Wei  : '謂' | '谓';
 /*====================================================================================================================*/
+// 有一书名曰 《九章算数》, 载 「求和」之术, 今名之曰 「加」
+module        : Left3 Identifier Right3 | Left5 Identifier Right5 | Left6 Identifier Right6;
+declaremodule : DeclareModule m = module RanameAs v = variable;
+
+DeclareModule : You Yi? Shu3 Ming Yue; //有一书名曰
+RanameAs      : Jin NameAs; //今名之曰
+
+Left5         : '《';
+Right5        : '》';
+Left6         : '<<';
+Right6        : '>>';
+fragment Zai  : '载';
+fragment Shu3 : '书';
+/*====================================================================================================================*/
 // $antlr-format alignColons hanging;
 declareString
     : DeclareString ValueIs? s = string NameAs v = variable
@@ -92,12 +108,12 @@ declareBoolean
     | DeclareBooleanIs number NameAs v = variable EndStatment?;
 // $antlr-format alignColons trailing;
 DeclareBoolean   : IHave Bo;
-DeclareBooleanIs : DeclareDigit ValueIs?; //吾有一数
+DeclareBooleanIs : DeclareDigit ValueIs?; //吾有一爻
 fragment Bo      : '爻';
 
 Boolean : True | False;
-True    : '阳';
-False   : '阴';
+True    : '阳' | '陽';
+False   : '阴' | '陰';
 /*====================================================================================================================*/
 variable : Left Identifier Right | Left3 Identifier Right3;
 Left     : '「';
@@ -144,7 +160,7 @@ fragment Shi2 : '施';
 fragment Yu   : '於' | '于';
 
 End          : Yun Yun; //云云
-fragment Yun : '云';
+fragment Yun : '云' | '雲';
 /*====================================================================================================================*/
 number : Left3 n = Number Right3 | n = Number;
 Number : [0-9]+ | Digit+;
@@ -156,14 +172,14 @@ Unequal : '≠' | '!=' | Bu Den Yu;
 fragment Bu  : '不';
 fragment Den : '等';
 /*====================================================================================================================*/
-skipStatement : Identifier;
+skipStatement : Identifier | Character;
 Identifier    : ForbiddenHead Character*;
 Character     : Underline | [\p{Latin}]| [\p{Han}] | [\p{Hiragana}] | [\p{Katakana}];
 Underline     : '_' | '-';
+//[阴阳零一二三四五六七八九十百千万亿兆陰陽壹萬億]|
 fragment ForbiddenHead:
     ~(
-        [阴阳零一二三四五六七八九十百千万亿兆]
-        | [有曰吾]
+        [有曰吾若]
         | '\u0000' ..'\u2E7F' //Supplemental Punctuation 扇区
         | '\u3000' ..'\u303F' //CJK Symbols and Punctuation 扇区
         | '\uFF01' ..'\uFF11' //Halfwidth and Fullwidth Forms 扇区
@@ -175,4 +191,4 @@ WhiteSpace                 : UnicodeWhiteSpace+ -> skip;
 fragment CommentStart      : ('注' | '疏' | '批') Yue;
 fragment Comment           : ('注' | '疏' | '批') '毕';
 fragment UnicodeWhiteSpace : [\p{White_Space}]| Delimiter;
-fragment Delimiter         : '。' | '，' | ',' | '！' | '!' | ';';
+fragment Delimiter         : [。，！]| [.,!;?];
