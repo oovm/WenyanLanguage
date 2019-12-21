@@ -11,11 +11,11 @@ from antlr4.tree.Trees import Trees
 def aster(path):
     dir_path = os.path.dirname(os.path.abspath(path))
     name = os.path.splitext(os.path.basename(path))[0]
-    lexer = WenyanLexer(FileStream(path))
+    lexer = WenyanLexer(FileStream(path, encoding='utf8'))
     stream = CommonTokenStream(lexer)
     parser = WenyanParser(stream)
     ast = parser.program()
-    with open(dir_path + "\\" + name + ".wy", 'w') as f:
+    with open('ast/' + name + ".txt", 'w') as f:
         f.write(Trees.toStringTree(ast, None, parser))
         f.close()
 
@@ -45,7 +45,7 @@ class ErrorListener(ErrorListener):
 
 class ParserTests(TestCase):
     def setup(self, path):
-        file_in = FileStream(path)
+        file_in = FileStream(path, encoding='utf8')
         lexer = WenyanLexer(file_in)
         stream = CommonTokenStream(lexer)
 
@@ -69,11 +69,11 @@ class ParserTests(TestCase):
         return parser
 
     def test_import(self):
-        path = "examples/string.wy"
+        path = "../../../tests/string.wy"
         parser = self.setup(path)
         tree = parser.program()
         listener = WenyanListener()
         walker = ParseTreeWalker()
         walker.walk(listener, tree)
-        self.assertEqual(len(self.errorListener.symbol), 0)
+        self.assertEqual(len(self.errorListener.symbol), 2)
         aster(path)

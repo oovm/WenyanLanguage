@@ -28,30 +28,6 @@ fragment Nai : '乃';
 fragment De  : '得';
 fragment Zhe : '者';
 /*====================================================================================================================*/
-data        : string | digits | Boolean;
-declareData : variable EndDeclare data EndStatment;
-
-EndStatment : Zhe? Ye;
-
-IHave : (Jin | Wu | Zi | You | You2)? You Yi?; //吾有一
-
-fragment Jin  : '今';
-fragment Wu   : '吾';
-fragment Zi   : '兹';
-fragment You  : '有';
-fragment You2 : '又';
-fragment Yi   : '一';
-
-NameAs  : Ming Zhi? Yue | Ming Zhi Yue? | Ci? Suo Wei | Wei Zhi Yue?; //名之曰
-ValueIs : Yue; //曰
-
-fragment Ming : '名';
-fragment Zhi  : '之';
-fragment Yue  : '曰';
-fragment Ci   : '此';
-fragment Suo  : '所';
-fragment Wei  : '謂' | '谓';
-/*====================================================================================================================*/
 // 有一书名曰 《九章算数》, 载 「求和」之术, 今名之曰 「加」
 module        : Left3 Identifier Right3 | Left5 Identifier Right5 | Left6 Identifier Right6;
 declaremodule : DeclareModule m = module RanameAs v = variable;
@@ -65,33 +41,6 @@ Left6         : '<<';
 Right6        : '>>';
 fragment Zai  : '载';
 fragment Shu3 : '书';
-/*====================================================================================================================*/
-// $antlr-format alignColons hanging;
-declareString
-    : DeclareString ValueIs? s = string NameAs v = variable
-    | DeclareString NameAs v = variable ValueIs? s = string;
-// $antlr-format alignColons trailing;
-DeclareString   : IHave Yan; //吾有一言
-DeclareStringIs : DeclareString ValueIs?;
-fragment Yan    : '言';
-
-// $antlr-format alignColons hanging;
-string
-    : StringEmpty   # StringRemove0
-    | StringEscape1 # StringRemove2
-    | StringEscape2 # StringRemove1
-    | StringEscape3 # StringRemove1;
-StringEmpty: Left2 Right2 | String3 String3 | Left4 Right4;
-// $antlr-format alignColons trailing;
-StringEscape1      : Left2 NonEscape+ Right2;
-StringEscape2      : Left2 NonEscape+ Right2;
-StringEscape3      : String3 NonEscape+ String3;
-fragment Left2     : '「「';
-fragment Right2    : '」」';
-fragment Left4     : '『';
-fragment Right4    : '』';
-fragment String3   : '"';
-fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
 variable : Left v = Identifier Right | Left3 v = Identifier Right3;
 Left     : '「';
@@ -154,6 +103,57 @@ MethodOf     : Of Shu2 Ye; // 之术也
 fragment Shi : '是';
 fragment Of  : '之';
 fragment Ye  : '也';
+/*====================================================================================================================*/
+data        : string | digits | Boolean;
+declareData : variable EndDeclare data EndStatment;
+
+EndStatment : Zhe? Ye;
+
+IHave : (Jin | Wu | Zi | You | You2)? You Yi?; //吾有一
+
+fragment Jin  : '今';
+fragment Wu   : '吾';
+fragment Zi   : '兹';
+fragment You  : '有';
+fragment You2 : '又';
+fragment Yi   : '一';
+
+NameAs  : Ming Zhi? Yue | Ming Zhi Yue? | Ci? Suo Wei | Wei Zhi Yue?; //名之曰
+ValueIs : Yue; //曰
+
+fragment Ming : '名';
+fragment Zhi  : '之';
+fragment Yue  : '曰';
+fragment Ci   : '此';
+fragment Suo  : '所';
+fragment Wei  : '謂' | '谓';
+/*====================================================================================================================*/
+// $antlr-format alignColons hanging;
+declareString
+    : DeclareString ValueIs? s = string NameAs v = variable
+    | DeclareStringIs  s = string NameAs s = string;
+// $antlr-format alignColons trailing;
+DeclareString   : IHave Yan; //吾有一言
+DeclareStringIs : DeclareString ValueIs?;
+fragment Yan    : '言';
+
+// $antlr-format alignColons hanging;
+string
+    : StringEmpty   # StringRemove0
+    | StringEscape1 # StringRemove2
+    | StringEscape2 # StringRemove1
+    | StringEscape3 # StringRemove1;
+StringEmpty: Left2 Right2 | String3 String3 | Left4 Right4;
+// $antlr-format alignColons trailing;
+StringEscape1      : Left2 NonEscape+ Right2;
+StringEscape2      : Left4 NonEscape+ Right4;
+StringEscape3      : String3 NonEscape+ String3;
+fragment Left2     : '「「';
+fragment Right2    : '」」';
+fragment Left4     : '『';
+fragment Right4    : '』';
+fragment String3   : '"';
+fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
 declareNumber
