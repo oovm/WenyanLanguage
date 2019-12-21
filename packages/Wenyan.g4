@@ -93,33 +93,39 @@ fragment Right4    : '』';
 fragment String3   : '"';
 fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
-// $antlr-format alignColons hanging;
-declareNumber
-    : DeclareDigit ValueIs? n = number NameAs v = variable EndStatment?
-    | DeclareDigitIs n = number NameAs v = variable EndStatment?;
-// $antlr-format alignColons trailing;
-DeclareDigit   : IHave Shu;
-DeclareDigitIs : DeclareDigit ValueIs?; //吾有一数
-fragment Shu   : '數' | '数';
-/*====================================================================================================================*/
-// $antlr-format alignColons hanging;
-declareBoolean
-    : DeclareBoolean ValueIs? number NameAs v = variable EndStatment?
-    | DeclareBooleanIs number NameAs v = variable EndStatment?;
-// $antlr-format alignColons trailing;
-DeclareBoolean   : IHave Bo;
-DeclareBooleanIs : DeclareDigit ValueIs?; //吾有一爻
-fragment Bo      : '爻';
-
-Boolean : True | False;
-True    : '阳' | '陽';
-False   : '阴' | '陰';
-/*====================================================================================================================*/
 variable : Left v = Identifier Right | Left3 v = Identifier Right3;
 Left     : '「';
 Right    : '」';
 Left3    : '[';
 Right3   : ']';
+/*====================================================================================================================*/
+apply : applyFunction | applyStack;
+//施「翻倍」於「大衍」
+applyFunction : Apply f = variable At x = variable;
+Apply         : Shi2; //施
+At            : Yu; // 于
+//入「戊」「丙」「斯」取二求「丁」入「甲」「斯」取二求「乙」求「己」得「斯」
+applyStack  : stackIn (stackIn | stackPopOne | stackPop)+ (stackOut | stackReturn);
+stackIn     : StackIn variable+; //入 [var] [var] [var]
+stackPopOne : StackPop variable; //求 [var]
+stackPop    : Get digits StackPop variable; // 取 [num] 求 [var]
+stackOut    : Get variable; //得「斯」
+stackReturn : Get The; //得之
+StackIn     : Ru; // 入
+Take        : Qu; //取
+StackPop    : Qiu; //求
+Get         : De2; //得
+
+fragment Shi2 : '施';
+fragment Yu   : '於' | '于';
+fragment Ru   : '入';
+fragment Qiu  : '求';
+fragment Qu   : '取';
+fragment De2  : '得';
+
+The          : Zhi;
+End          : Yun Yun; //云云
+fragment Yun : '云' | '雲';
 /*====================================================================================================================*/
 //吾有一術。名之曰「六脈神劍」。欲行是術。必先得六數。曰「甲」。曰「乙」。曰「丙」。曰「丁」。曰「戊」。曰「己」乃行
 // 是術曰。⋯⋯是謂「六脈神劍」之術也。
@@ -149,18 +155,28 @@ MethodOf     : Of Shu2 Ye; // 之术也
 fragment Shi : '是';
 fragment Of  : '之';
 fragment Ye  : '也';
+/*====================================================================================================================*/
+// $antlr-format alignColons hanging;
+declareNumber
+    : DeclareDigit ValueIs? n = number NameAs v = variable EndStatment?
+    | DeclareDigitIs n = number NameAs v = variable EndStatment?;
+// $antlr-format alignColons trailing;
+DeclareDigit   : IHave Shu;
+DeclareDigitIs : DeclareDigit ValueIs?; //吾有一数
+fragment Shu   : '數' | '数';
+/*====================================================================================================================*/
+// $antlr-format alignColons hanging;
+declareBoolean
+    : DeclareBoolean ValueIs? number NameAs v = variable EndStatment?
+    | DeclareBooleanIs number NameAs v = variable EndStatment?;
+// $antlr-format alignColons trailing;
+DeclareBoolean   : IHave Bo;
+DeclareBooleanIs : DeclareDigit ValueIs?; //吾有一爻
+fragment Bo      : '爻';
 
-//施「翻倍」於「大衍」
-apply : Apply f = variable At x = variable;
-
-The           : Zhi;
-At            : Yu;
-Apply         : Shi2;
-fragment Shi2 : '施';
-fragment Yu   : '於' | '于';
-
-End          : Yun Yun; //云云
-fragment Yun : '云' | '雲';
+Boolean : True | False;
+True    : '阳' | '陽';
+False   : '阴' | '陰';
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
 number: Left3 n = digits Right3 | n = digits;

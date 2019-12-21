@@ -6,7 +6,7 @@
     "main": "dist/index.js",
     "license": "MPL-2.0",
     "scripts": {
-        "antlr": "antlr4ts -visitor Wenyan.g4 -o ./source",
+        "antlr": "antlr4ts -visitor ../Wenyan.g4 -o ./source",
         "build": "yarn antlr && tsc -b",
         "upload": "yarn antlr && npm publish --access public",
         "update": "yarn upgrade --latest"

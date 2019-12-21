@@ -1,4 +1,4 @@
-// Generated from Wenyan.g4 by ANTLR 4.7.3-SNAPSHOT
+// Generated from packages/Wenyan.g4 by ANTLR 4.7.3-SNAPSHOT
 
 
 import { ATN } from 'antlr4ts/atn/ATN'
@@ -48,40 +48,45 @@ export class WenyanParser extends Parser {
     public static readonly StringEscape1 = 18
     public static readonly StringEscape2 = 19
     public static readonly StringEscape3 = 20
-    public static readonly DeclareDigit = 21
-    public static readonly DeclareDigitIs = 22
-    public static readonly DeclareBoolean = 23
-    public static readonly DeclareBooleanIs = 24
-    public static readonly Boolean = 25
-    public static readonly True = 26
-    public static readonly False = 27
-    public static readonly Left = 28
-    public static readonly Right = 29
-    public static readonly Left3 = 30
-    public static readonly Right3 = 31
-    public static readonly FunctionStart = 32
-    public static readonly FunctionEnd = 33
-    public static readonly VariableStart = 34
-    public static readonly VariableEnd = 35
-    public static readonly DeclareMethod = 36
-    public static readonly ThisIs = 37
-    public static readonly Is = 38
-    public static readonly Said = 39
-    public static readonly MethodOf = 40
-    public static readonly The = 41
-    public static readonly At = 42
-    public static readonly Apply = 43
-    public static readonly End = 44
-    public static readonly Number = 45
-    public static readonly Digit = 46
-    public static readonly Equal = 47
-    public static readonly Unequal = 48
-    public static readonly Identifier = 49
-    public static readonly Character = 50
-    public static readonly Underline = 51
-    public static readonly LineComment = 52
-    public static readonly PartComment = 53
-    public static readonly WhiteSpace = 54
+    public static readonly Left = 21
+    public static readonly Right = 22
+    public static readonly Left3 = 23
+    public static readonly Right3 = 24
+    public static readonly Apply = 25
+    public static readonly At = 26
+    public static readonly StackIn = 27
+    public static readonly Take = 28
+    public static readonly StackPop = 29
+    public static readonly Get = 30
+    public static readonly The = 31
+    public static readonly End = 32
+    public static readonly FunctionStart = 33
+    public static readonly FunctionEnd = 34
+    public static readonly VariableStart = 35
+    public static readonly VariableEnd = 36
+    public static readonly DeclareMethod = 37
+    public static readonly ThisIs = 38
+    public static readonly Is = 39
+    public static readonly Said = 40
+    public static readonly MethodOf = 41
+    public static readonly DeclareDigit = 42
+    public static readonly DeclareDigitIs = 43
+    public static readonly DeclareBoolean = 44
+    public static readonly DeclareBooleanIs = 45
+    public static readonly Boolean = 46
+    public static readonly True = 47
+    public static readonly False = 48
+    public static readonly IntegerDigit = 49
+    public static readonly FloatDigit = 50
+    public static readonly IntegerDigitCN = 51
+    public static readonly FloatDigitCN = 52
+    public static readonly Equal = 53
+    public static readonly Unequal = 54
+    public static readonly Identifier = 55
+    public static readonly Character = 56
+    public static readonly LineComment = 57
+    public static readonly PartComment = 58
+    public static readonly WhiteSpace = 59
     public static readonly RULE_program = 0
     public static readonly RULE_statement = 1
     public static readonly RULE_ifStatement = 2
@@ -91,38 +96,48 @@ export class WenyanParser extends Parser {
     public static readonly RULE_declaremodule = 6
     public static readonly RULE_declareString = 7
     public static readonly RULE_string = 8
-    public static readonly RULE_declareNumber = 9
-    public static readonly RULE_declareBoolean = 10
-    public static readonly RULE_variable = 11
-    public static readonly RULE_declarefunction = 12
-    public static readonly RULE_variables = 13
-    public static readonly RULE_apply = 14
-    public static readonly RULE_number = 15
-    public static readonly RULE_skipStatement = 16
+    public static readonly RULE_variable = 9
+    public static readonly RULE_apply = 10
+    public static readonly RULE_applyFunction = 11
+    public static readonly RULE_applyStack = 12
+    public static readonly RULE_stackIn = 13
+    public static readonly RULE_stackPopOne = 14
+    public static readonly RULE_stackPop = 15
+    public static readonly RULE_stackOut = 16
+    public static readonly RULE_stackReturn = 17
+    public static readonly RULE_declarefunction = 18
+    public static readonly RULE_variables = 19
+    public static readonly RULE_declareNumber = 20
+    public static readonly RULE_declareBoolean = 21
+    public static readonly RULE_number = 22
+    public static readonly RULE_digits = 23
+    public static readonly RULE_skipStatement = 24
     // tslint:disable:no-trailing-whitespace
     public static readonly ruleNames: string[] = [
         'program', 'statement', 'ifStatement', 'data', 'declareData', 'module', 
-        'declaremodule', 'declareString', 'string', 'declareNumber', 'declareBoolean', 
-        'variable', 'declarefunction', 'variables', 'apply', 'number', 'skipStatement',
+        'declaremodule', 'declareString', 'string', 'variable', 'apply', 'applyFunction', 
+        'applyStack', 'stackIn', 'stackPopOne', 'stackPop', 'stackOut', 'stackReturn', 
+        'declarefunction', 'variables', 'declareNumber', 'declareBoolean', 'number', 
+        'digits', 'skipStatement',
     ]
 
     private static readonly _LITERAL_NAMES: Array<string | undefined> = [
         undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
         undefined, undefined, undefined, undefined, "'\u300A'", "'\u300B'", "'<<'", 
         "'>>'", undefined, undefined, undefined, undefined, undefined, undefined, 
-        undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
         "'\u300C'", "'\u300D'", "'['", "']'",
     ]
     private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
         undefined, 'If', 'EndDeclare', 'Else', 'Return', 'EndStatment', 'IHave', 
         'NameAs', 'ValueIs', 'DeclareModule', 'RanameAs', 'Left5', 'Right5', 'Left6', 
         'Right6', 'DeclareString', 'DeclareStringIs', 'StringEmpty', 'StringEscape1', 
-        'StringEscape2', 'StringEscape3', 'DeclareDigit', 'DeclareDigitIs', 'DeclareBoolean', 
-        'DeclareBooleanIs', 'Boolean', 'True', 'False', 'Left', 'Right', 'Left3', 
-        'Right3', 'FunctionStart', 'FunctionEnd', 'VariableStart', 'VariableEnd', 
-        'DeclareMethod', 'ThisIs', 'Is', 'Said', 'MethodOf', 'The', 'At', 'Apply', 
-        'End', 'Number', 'Digit', 'Equal', 'Unequal', 'Identifier', 'Character', 
-        'Underline', 'LineComment', 'PartComment', 'WhiteSpace',
+        'StringEscape2', 'StringEscape3', 'Left', 'Right', 'Left3', 'Right3', 
+        'Apply', 'At', 'StackIn', 'Take', 'StackPop', 'Get', 'The', 'End', 'FunctionStart', 
+        'FunctionEnd', 'VariableStart', 'VariableEnd', 'DeclareMethod', 'ThisIs', 
+        'Is', 'Said', 'MethodOf', 'DeclareDigit', 'DeclareDigitIs', 'DeclareBoolean', 
+        'DeclareBooleanIs', 'Boolean', 'True', 'False', 'IntegerDigit', 'FloatDigit', 
+        'IntegerDigitCN', 'FloatDigitCN', 'Equal', 'Unequal', 'Identifier', 'Character', 
+        'LineComment', 'PartComment', 'WhiteSpace',
     ]
     public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(WenyanParser._LITERAL_NAMES, WenyanParser._SYMBOLIC_NAMES, [])
 
@@ -154,21 +169,21 @@ export class WenyanParser extends Parser {
         try {
             this.enterOuterAlt(_localctx, 1)
             {
-            this.state = 37
+            this.state = 53
             this._errHandler.sync(this)
             _la = this._input.LA(1)
-            while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << WenyanParser.If) | (1 << WenyanParser.DeclareModule) | (1 << WenyanParser.DeclareString) | (1 << WenyanParser.StringEmpty) | (1 << WenyanParser.StringEscape1) | (1 << WenyanParser.StringEscape2) | (1 << WenyanParser.StringEscape3) | (1 << WenyanParser.DeclareDigit) | (1 << WenyanParser.DeclareDigitIs) | (1 << WenyanParser.DeclareBoolean) | (1 << WenyanParser.DeclareBooleanIs) | (1 << WenyanParser.Boolean) | (1 << WenyanParser.Left) | (1 << WenyanParser.Left3))) !== 0) || ((((_la - 36)) & ~0x1F) === 0 && ((1 << (_la - 36)) & ((1 << (WenyanParser.DeclareMethod - 36)) | (1 << (WenyanParser.Apply - 36)) | (1 << (WenyanParser.Number - 36)) | (1 << (WenyanParser.Identifier - 36)) | (1 << (WenyanParser.Character - 36)))) !== 0)) {
+            while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << WenyanParser.If) | (1 << WenyanParser.DeclareModule) | (1 << WenyanParser.DeclareString) | (1 << WenyanParser.StringEmpty) | (1 << WenyanParser.StringEscape1) | (1 << WenyanParser.StringEscape2) | (1 << WenyanParser.StringEscape3) | (1 << WenyanParser.Left) | (1 << WenyanParser.Left3) | (1 << WenyanParser.Apply) | (1 << WenyanParser.StackIn))) !== 0) || ((((_la - 37)) & ~0x1F) === 0 && ((1 << (_la - 37)) & ((1 << (WenyanParser.DeclareMethod - 37)) | (1 << (WenyanParser.DeclareDigit - 37)) | (1 << (WenyanParser.DeclareDigitIs - 37)) | (1 << (WenyanParser.DeclareBoolean - 37)) | (1 << (WenyanParser.DeclareBooleanIs - 37)) | (1 << (WenyanParser.Boolean - 37)) | (1 << (WenyanParser.IntegerDigit - 37)) | (1 << (WenyanParser.FloatDigit - 37)) | (1 << (WenyanParser.IntegerDigitCN - 37)) | (1 << (WenyanParser.FloatDigitCN - 37)) | (1 << (WenyanParser.Identifier - 37)) | (1 << (WenyanParser.Character - 37)))) !== 0)) {
                 {
                 {
-                this.state = 34
+                this.state = 50
                 this.statement()
                 }
                 }
-                this.state = 39
+                this.state = 55
                 this._errHandler.sync(this)
                 _la = this._input.LA(1)
             }
-            this.state = 40
+            this.state = 56
             this.match(WenyanParser.EOF)
             }
         }
@@ -191,13 +206,13 @@ export class WenyanParser extends Parser {
         let _localctx: StatementContext = new StatementContext(this._ctx, this.state)
         this.enterRule(_localctx, 2, WenyanParser.RULE_statement)
         try {
-            this.state = 52
+            this.state = 68
             this._errHandler.sync(this)
             switch (this._input.LA(1)) {
             case WenyanParser.DeclareModule:
                 this.enterOuterAlt(_localctx, 1)
                 {
-                this.state = 42
+                this.state = 58
                 this.declaremodule()
                 }
                 break
@@ -205,14 +220,14 @@ export class WenyanParser extends Parser {
             case WenyanParser.DeclareDigitIs:
                 this.enterOuterAlt(_localctx, 2)
                 {
-                this.state = 43
+                this.state = 59
                 this.declareNumber()
                 }
                 break
             case WenyanParser.DeclareString:
                 this.enterOuterAlt(_localctx, 3)
                 {
-                this.state = 44
+                this.state = 60
                 this.declareString()
                 }
                 break
@@ -220,14 +235,14 @@ export class WenyanParser extends Parser {
             case WenyanParser.DeclareBooleanIs:
                 this.enterOuterAlt(_localctx, 4)
                 {
-                this.state = 45
+                this.state = 61
                 this.declareBoolean()
                 }
                 break
             case WenyanParser.DeclareMethod:
                 this.enterOuterAlt(_localctx, 5)
                 {
-                this.state = 46
+                this.state = 62
                 this.declarefunction()
                 }
                 break
@@ -235,21 +250,22 @@ export class WenyanParser extends Parser {
             case WenyanParser.Left3:
                 this.enterOuterAlt(_localctx, 6)
                 {
-                this.state = 47
+                this.state = 63
                 this.declareData()
                 }
                 break
             case WenyanParser.If:
                 this.enterOuterAlt(_localctx, 7)
                 {
-                this.state = 48
+                this.state = 64
                 this.ifStatement()
                 }
                 break
             case WenyanParser.Apply:
+            case WenyanParser.StackIn:
                 this.enterOuterAlt(_localctx, 8)
                 {
-                this.state = 49
+                this.state = 65
                 this.apply()
                 }
                 break
@@ -258,10 +274,13 @@ export class WenyanParser extends Parser {
             case WenyanParser.StringEscape2:
             case WenyanParser.StringEscape3:
             case WenyanParser.Boolean:
-            case WenyanParser.Number:
+            case WenyanParser.IntegerDigit:
+            case WenyanParser.FloatDigit:
+            case WenyanParser.IntegerDigitCN:
+            case WenyanParser.FloatDigitCN:
                 this.enterOuterAlt(_localctx, 9)
                 {
-                this.state = 50
+                this.state = 66
                 this.data()
                 }
                 break
@@ -269,7 +288,7 @@ export class WenyanParser extends Parser {
             case WenyanParser.Character:
                 this.enterOuterAlt(_localctx, 10)
                 {
-                this.state = 51
+                this.state = 67
                 this.skipStatement()
                 }
                 break
@@ -298,15 +317,15 @@ export class WenyanParser extends Parser {
         try {
             this.enterOuterAlt(_localctx, 1)
             {
-            this.state = 54
+            this.state = 70
             this.match(WenyanParser.If)
-            this.state = 55
+            this.state = 71
             this.statement()
-            this.state = 56
+            this.state = 72
             this.match(WenyanParser.EndDeclare)
-            this.state = 57
+            this.state = 73
             this.match(WenyanParser.Else)
-            this.state = 58
+            this.state = 74
             this.statement()
             }
         }
@@ -329,7 +348,7 @@ export class WenyanParser extends Parser {
         let _localctx: DataContext = new DataContext(this._ctx, this.state)
         this.enterRule(_localctx, 6, WenyanParser.RULE_data)
         try {
-            this.state = 63
+            this.state = 79
             this._errHandler.sync(this)
             switch (this._input.LA(1)) {
             case WenyanParser.StringEmpty:
@@ -338,21 +357,24 @@ export class WenyanParser extends Parser {
             case WenyanParser.StringEscape3:
                 this.enterOuterAlt(_localctx, 1)
                 {
-                this.state = 60
+                this.state = 76
                 this.string()
                 }
                 break
-            case WenyanParser.Number:
+            case WenyanParser.IntegerDigit:
+            case WenyanParser.FloatDigit:
+            case WenyanParser.IntegerDigitCN:
+            case WenyanParser.FloatDigitCN:
                 this.enterOuterAlt(_localctx, 2)
                 {
-                this.state = 61
-                this.match(WenyanParser.Number)
+                this.state = 77
+                this.digits()
                 }
                 break
             case WenyanParser.Boolean:
                 this.enterOuterAlt(_localctx, 3)
                 {
-                this.state = 62
+                this.state = 78
                 this.match(WenyanParser.Boolean)
                 }
                 break
@@ -381,13 +403,13 @@ export class WenyanParser extends Parser {
         try {
             this.enterOuterAlt(_localctx, 1)
             {
-            this.state = 65
+            this.state = 81
             this.variable()
-            this.state = 66
+            this.state = 82
             this.match(WenyanParser.EndDeclare)
-            this.state = 67
+            this.state = 83
             this.data()
-            this.state = 68
+            this.state = 84
             this.match(WenyanParser.EndStatment)
             }
         }
@@ -410,39 +432,39 @@ export class WenyanParser extends Parser {
         let _localctx: ModuleContext = new ModuleContext(this._ctx, this.state)
         this.enterRule(_localctx, 10, WenyanParser.RULE_module)
         try {
-            this.state = 79
+            this.state = 95
             this._errHandler.sync(this)
             switch (this._input.LA(1)) {
             case WenyanParser.Left3:
                 this.enterOuterAlt(_localctx, 1)
                 {
-                this.state = 70
+                this.state = 86
                 this.match(WenyanParser.Left3)
-                this.state = 71
+                this.state = 87
                 this.match(WenyanParser.Identifier)
-                this.state = 72
+                this.state = 88
                 this.match(WenyanParser.Right3)
                 }
                 break
             case WenyanParser.Left5:
                 this.enterOuterAlt(_localctx, 2)
                 {
-                this.state = 73
+                this.state = 89
                 this.match(WenyanParser.Left5)
-                this.state = 74
+                this.state = 90
                 this.match(WenyanParser.Identifier)
-                this.state = 75
+                this.state = 91
                 this.match(WenyanParser.Right5)
                 }
                 break
             case WenyanParser.Left6:
                 this.enterOuterAlt(_localctx, 3)
                 {
-                this.state = 76
+                this.state = 92
                 this.match(WenyanParser.Left6)
-                this.state = 77
+                this.state = 93
                 this.match(WenyanParser.Identifier)
-                this.state = 78
+                this.state = 94
                 this.match(WenyanParser.Right6)
                 }
                 break
@@ -471,13 +493,13 @@ export class WenyanParser extends Parser {
         try {
             this.enterOuterAlt(_localctx, 1)
             {
-            this.state = 81
+            this.state = 97
             this.match(WenyanParser.DeclareModule)
-            this.state = 82
+            this.state = 98
             _localctx._m = this.module()
-            this.state = 83
+            this.state = 99
             this.match(WenyanParser.RanameAs)
-            this.state = 84
+            this.state = 100
             _localctx._v = this.variable()
             }
         }
@@ -501,29 +523,29 @@ export class WenyanParser extends Parser {
         this.enterRule(_localctx, 14, WenyanParser.RULE_declareString)
         let _la: number
         try {
-            this.state = 102
+            this.state = 118
             this._errHandler.sync(this)
             switch ( this.interpreter.adaptivePredict(this._input, 6, this._ctx) ) {
             case 1:
                 this.enterOuterAlt(_localctx, 1)
                 {
-                this.state = 86
+                this.state = 102
                 this.match(WenyanParser.DeclareString)
-                this.state = 88
+                this.state = 104
                 this._errHandler.sync(this)
                 _la = this._input.LA(1)
                 if (_la === WenyanParser.ValueIs) {
                     {
-                    this.state = 87
+                    this.state = 103
                     this.match(WenyanParser.ValueIs)
                     }
                 }
 
-                this.state = 90
+                this.state = 106
                 _localctx._s = this.string()
-                this.state = 91
+                this.state = 107
                 this.match(WenyanParser.NameAs)
-                this.state = 92
+                this.state = 108
                 _localctx._v = this.variable()
                 }
                 break
@@ -531,23 +553,23 @@ export class WenyanParser extends Parser {
             case 2:
                 this.enterOuterAlt(_localctx, 2)
                 {
-                this.state = 94
+                this.state = 110
                 this.match(WenyanParser.DeclareString)
-                this.state = 95
+                this.state = 111
                 this.match(WenyanParser.NameAs)
-                this.state = 96
+                this.state = 112
                 _localctx._v = this.variable()
-                this.state = 98
+                this.state = 114
                 this._errHandler.sync(this)
                 _la = this._input.LA(1)
                 if (_la === WenyanParser.ValueIs) {
                     {
-                    this.state = 97
+                    this.state = 113
                     this.match(WenyanParser.ValueIs)
                     }
                 }
 
-                this.state = 100
+                this.state = 116
                 _localctx._s = this.string()
                 }
                 break
@@ -572,14 +594,14 @@ export class WenyanParser extends Parser {
         let _localctx: StringContext = new StringContext(this._ctx, this.state)
         this.enterRule(_localctx, 16, WenyanParser.RULE_string)
         try {
-            this.state = 108
+            this.state = 124
             this._errHandler.sync(this)
             switch (this._input.LA(1)) {
             case WenyanParser.StringEmpty:
                 _localctx = new StringRemove0Context(_localctx)
                 this.enterOuterAlt(_localctx, 1)
                 {
-                this.state = 104
+                this.state = 120
                 this.match(WenyanParser.StringEmpty)
                 }
                 break
@@ -587,7 +609,7 @@ export class WenyanParser extends Parser {
                 _localctx = new StringRemove2Context(_localctx)
                 this.enterOuterAlt(_localctx, 2)
                 {
-                this.state = 105
+                this.state = 121
                 this.match(WenyanParser.StringEscape1)
                 }
                 break
@@ -595,7 +617,7 @@ export class WenyanParser extends Parser {
                 _localctx = new StringRemove1Context(_localctx)
                 this.enterOuterAlt(_localctx, 3)
                 {
-                this.state = 106
+                this.state = 122
                 this.match(WenyanParser.StringEscape2)
                 }
                 break
@@ -603,7 +625,7 @@ export class WenyanParser extends Parser {
                 _localctx = new StringRemove1Context(_localctx)
                 this.enterOuterAlt(_localctx, 4)
                 {
-                this.state = 107
+                this.state = 123
                 this.match(WenyanParser.StringEscape3)
                 }
                 break
@@ -626,41 +648,492 @@ export class WenyanParser extends Parser {
         return _localctx
     }
     // @RuleVersion(0)
-    public declareNumber(): DeclareNumberContext {
-        let _localctx: DeclareNumberContext = new DeclareNumberContext(this._ctx, this.state)
-        this.enterRule(_localctx, 18, WenyanParser.RULE_declareNumber)
+    public variable(): VariableContext {
+        let _localctx: VariableContext = new VariableContext(this._ctx, this.state)
+        this.enterRule(_localctx, 18, WenyanParser.RULE_variable)
+        try {
+            this.state = 132
+            this._errHandler.sync(this)
+            switch (this._input.LA(1)) {
+            case WenyanParser.Left:
+                this.enterOuterAlt(_localctx, 1)
+                {
+                this.state = 126
+                this.match(WenyanParser.Left)
+                this.state = 127
+                _localctx._v = this.match(WenyanParser.Identifier)
+                this.state = 128
+                this.match(WenyanParser.Right)
+                }
+                break
+            case WenyanParser.Left3:
+                this.enterOuterAlt(_localctx, 2)
+                {
+                this.state = 129
+                this.match(WenyanParser.Left3)
+                this.state = 130
+                _localctx._v = this.match(WenyanParser.Identifier)
+                this.state = 131
+                this.match(WenyanParser.Right3)
+                }
+                break
+            default:
+                throw new NoViableAltException(this)
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public apply(): ApplyContext {
+        let _localctx: ApplyContext = new ApplyContext(this._ctx, this.state)
+        this.enterRule(_localctx, 20, WenyanParser.RULE_apply)
+        try {
+            this.state = 136
+            this._errHandler.sync(this)
+            switch (this._input.LA(1)) {
+            case WenyanParser.Apply:
+                this.enterOuterAlt(_localctx, 1)
+                {
+                this.state = 134
+                this.applyFunction()
+                }
+                break
+            case WenyanParser.StackIn:
+                this.enterOuterAlt(_localctx, 2)
+                {
+                this.state = 135
+                this.applyStack()
+                }
+                break
+            default:
+                throw new NoViableAltException(this)
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public applyFunction(): ApplyFunctionContext {
+        let _localctx: ApplyFunctionContext = new ApplyFunctionContext(this._ctx, this.state)
+        this.enterRule(_localctx, 22, WenyanParser.RULE_applyFunction)
+        try {
+            this.enterOuterAlt(_localctx, 1)
+            {
+            this.state = 138
+            this.match(WenyanParser.Apply)
+            this.state = 139
+            _localctx._f = this.variable()
+            this.state = 140
+            this.match(WenyanParser.At)
+            this.state = 141
+            _localctx._x = this.variable()
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public applyStack(): ApplyStackContext {
+        let _localctx: ApplyStackContext = new ApplyStackContext(this._ctx, this.state)
+        this.enterRule(_localctx, 24, WenyanParser.RULE_applyStack)
+        try {
+            let _alt: number
+            this.enterOuterAlt(_localctx, 1)
+            {
+            this.state = 143
+            this.stackIn()
+            this.state = 147
+            this._errHandler.sync(this)
+            _alt = 1
+            do {
+                switch (_alt) {
+                case 1:
+                    {
+                    this.state = 147
+                    this._errHandler.sync(this)
+                    switch (this._input.LA(1)) {
+                    case WenyanParser.StackIn:
+                        {
+                        this.state = 144
+                        this.stackIn()
+                        }
+                        break
+                    case WenyanParser.StackPop:
+                        {
+                        this.state = 145
+                        this.stackPopOne()
+                        }
+                        break
+                    case WenyanParser.Get:
+                        {
+                        this.state = 146
+                        this.stackPop()
+                        }
+                        break
+                    default:
+                        throw new NoViableAltException(this)
+                    }
+                    }
+                    break
+                default:
+                    throw new NoViableAltException(this)
+                }
+                this.state = 149
+                this._errHandler.sync(this)
+                _alt = this.interpreter.adaptivePredict(this._input, 11, this._ctx)
+            } while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER)
+            this.state = 153
+            this._errHandler.sync(this)
+            switch ( this.interpreter.adaptivePredict(this._input, 12, this._ctx) ) {
+            case 1:
+                {
+                this.state = 151
+                this.stackOut()
+                }
+                break
+
+            case 2:
+                {
+                this.state = 152
+                this.stackReturn()
+                }
+                break
+            }
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public stackIn(): StackInContext {
+        let _localctx: StackInContext = new StackInContext(this._ctx, this.state)
+        this.enterRule(_localctx, 26, WenyanParser.RULE_stackIn)
         let _la: number
         try {
-            this.state = 127
+            this.enterOuterAlt(_localctx, 1)
+            {
+            this.state = 155
+            this.match(WenyanParser.StackIn)
+            this.state = 157
+            this._errHandler.sync(this)
+            _la = this._input.LA(1)
+            do {
+                {
+                {
+                this.state = 156
+                this.variable()
+                }
+                }
+                this.state = 159
+                this._errHandler.sync(this)
+                _la = this._input.LA(1)
+            } while (_la === WenyanParser.Left || _la === WenyanParser.Left3)
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public stackPopOne(): StackPopOneContext {
+        let _localctx: StackPopOneContext = new StackPopOneContext(this._ctx, this.state)
+        this.enterRule(_localctx, 28, WenyanParser.RULE_stackPopOne)
+        try {
+            this.enterOuterAlt(_localctx, 1)
+            {
+            this.state = 161
+            this.match(WenyanParser.StackPop)
+            this.state = 162
+            this.variable()
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public stackPop(): StackPopContext {
+        let _localctx: StackPopContext = new StackPopContext(this._ctx, this.state)
+        this.enterRule(_localctx, 30, WenyanParser.RULE_stackPop)
+        try {
+            this.enterOuterAlt(_localctx, 1)
+            {
+            this.state = 164
+            this.match(WenyanParser.Get)
+            this.state = 165
+            this.digits()
+            this.state = 166
+            this.match(WenyanParser.StackPop)
+            this.state = 167
+            this.variable()
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public stackOut(): StackOutContext {
+        let _localctx: StackOutContext = new StackOutContext(this._ctx, this.state)
+        this.enterRule(_localctx, 32, WenyanParser.RULE_stackOut)
+        try {
+            this.enterOuterAlt(_localctx, 1)
+            {
+            this.state = 169
+            this.match(WenyanParser.Get)
+            this.state = 170
+            this.variable()
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public stackReturn(): StackReturnContext {
+        let _localctx: StackReturnContext = new StackReturnContext(this._ctx, this.state)
+        this.enterRule(_localctx, 34, WenyanParser.RULE_stackReturn)
+        try {
+            this.enterOuterAlt(_localctx, 1)
+            {
+            this.state = 172
+            this.match(WenyanParser.Get)
+            this.state = 173
+            this.match(WenyanParser.The)
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public declarefunction(): DeclarefunctionContext {
+        let _localctx: DeclarefunctionContext = new DeclarefunctionContext(this._ctx, this.state)
+        this.enterRule(_localctx, 36, WenyanParser.RULE_declarefunction)
+        try {
+            this.state = 185
+            this._errHandler.sync(this)
+            switch ( this.interpreter.adaptivePredict(this._input, 14, this._ctx) ) {
+            case 1:
+                this.enterOuterAlt(_localctx, 1)
+                {
+                this.state = 175
+                this.match(WenyanParser.DeclareMethod)
+                this.state = 176
+                this.match(WenyanParser.NameAs)
+                this.state = 177
+                this.variable()
+                this.state = 178
+                this.variables()
+                this.state = 179
+                this.match(WenyanParser.FunctionStart)
+                this.state = 180
+                this.match(WenyanParser.FunctionEnd)
+                }
+                break
+
+            case 2:
+                this.enterOuterAlt(_localctx, 2)
+                {
+                this.state = 182
+                this.match(WenyanParser.DeclareMethod)
+                this.state = 183
+                this.match(WenyanParser.NameAs)
+                this.state = 184
+                this.variable()
+                }
+                break
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public variables(): VariablesContext {
+        let _localctx: VariablesContext = new VariablesContext(this._ctx, this.state)
+        this.enterRule(_localctx, 38, WenyanParser.RULE_variables)
+        let _la: number
+        try {
+            this.enterOuterAlt(_localctx, 1)
+            {
+            this.state = 187
+            this.match(WenyanParser.VariableStart)
+            this.state = 190
+            this._errHandler.sync(this)
+            _la = this._input.LA(1)
+            do {
+                {
+                {
+                this.state = 188
+                this.match(WenyanParser.NameAs)
+                this.state = 189
+                this.variable()
+                }
+                }
+                this.state = 192
+                this._errHandler.sync(this)
+                _la = this._input.LA(1)
+            } while (_la === WenyanParser.NameAs)
+            this.state = 194
+            this.match(WenyanParser.VariableEnd)
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public declareNumber(): DeclareNumberContext {
+        let _localctx: DeclareNumberContext = new DeclareNumberContext(this._ctx, this.state)
+        this.enterRule(_localctx, 40, WenyanParser.RULE_declareNumber)
+        let _la: number
+        try {
+            this.state = 213
             this._errHandler.sync(this)
             switch (this._input.LA(1)) {
             case WenyanParser.DeclareDigit:
                 this.enterOuterAlt(_localctx, 1)
                 {
-                this.state = 110
+                this.state = 196
                 this.match(WenyanParser.DeclareDigit)
-                this.state = 112
+                this.state = 198
                 this._errHandler.sync(this)
                 _la = this._input.LA(1)
                 if (_la === WenyanParser.ValueIs) {
                     {
-                    this.state = 111
+                    this.state = 197
                     this.match(WenyanParser.ValueIs)
                     }
                 }
 
-                this.state = 114
-                this.number()
-                this.state = 115
+                this.state = 200
+                _localctx._n = this.number()
+                this.state = 201
                 this.match(WenyanParser.NameAs)
-                this.state = 116
+                this.state = 202
                 _localctx._v = this.variable()
-                this.state = 118
+                this.state = 204
                 this._errHandler.sync(this)
                 _la = this._input.LA(1)
                 if (_la === WenyanParser.EndStatment) {
                     {
-                    this.state = 117
+                    this.state = 203
                     this.match(WenyanParser.EndStatment)
                     }
                 }
@@ -670,20 +1143,20 @@ export class WenyanParser extends Parser {
             case WenyanParser.DeclareDigitIs:
                 this.enterOuterAlt(_localctx, 2)
                 {
-                this.state = 120
+                this.state = 206
                 this.match(WenyanParser.DeclareDigitIs)
-                this.state = 121
-                this.number()
-                this.state = 122
+                this.state = 207
+                _localctx._n = this.number()
+                this.state = 208
                 this.match(WenyanParser.NameAs)
-                this.state = 123
+                this.state = 209
                 _localctx._v = this.variable()
-                this.state = 125
+                this.state = 211
                 this._errHandler.sync(this)
                 _la = this._input.LA(1)
                 if (_la === WenyanParser.EndStatment) {
                     {
-                    this.state = 124
+                    this.state = 210
                     this.match(WenyanParser.EndStatment)
                     }
                 }
@@ -711,39 +1184,39 @@ export class WenyanParser extends Parser {
     // @RuleVersion(0)
     public declareBoolean(): DeclareBooleanContext {
         let _localctx: DeclareBooleanContext = new DeclareBooleanContext(this._ctx, this.state)
-        this.enterRule(_localctx, 20, WenyanParser.RULE_declareBoolean)
+        this.enterRule(_localctx, 42, WenyanParser.RULE_declareBoolean)
         let _la: number
         try {
-            this.state = 146
+            this.state = 232
             this._errHandler.sync(this)
             switch (this._input.LA(1)) {
             case WenyanParser.DeclareBoolean:
                 this.enterOuterAlt(_localctx, 1)
                 {
-                this.state = 129
+                this.state = 215
                 this.match(WenyanParser.DeclareBoolean)
-                this.state = 131
+                this.state = 217
                 this._errHandler.sync(this)
                 _la = this._input.LA(1)
                 if (_la === WenyanParser.ValueIs) {
                     {
-                    this.state = 130
+                    this.state = 216
                     this.match(WenyanParser.ValueIs)
                     }
                 }
 
-                this.state = 133
+                this.state = 219
                 this.number()
-                this.state = 134
+                this.state = 220
                 this.match(WenyanParser.NameAs)
-                this.state = 135
+                this.state = 221
                 _localctx._v = this.variable()
-                this.state = 137
+                this.state = 223
                 this._errHandler.sync(this)
                 _la = this._input.LA(1)
                 if (_la === WenyanParser.EndStatment) {
                     {
-                    this.state = 136
+                    this.state = 222
                     this.match(WenyanParser.EndStatment)
                     }
                 }
@@ -753,20 +1226,20 @@ export class WenyanParser extends Parser {
             case WenyanParser.DeclareBooleanIs:
                 this.enterOuterAlt(_localctx, 2)
                 {
-                this.state = 139
+                this.state = 225
                 this.match(WenyanParser.DeclareBooleanIs)
-                this.state = 140
+                this.state = 226
                 this.number()
-                this.state = 141
+                this.state = 227
                 this.match(WenyanParser.NameAs)
-                this.state = 142
+                this.state = 228
                 _localctx._v = this.variable()
-                this.state = 144
+                this.state = 230
                 this._errHandler.sync(this)
                 _la = this._input.LA(1)
                 if (_la === WenyanParser.EndStatment) {
                     {
-                    this.state = 143
+                    this.state = 229
                     this.match(WenyanParser.EndStatment)
                     }
                 }
@@ -775,182 +1248,6 @@ export class WenyanParser extends Parser {
                 break
             default:
                 throw new NoViableAltException(this)
-            }
-        }
-        catch (re) {
-            if (re instanceof RecognitionException) {
-                _localctx.exception = re
-                this._errHandler.reportError(this, re)
-                this._errHandler.recover(this, re)
-            } else {
-                throw re
-            }
-        }
-        finally {
-            this.exitRule()
-        }
-        return _localctx
-    }
-    // @RuleVersion(0)
-    public variable(): VariableContext {
-        let _localctx: VariableContext = new VariableContext(this._ctx, this.state)
-        this.enterRule(_localctx, 22, WenyanParser.RULE_variable)
-        try {
-            this.state = 154
-            this._errHandler.sync(this)
-            switch (this._input.LA(1)) {
-            case WenyanParser.Left:
-                this.enterOuterAlt(_localctx, 1)
-                {
-                this.state = 148
-                this.match(WenyanParser.Left)
-                this.state = 149
-                _localctx._v = this.match(WenyanParser.Identifier)
-                this.state = 150
-                this.match(WenyanParser.Right)
-                }
-                break
-            case WenyanParser.Left3:
-                this.enterOuterAlt(_localctx, 2)
-                {
-                this.state = 151
-                this.match(WenyanParser.Left3)
-                this.state = 152
-                _localctx._v = this.match(WenyanParser.Identifier)
-                this.state = 153
-                this.match(WenyanParser.Right3)
-                }
-                break
-            default:
-                throw new NoViableAltException(this)
-            }
-        }
-        catch (re) {
-            if (re instanceof RecognitionException) {
-                _localctx.exception = re
-                this._errHandler.reportError(this, re)
-                this._errHandler.recover(this, re)
-            } else {
-                throw re
-            }
-        }
-        finally {
-            this.exitRule()
-        }
-        return _localctx
-    }
-    // @RuleVersion(0)
-    public declarefunction(): DeclarefunctionContext {
-        let _localctx: DeclarefunctionContext = new DeclarefunctionContext(this._ctx, this.state)
-        this.enterRule(_localctx, 24, WenyanParser.RULE_declarefunction)
-        try {
-            this.state = 166
-            this._errHandler.sync(this)
-            switch ( this.interpreter.adaptivePredict(this._input, 17, this._ctx) ) {
-            case 1:
-                this.enterOuterAlt(_localctx, 1)
-                {
-                this.state = 156
-                this.match(WenyanParser.DeclareMethod)
-                this.state = 157
-                this.match(WenyanParser.NameAs)
-                this.state = 158
-                this.variable()
-                this.state = 159
-                this.variables()
-                this.state = 160
-                this.match(WenyanParser.FunctionStart)
-                this.state = 161
-                this.match(WenyanParser.FunctionEnd)
-                }
-                break
-
-            case 2:
-                this.enterOuterAlt(_localctx, 2)
-                {
-                this.state = 163
-                this.match(WenyanParser.DeclareMethod)
-                this.state = 164
-                this.match(WenyanParser.NameAs)
-                this.state = 165
-                this.variable()
-                }
-                break
-            }
-        }
-        catch (re) {
-            if (re instanceof RecognitionException) {
-                _localctx.exception = re
-                this._errHandler.reportError(this, re)
-                this._errHandler.recover(this, re)
-            } else {
-                throw re
-            }
-        }
-        finally {
-            this.exitRule()
-        }
-        return _localctx
-    }
-    // @RuleVersion(0)
-    public variables(): VariablesContext {
-        let _localctx: VariablesContext = new VariablesContext(this._ctx, this.state)
-        this.enterRule(_localctx, 26, WenyanParser.RULE_variables)
-        let _la: number
-        try {
-            this.enterOuterAlt(_localctx, 1)
-            {
-            this.state = 168
-            this.match(WenyanParser.VariableStart)
-            this.state = 171
-            this._errHandler.sync(this)
-            _la = this._input.LA(1)
-            do {
-                {
-                {
-                this.state = 169
-                this.match(WenyanParser.NameAs)
-                this.state = 170
-                this.variable()
-                }
-                }
-                this.state = 173
-                this._errHandler.sync(this)
-                _la = this._input.LA(1)
-            } while (_la === WenyanParser.NameAs)
-            this.state = 175
-            this.match(WenyanParser.VariableEnd)
-            }
-        }
-        catch (re) {
-            if (re instanceof RecognitionException) {
-                _localctx.exception = re
-                this._errHandler.reportError(this, re)
-                this._errHandler.recover(this, re)
-            } else {
-                throw re
-            }
-        }
-        finally {
-            this.exitRule()
-        }
-        return _localctx
-    }
-    // @RuleVersion(0)
-    public apply(): ApplyContext {
-        let _localctx: ApplyContext = new ApplyContext(this._ctx, this.state)
-        this.enterRule(_localctx, 28, WenyanParser.RULE_apply)
-        try {
-            this.enterOuterAlt(_localctx, 1)
-            {
-            this.state = 177
-            this.match(WenyanParser.Apply)
-            this.state = 178
-            _localctx._f = this.variable()
-            this.state = 179
-            this.match(WenyanParser.At)
-            this.state = 180
-            _localctx._x = this.variable()
             }
         }
         catch (re) {
@@ -970,27 +1267,161 @@ export class WenyanParser extends Parser {
     // @RuleVersion(0)
     public number(): NumberContext {
         let _localctx: NumberContext = new NumberContext(this._ctx, this.state)
-        this.enterRule(_localctx, 30, WenyanParser.RULE_number)
+        this.enterRule(_localctx, 44, WenyanParser.RULE_number)
         try {
-            this.state = 186
+            this.state = 239
             this._errHandler.sync(this)
             switch (this._input.LA(1)) {
             case WenyanParser.Left3:
                 this.enterOuterAlt(_localctx, 1)
                 {
-                this.state = 182
+                this.state = 234
                 this.match(WenyanParser.Left3)
-                this.state = 183
-                _localctx._n = this.match(WenyanParser.Number)
-                this.state = 184
+                this.state = 235
+                _localctx._n = this.digits()
+                this.state = 236
                 this.match(WenyanParser.Right3)
                 }
                 break
-            case WenyanParser.Number:
+            case WenyanParser.IntegerDigit:
+            case WenyanParser.FloatDigit:
+            case WenyanParser.IntegerDigitCN:
+            case WenyanParser.FloatDigitCN:
                 this.enterOuterAlt(_localctx, 2)
                 {
-                this.state = 185
-                _localctx._n = this.match(WenyanParser.Number)
+                this.state = 238
+                _localctx._n = this.digits()
+                }
+                break
+            default:
+                throw new NoViableAltException(this)
+            }
+        }
+        catch (re) {
+            if (re instanceof RecognitionException) {
+                _localctx.exception = re
+                this._errHandler.reportError(this, re)
+                this._errHandler.recover(this, re)
+            } else {
+                throw re
+            }
+        }
+        finally {
+            this.exitRule()
+        }
+        return _localctx
+    }
+    // @RuleVersion(0)
+    public digits(): DigitsContext {
+        let _localctx: DigitsContext = new DigitsContext(this._ctx, this.state)
+        this.enterRule(_localctx, 46, WenyanParser.RULE_digits)
+        try {
+            let _alt: number
+            this.state = 261
+            this._errHandler.sync(this)
+            switch (this._input.LA(1)) {
+            case WenyanParser.IntegerDigit:
+                _localctx = new NumberIntegerContext(_localctx)
+                this.enterOuterAlt(_localctx, 1)
+                {
+                this.state = 242
+                this._errHandler.sync(this)
+                _alt = 1
+                do {
+                    switch (_alt) {
+                    case 1:
+                        {
+                        {
+                        this.state = 241
+                        this.match(WenyanParser.IntegerDigit)
+                        }
+                        }
+                        break
+                    default:
+                        throw new NoViableAltException(this)
+                    }
+                    this.state = 244
+                    this._errHandler.sync(this)
+                    _alt = this.interpreter.adaptivePredict(this._input, 25, this._ctx)
+                } while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER)
+                }
+                break
+            case WenyanParser.IntegerDigitCN:
+                _localctx = new NumberIntegerCNContext(_localctx)
+                this.enterOuterAlt(_localctx, 2)
+                {
+                this.state = 247
+                this._errHandler.sync(this)
+                _alt = 1
+                do {
+                    switch (_alt) {
+                    case 1:
+                        {
+                        {
+                        this.state = 246
+                        this.match(WenyanParser.IntegerDigitCN)
+                        }
+                        }
+                        break
+                    default:
+                        throw new NoViableAltException(this)
+                    }
+                    this.state = 249
+                    this._errHandler.sync(this)
+                    _alt = this.interpreter.adaptivePredict(this._input, 26, this._ctx)
+                } while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER)
+                }
+                break
+            case WenyanParser.FloatDigit:
+                _localctx = new NumberFloatContext(_localctx)
+                this.enterOuterAlt(_localctx, 3)
+                {
+                this.state = 252
+                this._errHandler.sync(this)
+                _alt = 1
+                do {
+                    switch (_alt) {
+                    case 1:
+                        {
+                        {
+                        this.state = 251
+                        this.match(WenyanParser.FloatDigit)
+                        }
+                        }
+                        break
+                    default:
+                        throw new NoViableAltException(this)
+                    }
+                    this.state = 254
+                    this._errHandler.sync(this)
+                    _alt = this.interpreter.adaptivePredict(this._input, 27, this._ctx)
+                } while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER)
+                }
+                break
+            case WenyanParser.FloatDigitCN:
+                _localctx = new NumberFloatCNContext(_localctx)
+                this.enterOuterAlt(_localctx, 4)
+                {
+                this.state = 257
+                this._errHandler.sync(this)
+                _alt = 1
+                do {
+                    switch (_alt) {
+                    case 1:
+                        {
+                        {
+                        this.state = 256
+                        this.match(WenyanParser.FloatDigitCN)
+                        }
+                        }
+                        break
+                    default:
+                        throw new NoViableAltException(this)
+                    }
+                    this.state = 259
+                    this._errHandler.sync(this)
+                    _alt = this.interpreter.adaptivePredict(this._input, 28, this._ctx)
+                } while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER)
                 }
                 break
             default:
@@ -1014,12 +1445,12 @@ export class WenyanParser extends Parser {
     // @RuleVersion(0)
     public skipStatement(): SkipStatementContext {
         let _localctx: SkipStatementContext = new SkipStatementContext(this._ctx, this.state)
-        this.enterRule(_localctx, 32, WenyanParser.RULE_skipStatement)
+        this.enterRule(_localctx, 48, WenyanParser.RULE_skipStatement)
         let _la: number
         try {
             this.enterOuterAlt(_localctx, 1)
             {
-            this.state = 188
+            this.state = 263
             _la = this._input.LA(1)
             if (!(_la === WenyanParser.Identifier || _la === WenyanParser.Character)) {
             this._errHandler.recoverInline(this)
@@ -1049,87 +1480,126 @@ export class WenyanParser extends Parser {
     }
 
     public static readonly _serializedATN: string =
-        '\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x038\xC1\x04\x02' +
+        '\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03=\u010C\x04\x02' +
         '\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07' +
         '\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04' +
-        '\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x03' +
-        '\x02\x07\x02&\n\x02\f\x02\x0E\x02)\v\x02\x03\x02\x03\x02\x03\x03\x03\x03' +
-        '\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x05\x03' +
-        '7\n\x03\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x05\x03\x05' +
-        '\x03\x05\x05\x05B\n\x05\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x07' +
-        '\x03\x07\x03\x07\x03\x07\x03\x07\x03\x07\x03\x07\x03\x07\x03\x07\x05\x07' +
-        'R\n\x07\x03\b\x03\b\x03\b\x03\b\x03\b\x03\t\x03\t\x05\t[\n\t\x03\t\x03' +
-        '\t\x03\t\x03\t\x03\t\x03\t\x03\t\x03\t\x05\te\n\t\x03\t\x03\t\x05\ti\n' +
-        '\t\x03\n\x03\n\x03\n\x03\n\x05\no\n\n\x03\v\x03\v\x05\vs\n\v\x03\v\x03' +
-        '\v\x03\v\x03\v\x05\vy\n\v\x03\v\x03\v\x03\v\x03\v\x03\v\x05\v\x80\n\v' +
-        '\x05\v\x82\n\v\x03\f\x03\f\x05\f\x86\n\f\x03\f\x03\f\x03\f\x03\f\x05\f' +
-        '\x8C\n\f\x03\f\x03\f\x03\f\x03\f\x03\f\x05\f\x93\n\f\x05\f\x95\n\f\x03' +
-        '\r\x03\r\x03\r\x03\r\x03\r\x03\r\x05\r\x9D\n\r\x03\x0E\x03\x0E\x03\x0E' +
-        '\x03\x0E\x03\x0E\x03\x0E\x03\x0E\x03\x0E\x03\x0E\x03\x0E\x05\x0E\xA9\n' +
-        '\x0E\x03\x0F\x03\x0F\x03\x0F\x06\x0F\xAE\n\x0F\r\x0F\x0E\x0F\xAF\x03\x0F' +
-        '\x03\x0F\x03\x10\x03\x10\x03\x10\x03\x10\x03\x10\x03\x11\x03\x11\x03\x11' +
-        '\x03\x11\x05\x11\xBD\n\x11\x03\x12\x03\x12\x03\x12\x02\x02\x02\x13\x02' +
-        '\x02\x04\x02\x06\x02\b\x02\n\x02\f\x02\x0E\x02\x10\x02\x12\x02\x14\x02' +
-        '\x16\x02\x18\x02\x1A\x02\x1C\x02\x1E\x02 \x02"\x02\x02\x03\x03\x0234' +
-        "\x02\xCF\x02\'\x03\x02\x02\x02\x046\x03\x02\x02\x02\x068\x03\x02\x02\x02" +
-        '\bA\x03\x02\x02\x02\nC\x03\x02\x02\x02\fQ\x03\x02\x02\x02\x0ES\x03\x02' +
-        '\x02\x02\x10h\x03\x02\x02\x02\x12n\x03\x02\x02\x02\x14\x81\x03\x02\x02' +
-        '\x02\x16\x94\x03\x02\x02\x02\x18\x9C\x03\x02\x02\x02\x1A\xA8\x03\x02\x02' +
-        '\x02\x1C\xAA\x03\x02\x02\x02\x1E\xB3\x03\x02\x02\x02 \xBC\x03\x02\x02' +
-        '\x02"\xBE\x03\x02\x02\x02$&\x05\x04\x03\x02%$\x03\x02\x02\x02&)\x03\x02' +
-        "\x02\x02\'%\x03\x02\x02\x02\'(\x03\x02\x02\x02(*\x03\x02\x02\x02)\'\x03" +
-        '\x02\x02\x02*+\x07\x02\x02\x03+\x03\x03\x02\x02\x02,7\x05\x0E\b\x02-7' +
-        '\x05\x14\v\x02.7\x05\x10\t\x02/7\x05\x16\f\x0207\x05\x1A\x0E\x0217\x05' +
-        '\n\x06\x0227\x05\x06\x04\x0237\x05\x1E\x10\x0247\x05\b\x05\x0257\x05"' +
-        '\x12\x026,\x03\x02\x02\x026-\x03\x02\x02\x026.\x03\x02\x02\x026/\x03\x02' +
-        '\x02\x0260\x03\x02\x02\x0261\x03\x02\x02\x0262\x03\x02\x02\x0263\x03\x02' +
-        '\x02\x0264\x03\x02\x02\x0265\x03\x02\x02\x027\x05\x03\x02\x02\x0289\x07' +
-        '\x03\x02\x029:\x05\x04\x03\x02:;\x07\x04\x02\x02;<\x07\x05\x02\x02<=\x05' +
-        '\x04\x03\x02=\x07\x03\x02\x02\x02>B\x05\x12\n\x02?B\x07/\x02\x02@B\x07' +
-        '\x1B\x02\x02A>\x03\x02\x02\x02A?\x03\x02\x02\x02A@\x03\x02\x02\x02B\t' +
-        '\x03\x02\x02\x02CD\x05\x18\r\x02DE\x07\x04\x02\x02EF\x05\b\x05\x02FG\x07' +
-        '\x07\x02\x02G\v\x03\x02\x02\x02HI\x07 \x02\x02IJ\x073\x02\x02JR\x07!\x02' +
-        '\x02KL\x07\r\x02\x02LM\x073\x02\x02MR\x07\x0E\x02\x02NO\x07\x0F\x02\x02' +
-        'OP\x073\x02\x02PR\x07\x10\x02\x02QH\x03\x02\x02\x02QK\x03\x02\x02\x02' +
-        'QN\x03\x02\x02\x02R\r\x03\x02\x02\x02ST\x07\v\x02\x02TU\x05\f\x07\x02' +
-        'UV\x07\f\x02\x02VW\x05\x18\r\x02W\x0F\x03\x02\x02\x02XZ\x07\x11\x02\x02' +
-        'Y[\x07\n\x02\x02ZY\x03\x02\x02\x02Z[\x03\x02\x02\x02[\\\x03\x02\x02\x02' +
-        '\\]\x05\x12\n\x02]^\x07\t\x02\x02^_\x05\x18\r\x02_i\x03\x02\x02\x02`a' +
-        '\x07\x11\x02\x02ab\x07\t\x02\x02bd\x05\x18\r\x02ce\x07\n\x02\x02dc\x03' +
-        '\x02\x02\x02de\x03\x02\x02\x02ef\x03\x02\x02\x02fg\x05\x12\n\x02gi\x03' +
-        '\x02\x02\x02hX\x03\x02\x02\x02h`\x03\x02\x02\x02i\x11\x03\x02\x02\x02' +
-        'jo\x07\x13\x02\x02ko\x07\x14\x02\x02lo\x07\x15\x02\x02mo\x07\x16\x02\x02' +
-        'nj\x03\x02\x02\x02nk\x03\x02\x02\x02nl\x03\x02\x02\x02nm\x03\x02\x02\x02' +
-        'o\x13\x03\x02\x02\x02pr\x07\x17\x02\x02qs\x07\n\x02\x02rq\x03\x02\x02' +
-        '\x02rs\x03\x02\x02\x02st\x03\x02\x02\x02tu\x05 \x11\x02uv\x07\t\x02\x02' +
-        'vx\x05\x18\r\x02wy\x07\x07\x02\x02xw\x03\x02\x02\x02xy\x03\x02\x02\x02' +
-        'y\x82\x03\x02\x02\x02z{\x07\x18\x02\x02{|\x05 \x11\x02|}\x07\t\x02\x02' +
-        '}\x7F\x05\x18\r\x02~\x80\x07\x07\x02\x02\x7F~\x03\x02\x02\x02\x7F\x80' +
-        '\x03\x02\x02\x02\x80\x82\x03\x02\x02\x02\x81p\x03\x02\x02\x02\x81z\x03' +
-        '\x02\x02\x02\x82\x15\x03\x02\x02\x02\x83\x85\x07\x19\x02\x02\x84\x86\x07' +
-        '\n\x02\x02\x85\x84\x03\x02\x02\x02\x85\x86\x03\x02\x02\x02\x86\x87\x03' +
-        '\x02\x02\x02\x87\x88\x05 \x11\x02\x88\x89\x07\t\x02\x02\x89\x8B\x05\x18' +
-        '\r\x02\x8A\x8C\x07\x07\x02\x02\x8B\x8A\x03\x02\x02\x02\x8B\x8C\x03\x02' +
-        '\x02\x02\x8C\x95\x03\x02\x02\x02\x8D\x8E\x07\x1A\x02\x02\x8E\x8F\x05 ' +
-        '\x11\x02\x8F\x90\x07\t\x02\x02\x90\x92\x05\x18\r\x02\x91\x93\x07\x07\x02' +
-        '\x02\x92\x91\x03\x02\x02\x02\x92\x93\x03\x02\x02\x02\x93\x95\x03\x02\x02' +
-        '\x02\x94\x83\x03\x02\x02\x02\x94\x8D\x03\x02\x02\x02\x95\x17\x03\x02\x02' +
-        '\x02\x96\x97\x07\x1E\x02\x02\x97\x98\x073\x02\x02\x98\x9D\x07\x1F\x02' +
-        '\x02\x99\x9A\x07 \x02\x02\x9A\x9B\x073\x02\x02\x9B\x9D\x07!\x02\x02\x9C' +
-        '\x96\x03\x02\x02\x02\x9C\x99\x03\x02\x02\x02\x9D\x19\x03\x02\x02\x02\x9E' +
-        '\x9F\x07&\x02\x02\x9F\xA0\x07\t\x02\x02\xA0\xA1\x05\x18\r\x02\xA1\xA2' +
-        '\x05\x1C\x0F\x02\xA2\xA3\x07"\x02\x02\xA3\xA4\x07#\x02\x02\xA4\xA9\x03' +
-        '\x02\x02\x02\xA5\xA6\x07&\x02\x02\xA6\xA7\x07\t\x02\x02\xA7\xA9\x05\x18' +
-        '\r\x02\xA8\x9E\x03\x02\x02\x02\xA8\xA5\x03\x02\x02\x02\xA9\x1B\x03\x02' +
-        '\x02\x02\xAA\xAD\x07$\x02\x02\xAB\xAC\x07\t\x02\x02\xAC\xAE\x05\x18\r' +
-        '\x02\xAD\xAB\x03\x02\x02\x02\xAE\xAF\x03\x02\x02\x02\xAF\xAD\x03\x02\x02' +
-        '\x02\xAF\xB0\x03\x02\x02\x02\xB0\xB1\x03\x02\x02\x02\xB1\xB2\x07%\x02' +
-        '\x02\xB2\x1D\x03\x02\x02\x02\xB3\xB4\x07-\x02\x02\xB4\xB5\x05\x18\r\x02' +
-        '\xB5\xB6\x07,\x02\x02\xB6\xB7\x05\x18\r\x02\xB7\x1F\x03\x02\x02\x02\xB8' +
-        '\xB9\x07 \x02\x02\xB9\xBA\x07/\x02\x02\xBA\xBD\x07!\x02\x02\xBB\xBD\x07' +
-        '/\x02\x02\xBC\xB8\x03\x02\x02\x02\xBC\xBB\x03\x02\x02\x02\xBD!\x03\x02' +
-        "\x02\x02\xBE\xBF\t\x02\x02\x02\xBF#\x03\x02\x02\x02\x16\'6AQZdhnrx\x7F" +
-        '\x81\x85\x8B\x92\x94\x9C\xA8\xAF\xBC'
+        '\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x04' +
+        '\x13\t\x13\x04\x14\t\x14\x04\x15\t\x15\x04\x16\t\x16\x04\x17\t\x17\x04' +
+        '\x18\t\x18\x04\x19\t\x19\x04\x1A\t\x1A\x03\x02\x07\x026\n\x02\f\x02\x0E' +
+        '\x029\v\x02\x03\x02\x03\x02\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03' +
+        '\x03\x03\x03\x03\x03\x03\x03\x03\x03\x05\x03G\n\x03\x03\x04\x03\x04\x03' +
+        '\x04\x03\x04\x03\x04\x03\x04\x03\x05\x03\x05\x03\x05\x05\x05R\n\x05\x03' +
+        '\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x07\x03\x07\x03\x07\x03\x07\x03' +
+        '\x07\x03\x07\x03\x07\x03\x07\x03\x07\x05\x07b\n\x07\x03\b\x03\b\x03\b' +
+        '\x03\b\x03\b\x03\t\x03\t\x05\tk\n\t\x03\t\x03\t\x03\t\x03\t\x03\t\x03' +
+        '\t\x03\t\x03\t\x05\tu\n\t\x03\t\x03\t\x05\ty\n\t\x03\n\x03\n\x03\n\x03' +
+        '\n\x05\n\x7F\n\n\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x05\v\x87\n\v\x03' +
+        '\f\x03\f\x05\f\x8B\n\f\x03\r\x03\r\x03\r\x03\r\x03\r\x03\x0E\x03\x0E\x03' +
+        '\x0E\x03\x0E\x06\x0E\x96\n\x0E\r\x0E\x0E\x0E\x97\x03\x0E\x03\x0E\x05\x0E' +
+        '\x9C\n\x0E\x03\x0F\x03\x0F\x06\x0F\xA0\n\x0F\r\x0F\x0E\x0F\xA1\x03\x10' +
+        '\x03\x10\x03\x10\x03\x11\x03\x11\x03\x11\x03\x11\x03\x11\x03\x12\x03\x12' +
+        '\x03\x12\x03\x13\x03\x13\x03\x13\x03\x14\x03\x14\x03\x14\x03\x14\x03\x14' +
+        '\x03\x14\x03\x14\x03\x14\x03\x14\x03\x14\x05\x14\xBC\n\x14\x03\x15\x03' +
+        '\x15\x03\x15\x06\x15\xC1\n\x15\r\x15\x0E\x15\xC2\x03\x15\x03\x15\x03\x16' +
+        '\x03\x16\x05\x16\xC9\n\x16\x03\x16\x03\x16\x03\x16\x03\x16\x05\x16\xCF' +
+        '\n\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x05\x16\xD6\n\x16\x05\x16' +
+        '\xD8\n\x16\x03\x17\x03\x17\x05\x17\xDC\n\x17\x03\x17\x03\x17\x03\x17\x03' +
+        '\x17\x05\x17\xE2\n\x17\x03\x17\x03\x17\x03\x17\x03\x17\x03\x17\x05\x17' +
+        '\xE9\n\x17\x05\x17\xEB\n\x17\x03\x18\x03\x18\x03\x18\x03\x18\x03\x18\x05' +
+        '\x18\xF2\n\x18\x03\x19\x06\x19\xF5\n\x19\r\x19\x0E\x19\xF6\x03\x19\x06' +
+        '\x19\xFA\n\x19\r\x19\x0E\x19\xFB\x03\x19\x06\x19\xFF\n\x19\r\x19\x0E\x19' +
+        '\u0100\x03\x19\x06\x19\u0104\n\x19\r\x19\x0E\x19\u0105\x05\x19\u0108\n' +
+        '\x19\x03\x1A\x03\x1A\x03\x1A\x02\x02\x02\x1B\x02\x02\x04\x02\x06\x02\b' +
+        '\x02\n\x02\f\x02\x0E\x02\x10\x02\x12\x02\x14\x02\x16\x02\x18\x02\x1A\x02' +
+        '\x1C\x02\x1E\x02 \x02"\x02$\x02&\x02(\x02*\x02,\x02.\x020\x022\x02\x02' +
+        '\x03\x03\x029:\x02\u011F\x027\x03\x02\x02\x02\x04F\x03\x02\x02\x02\x06' +
+        'H\x03\x02\x02\x02\bQ\x03\x02\x02\x02\nS\x03\x02\x02\x02\fa\x03\x02\x02' +
+        '\x02\x0Ec\x03\x02\x02\x02\x10x\x03\x02\x02\x02\x12~\x03\x02\x02\x02\x14' +
+        '\x86\x03\x02\x02\x02\x16\x8A\x03\x02\x02\x02\x18\x8C\x03\x02\x02\x02\x1A' +
+        '\x91\x03\x02\x02\x02\x1C\x9D\x03\x02\x02\x02\x1E\xA3\x03\x02\x02\x02 ' +
+        '\xA6\x03\x02\x02\x02"\xAB\x03\x02\x02\x02$\xAE\x03\x02\x02\x02&\xBB\x03' +
+        '\x02\x02\x02(\xBD\x03\x02\x02\x02*\xD7\x03\x02\x02\x02,\xEA\x03\x02\x02' +
+        '\x02.\xF1\x03\x02\x02\x020\u0107\x03\x02\x02\x022\u0109\x03\x02\x02\x02' +
+        '46\x05\x04\x03\x0254\x03\x02\x02\x0269\x03\x02\x02\x0275\x03\x02\x02\x02' +
+        '78\x03\x02\x02\x028:\x03\x02\x02\x0297\x03\x02\x02\x02:;\x07\x02\x02\x03' +
+        ';\x03\x03\x02\x02\x02<G\x05\x0E\b\x02=G\x05*\x16\x02>G\x05\x10\t\x02?' +
+        'G\x05,\x17\x02@G\x05&\x14\x02AG\x05\n\x06\x02BG\x05\x06\x04\x02CG\x05' +
+        '\x16\f\x02DG\x05\b\x05\x02EG\x052\x1A\x02F<\x03\x02\x02\x02F=\x03\x02' +
+        '\x02\x02F>\x03\x02\x02\x02F?\x03\x02\x02\x02F@\x03\x02\x02\x02FA\x03\x02' +
+        '\x02\x02FB\x03\x02\x02\x02FC\x03\x02\x02\x02FD\x03\x02\x02\x02FE\x03\x02' +
+        '\x02\x02G\x05\x03\x02\x02\x02HI\x07\x03\x02\x02IJ\x05\x04\x03\x02JK\x07' +
+        '\x04\x02\x02KL\x07\x05\x02\x02LM\x05\x04\x03\x02M\x07\x03\x02\x02\x02' +
+        'NR\x05\x12\n\x02OR\x050\x19\x02PR\x070\x02\x02QN\x03\x02\x02\x02QO\x03' +
+        '\x02\x02\x02QP\x03\x02\x02\x02R\t\x03\x02\x02\x02ST\x05\x14\v\x02TU\x07' +
+        '\x04\x02\x02UV\x05\b\x05\x02VW\x07\x07\x02\x02W\v\x03\x02\x02\x02XY\x07' +
+        '\x19\x02\x02YZ\x079\x02\x02Zb\x07\x1A\x02\x02[\\\x07\r\x02\x02\\]\x07' +
+        '9\x02\x02]b\x07\x0E\x02\x02^_\x07\x0F\x02\x02_`\x079\x02\x02`b\x07\x10' +
+        '\x02\x02aX\x03\x02\x02\x02a[\x03\x02\x02\x02a^\x03\x02\x02\x02b\r\x03' +
+        '\x02\x02\x02cd\x07\v\x02\x02de\x05\f\x07\x02ef\x07\f\x02\x02fg\x05\x14' +
+        '\v\x02g\x0F\x03\x02\x02\x02hj\x07\x11\x02\x02ik\x07\n\x02\x02ji\x03\x02' +
+        '\x02\x02jk\x03\x02\x02\x02kl\x03\x02\x02\x02lm\x05\x12\n\x02mn\x07\t\x02' +
+        '\x02no\x05\x14\v\x02oy\x03\x02\x02\x02pq\x07\x11\x02\x02qr\x07\t\x02\x02' +
+        'rt\x05\x14\v\x02su\x07\n\x02\x02ts\x03\x02\x02\x02tu\x03\x02\x02\x02u' +
+        'v\x03\x02\x02\x02vw\x05\x12\n\x02wy\x03\x02\x02\x02xh\x03\x02\x02\x02' +
+        'xp\x03\x02\x02\x02y\x11\x03\x02\x02\x02z\x7F\x07\x13\x02\x02{\x7F\x07' +
+        '\x14\x02\x02|\x7F\x07\x15\x02\x02}\x7F\x07\x16\x02\x02~z\x03\x02\x02\x02' +
+        '~{\x03\x02\x02\x02~|\x03\x02\x02\x02~}\x03\x02\x02\x02\x7F\x13\x03\x02' +
+        '\x02\x02\x80\x81\x07\x17\x02\x02\x81\x82\x079\x02\x02\x82\x87\x07\x18' +
+        '\x02\x02\x83\x84\x07\x19\x02\x02\x84\x85\x079\x02\x02\x85\x87\x07\x1A' +
+        '\x02\x02\x86\x80\x03\x02\x02\x02\x86\x83\x03\x02\x02\x02\x87\x15\x03\x02' +
+        '\x02\x02\x88\x8B\x05\x18\r\x02\x89\x8B\x05\x1A\x0E\x02\x8A\x88\x03\x02' +
+        '\x02\x02\x8A\x89\x03\x02\x02\x02\x8B\x17\x03\x02\x02\x02\x8C\x8D\x07\x1B' +
+        '\x02\x02\x8D\x8E\x05\x14\v\x02\x8E\x8F\x07\x1C\x02\x02\x8F\x90\x05\x14' +
+        '\v\x02\x90\x19\x03\x02\x02\x02\x91\x95\x05\x1C\x0F\x02\x92\x96\x05\x1C' +
+        '\x0F\x02\x93\x96\x05\x1E\x10\x02\x94\x96\x05 \x11\x02\x95\x92\x03\x02' +
+        '\x02\x02\x95\x93\x03\x02\x02\x02\x95\x94\x03\x02\x02\x02\x96\x97\x03\x02' +
+        '\x02\x02\x97\x95\x03\x02\x02\x02\x97\x98\x03\x02\x02\x02\x98\x9B\x03\x02' +
+        '\x02\x02\x99\x9C\x05"\x12\x02\x9A\x9C\x05$\x13\x02\x9B\x99\x03\x02\x02' +
+        '\x02\x9B\x9A\x03\x02\x02\x02\x9C\x1B\x03\x02\x02\x02\x9D\x9F\x07\x1D\x02' +
+        '\x02\x9E\xA0\x05\x14\v\x02\x9F\x9E\x03\x02\x02\x02\xA0\xA1\x03\x02\x02' +
+        '\x02\xA1\x9F\x03\x02\x02\x02\xA1\xA2\x03\x02\x02\x02\xA2\x1D\x03\x02\x02' +
+        '\x02\xA3\xA4\x07\x1F\x02\x02\xA4\xA5\x05\x14\v\x02\xA5\x1F\x03\x02\x02' +
+        '\x02\xA6\xA7\x07 \x02\x02\xA7\xA8\x050\x19\x02\xA8\xA9\x07\x1F\x02\x02' +
+        '\xA9\xAA\x05\x14\v\x02\xAA!\x03\x02\x02\x02\xAB\xAC\x07 \x02\x02\xAC\xAD' +
+        '\x05\x14\v\x02\xAD#\x03\x02\x02\x02\xAE\xAF\x07 \x02\x02\xAF\xB0\x07!' +
+        "\x02\x02\xB0%\x03\x02\x02\x02\xB1\xB2\x07\'\x02\x02\xB2\xB3\x07\t\x02" +
+        '\x02\xB3\xB4\x05\x14\v\x02\xB4\xB5\x05(\x15\x02\xB5\xB6\x07#\x02\x02\xB6' +
+        "\xB7\x07$\x02\x02\xB7\xBC\x03\x02\x02\x02\xB8\xB9\x07\'\x02\x02\xB9\xBA" +
+        '\x07\t\x02\x02\xBA\xBC\x05\x14\v\x02\xBB\xB1\x03\x02\x02\x02\xBB\xB8\x03' +
+        "\x02\x02\x02\xBC\'\x03\x02\x02\x02\xBD\xC0\x07%\x02\x02\xBE\xBF\x07\t" +
+        '\x02\x02\xBF\xC1\x05\x14\v\x02\xC0\xBE\x03\x02\x02\x02\xC1\xC2\x03\x02' +
+        '\x02\x02\xC2\xC0\x03\x02\x02\x02\xC2\xC3\x03\x02\x02\x02\xC3\xC4\x03\x02' +
+        '\x02\x02\xC4\xC5\x07&\x02\x02\xC5)\x03\x02\x02\x02\xC6\xC8\x07,\x02\x02' +
+        '\xC7\xC9\x07\n\x02\x02\xC8\xC7\x03\x02\x02\x02\xC8\xC9\x03\x02\x02\x02' +
+        '\xC9\xCA\x03\x02\x02\x02\xCA\xCB\x05.\x18\x02\xCB\xCC\x07\t\x02\x02\xCC' +
+        '\xCE\x05\x14\v\x02\xCD\xCF\x07\x07\x02\x02\xCE\xCD\x03\x02\x02\x02\xCE' +
+        '\xCF\x03\x02\x02\x02\xCF\xD8\x03\x02\x02\x02\xD0\xD1\x07-\x02\x02\xD1' +
+        '\xD2\x05.\x18\x02\xD2\xD3\x07\t\x02\x02\xD3\xD5\x05\x14\v\x02\xD4\xD6' +
+        '\x07\x07\x02\x02\xD5\xD4\x03\x02\x02\x02\xD5\xD6\x03\x02\x02\x02\xD6\xD8' +
+        '\x03\x02\x02\x02\xD7\xC6\x03\x02\x02\x02\xD7\xD0\x03\x02\x02\x02\xD8+' +
+        '\x03\x02\x02\x02\xD9\xDB\x07.\x02\x02\xDA\xDC\x07\n\x02\x02\xDB\xDA\x03' +
+        '\x02\x02\x02\xDB\xDC\x03\x02\x02\x02\xDC\xDD\x03\x02\x02\x02\xDD\xDE\x05' +
+        '.\x18\x02\xDE\xDF\x07\t\x02\x02\xDF\xE1\x05\x14\v\x02\xE0\xE2\x07\x07' +
+        '\x02\x02\xE1\xE0\x03\x02\x02\x02\xE1\xE2\x03\x02\x02\x02\xE2\xEB\x03\x02' +
+        '\x02\x02\xE3\xE4\x07/\x02\x02\xE4\xE5\x05.\x18\x02\xE5\xE6\x07\t\x02\x02' +
+        '\xE6\xE8\x05\x14\v\x02\xE7\xE9\x07\x07\x02\x02\xE8\xE7\x03\x02\x02\x02' +
+        '\xE8\xE9\x03\x02\x02\x02\xE9\xEB\x03\x02\x02\x02\xEA\xD9\x03\x02\x02\x02' +
+        '\xEA\xE3\x03\x02\x02\x02\xEB-\x03\x02\x02\x02\xEC\xED\x07\x19\x02\x02' +
+        '\xED\xEE\x050\x19\x02\xEE\xEF\x07\x1A\x02\x02\xEF\xF2\x03\x02\x02\x02' +
+        '\xF0\xF2\x050\x19\x02\xF1\xEC\x03\x02\x02\x02\xF1\xF0\x03\x02\x02\x02' +
+        '\xF2/\x03\x02\x02\x02\xF3\xF5\x073\x02\x02\xF4\xF3\x03\x02\x02\x02\xF5' +
+        '\xF6\x03\x02\x02\x02\xF6\xF4\x03\x02\x02\x02\xF6\xF7\x03\x02\x02\x02\xF7' +
+        '\u0108\x03\x02\x02\x02\xF8\xFA\x075\x02\x02\xF9\xF8\x03\x02\x02\x02\xFA' +
+        '\xFB\x03\x02\x02\x02\xFB\xF9\x03\x02\x02\x02\xFB\xFC\x03\x02\x02\x02\xFC' +
+        '\u0108\x03\x02\x02\x02\xFD\xFF\x074\x02\x02\xFE\xFD\x03\x02\x02\x02\xFF' +
+        '\u0100\x03\x02\x02\x02\u0100\xFE\x03\x02\x02\x02\u0100\u0101\x03\x02\x02' +
+        '\x02\u0101\u0108\x03\x02\x02\x02\u0102\u0104\x076\x02\x02\u0103\u0102' +
+        '\x03\x02\x02\x02\u0104\u0105\x03\x02\x02\x02\u0105\u0103\x03\x02\x02\x02' +
+        '\u0105\u0106\x03\x02\x02\x02\u0106\u0108\x03\x02\x02\x02\u0107\xF4\x03' +
+        '\x02\x02\x02\u0107\xF9\x03\x02\x02\x02\u0107\xFE\x03\x02\x02\x02\u0107' +
+        '\u0103\x03\x02\x02\x02\u01081\x03\x02\x02\x02\u0109\u010A\t\x02\x02\x02' +
+        '\u010A3\x03\x02\x02\x02 7FQajtx~\x86\x8A\x95\x97\x9B\xA1\xBB\xC2\xC8\xCE' +
+        '\xD5\xD7\xDB\xE1\xE8\xEA\xF1\xF6\xFB\u0100\u0105\u0107'
     public static __ATN: ATN
     public static get _ATN(): ATN {
         if (!WenyanParser.__ATN) {
@@ -1284,7 +1754,9 @@ export class DataContext extends ParserRuleContext {
     public string(): StringContext | undefined {
         return this.tryGetRuleContext(0, StringContext)
     }
-    public Number(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.Number, 0) }
+    public digits(): DigitsContext | undefined {
+        return this.tryGetRuleContext(0, DigitsContext)
+    }
     public Boolean(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.Boolean, 0) }
     constructor(parent: ParserRuleContext | undefined, invokingState: number) {
         super(parent, invokingState)
@@ -1560,88 +2032,6 @@ export class StringRemove1Context extends StringContext {
 }
 
 
-export class DeclareNumberContext extends ParserRuleContext {
-    public _v: VariableContext
-    public DeclareDigit(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.DeclareDigit, 0) }
-    public number(): NumberContext {
-        return this.getRuleContext(0, NumberContext)
-    }
-    public NameAs(): TerminalNode { return this.getToken(WenyanParser.NameAs, 0) }
-    public variable(): VariableContext {
-        return this.getRuleContext(0, VariableContext)
-    }
-    public ValueIs(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.ValueIs, 0) }
-    public EndStatment(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.EndStatment, 0) }
-    public DeclareDigitIs(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.DeclareDigitIs, 0) }
-    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
-        super(parent, invokingState)
-    }
-    // @Override
-    public get ruleIndex(): number { return WenyanParser.RULE_declareNumber }
-    // @Override
-    public enterRule(listener: WenyanListener): void {
-        if (listener.enterDeclareNumber) {
-            listener.enterDeclareNumber(this)
-        }
-    }
-    // @Override
-    public exitRule(listener: WenyanListener): void {
-        if (listener.exitDeclareNumber) {
-            listener.exitDeclareNumber(this)
-        }
-    }
-    // @Override
-    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
-        if (visitor.visitDeclareNumber) {
-            return visitor.visitDeclareNumber(this)
-        } else {
-            return visitor.visitChildren(this)
-        }
-    }
-}
-
-
-export class DeclareBooleanContext extends ParserRuleContext {
-    public _v: VariableContext
-    public DeclareBoolean(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.DeclareBoolean, 0) }
-    public number(): NumberContext {
-        return this.getRuleContext(0, NumberContext)
-    }
-    public NameAs(): TerminalNode { return this.getToken(WenyanParser.NameAs, 0) }
-    public variable(): VariableContext {
-        return this.getRuleContext(0, VariableContext)
-    }
-    public ValueIs(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.ValueIs, 0) }
-    public EndStatment(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.EndStatment, 0) }
-    public DeclareBooleanIs(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.DeclareBooleanIs, 0) }
-    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
-        super(parent, invokingState)
-    }
-    // @Override
-    public get ruleIndex(): number { return WenyanParser.RULE_declareBoolean }
-    // @Override
-    public enterRule(listener: WenyanListener): void {
-        if (listener.enterDeclareBoolean) {
-            listener.enterDeclareBoolean(this)
-        }
-    }
-    // @Override
-    public exitRule(listener: WenyanListener): void {
-        if (listener.exitDeclareBoolean) {
-            listener.exitDeclareBoolean(this)
-        }
-    }
-    // @Override
-    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
-        if (visitor.visitDeclareBoolean) {
-            return visitor.visitDeclareBoolean(this)
-        } else {
-            return visitor.visitChildren(this)
-        }
-    }
-}
-
-
 export class VariableContext extends ParserRuleContext {
     public _v: Token
     public Left(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.Left, 0) }
@@ -1670,6 +2060,318 @@ export class VariableContext extends ParserRuleContext {
     public accept<Result>(visitor: WenyanVisitor<Result>): Result {
         if (visitor.visitVariable) {
             return visitor.visitVariable(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class ApplyContext extends ParserRuleContext {
+    public applyFunction(): ApplyFunctionContext | undefined {
+        return this.tryGetRuleContext(0, ApplyFunctionContext)
+    }
+    public applyStack(): ApplyStackContext | undefined {
+        return this.tryGetRuleContext(0, ApplyStackContext)
+    }
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_apply }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterApply) {
+            listener.enterApply(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitApply) {
+            listener.exitApply(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitApply) {
+            return visitor.visitApply(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class ApplyFunctionContext extends ParserRuleContext {
+    public _f: VariableContext
+    public _x: VariableContext
+    public Apply(): TerminalNode { return this.getToken(WenyanParser.Apply, 0) }
+    public At(): TerminalNode { return this.getToken(WenyanParser.At, 0) }
+    public variable(): VariableContext[]
+    public variable(i: number): VariableContext
+    public variable(i?: number): VariableContext | VariableContext[] {
+        if (i === undefined) {
+            return this.getRuleContexts(VariableContext)
+        } else {
+            return this.getRuleContext(i, VariableContext)
+        }
+    }
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_applyFunction }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterApplyFunction) {
+            listener.enterApplyFunction(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitApplyFunction) {
+            listener.exitApplyFunction(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitApplyFunction) {
+            return visitor.visitApplyFunction(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class ApplyStackContext extends ParserRuleContext {
+    public stackIn(): StackInContext[]
+    public stackIn(i: number): StackInContext
+    public stackIn(i?: number): StackInContext | StackInContext[] {
+        if (i === undefined) {
+            return this.getRuleContexts(StackInContext)
+        } else {
+            return this.getRuleContext(i, StackInContext)
+        }
+    }
+    public stackOut(): StackOutContext | undefined {
+        return this.tryGetRuleContext(0, StackOutContext)
+    }
+    public stackReturn(): StackReturnContext | undefined {
+        return this.tryGetRuleContext(0, StackReturnContext)
+    }
+    public stackPopOne(): StackPopOneContext[]
+    public stackPopOne(i: number): StackPopOneContext
+    public stackPopOne(i?: number): StackPopOneContext | StackPopOneContext[] {
+        if (i === undefined) {
+            return this.getRuleContexts(StackPopOneContext)
+        } else {
+            return this.getRuleContext(i, StackPopOneContext)
+        }
+    }
+    public stackPop(): StackPopContext[]
+    public stackPop(i: number): StackPopContext
+    public stackPop(i?: number): StackPopContext | StackPopContext[] {
+        if (i === undefined) {
+            return this.getRuleContexts(StackPopContext)
+        } else {
+            return this.getRuleContext(i, StackPopContext)
+        }
+    }
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_applyStack }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterApplyStack) {
+            listener.enterApplyStack(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitApplyStack) {
+            listener.exitApplyStack(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitApplyStack) {
+            return visitor.visitApplyStack(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class StackInContext extends ParserRuleContext {
+    public StackIn(): TerminalNode { return this.getToken(WenyanParser.StackIn, 0) }
+    public variable(): VariableContext[]
+    public variable(i: number): VariableContext
+    public variable(i?: number): VariableContext | VariableContext[] {
+        if (i === undefined) {
+            return this.getRuleContexts(VariableContext)
+        } else {
+            return this.getRuleContext(i, VariableContext)
+        }
+    }
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_stackIn }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterStackIn) {
+            listener.enterStackIn(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitStackIn) {
+            listener.exitStackIn(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitStackIn) {
+            return visitor.visitStackIn(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class StackPopOneContext extends ParserRuleContext {
+    public StackPop(): TerminalNode { return this.getToken(WenyanParser.StackPop, 0) }
+    public variable(): VariableContext {
+        return this.getRuleContext(0, VariableContext)
+    }
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_stackPopOne }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterStackPopOne) {
+            listener.enterStackPopOne(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitStackPopOne) {
+            listener.exitStackPopOne(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitStackPopOne) {
+            return visitor.visitStackPopOne(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class StackPopContext extends ParserRuleContext {
+    public Get(): TerminalNode { return this.getToken(WenyanParser.Get, 0) }
+    public digits(): DigitsContext {
+        return this.getRuleContext(0, DigitsContext)
+    }
+    public StackPop(): TerminalNode { return this.getToken(WenyanParser.StackPop, 0) }
+    public variable(): VariableContext {
+        return this.getRuleContext(0, VariableContext)
+    }
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_stackPop }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterStackPop) {
+            listener.enterStackPop(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitStackPop) {
+            listener.exitStackPop(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitStackPop) {
+            return visitor.visitStackPop(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class StackOutContext extends ParserRuleContext {
+    public Get(): TerminalNode { return this.getToken(WenyanParser.Get, 0) }
+    public variable(): VariableContext {
+        return this.getRuleContext(0, VariableContext)
+    }
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_stackOut }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterStackOut) {
+            listener.enterStackOut(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitStackOut) {
+            listener.exitStackOut(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitStackOut) {
+            return visitor.visitStackOut(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class StackReturnContext extends ParserRuleContext {
+    public Get(): TerminalNode { return this.getToken(WenyanParser.Get, 0) }
+    public The(): TerminalNode { return this.getToken(WenyanParser.The, 0) }
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_stackReturn }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterStackReturn) {
+            listener.enterStackReturn(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitStackReturn) {
+            listener.exitStackReturn(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitStackReturn) {
+            return visitor.visitStackReturn(this)
         } else {
             return visitor.visitChildren(this)
         }
@@ -1765,41 +2467,82 @@ export class VariablesContext extends ParserRuleContext {
 }
 
 
-export class ApplyContext extends ParserRuleContext {
-    public _f: VariableContext
-    public _x: VariableContext
-    public Apply(): TerminalNode { return this.getToken(WenyanParser.Apply, 0) }
-    public At(): TerminalNode { return this.getToken(WenyanParser.At, 0) }
-    public variable(): VariableContext[]
-    public variable(i: number): VariableContext
-    public variable(i?: number): VariableContext | VariableContext[] {
-        if (i === undefined) {
-            return this.getRuleContexts(VariableContext)
-        } else {
-            return this.getRuleContext(i, VariableContext)
-        }
+export class DeclareNumberContext extends ParserRuleContext {
+    public _n: NumberContext
+    public _v: VariableContext
+    public DeclareDigit(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.DeclareDigit, 0) }
+    public NameAs(): TerminalNode { return this.getToken(WenyanParser.NameAs, 0) }
+    public number(): NumberContext {
+        return this.getRuleContext(0, NumberContext)
     }
+    public variable(): VariableContext {
+        return this.getRuleContext(0, VariableContext)
+    }
+    public ValueIs(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.ValueIs, 0) }
+    public EndStatment(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.EndStatment, 0) }
+    public DeclareDigitIs(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.DeclareDigitIs, 0) }
     constructor(parent: ParserRuleContext | undefined, invokingState: number) {
         super(parent, invokingState)
     }
     // @Override
-    public get ruleIndex(): number { return WenyanParser.RULE_apply }
+    public get ruleIndex(): number { return WenyanParser.RULE_declareNumber }
     // @Override
     public enterRule(listener: WenyanListener): void {
-        if (listener.enterApply) {
-            listener.enterApply(this)
+        if (listener.enterDeclareNumber) {
+            listener.enterDeclareNumber(this)
         }
     }
     // @Override
     public exitRule(listener: WenyanListener): void {
-        if (listener.exitApply) {
-            listener.exitApply(this)
+        if (listener.exitDeclareNumber) {
+            listener.exitDeclareNumber(this)
         }
     }
     // @Override
     public accept<Result>(visitor: WenyanVisitor<Result>): Result {
-        if (visitor.visitApply) {
-            return visitor.visitApply(this)
+        if (visitor.visitDeclareNumber) {
+            return visitor.visitDeclareNumber(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class DeclareBooleanContext extends ParserRuleContext {
+    public _v: VariableContext
+    public DeclareBoolean(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.DeclareBoolean, 0) }
+    public number(): NumberContext {
+        return this.getRuleContext(0, NumberContext)
+    }
+    public NameAs(): TerminalNode { return this.getToken(WenyanParser.NameAs, 0) }
+    public variable(): VariableContext {
+        return this.getRuleContext(0, VariableContext)
+    }
+    public ValueIs(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.ValueIs, 0) }
+    public EndStatment(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.EndStatment, 0) }
+    public DeclareBooleanIs(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.DeclareBooleanIs, 0) }
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_declareBoolean }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterDeclareBoolean) {
+            listener.enterDeclareBoolean(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitDeclareBoolean) {
+            listener.exitDeclareBoolean(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitDeclareBoolean) {
+            return visitor.visitDeclareBoolean(this)
         } else {
             return visitor.visitChildren(this)
         }
@@ -1808,10 +2551,12 @@ export class ApplyContext extends ParserRuleContext {
 
 
 export class NumberContext extends ParserRuleContext {
-    public _n: Token
+    public _n: DigitsContext
     public Left3(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.Left3, 0) }
     public Right3(): TerminalNode | undefined { return this.tryGetToken(WenyanParser.Right3, 0) }
-    public Number(): TerminalNode { return this.getToken(WenyanParser.Number, 0) }
+    public digits(): DigitsContext {
+        return this.getRuleContext(0, DigitsContext)
+    }
     constructor(parent: ParserRuleContext | undefined, invokingState: number) {
         super(parent, invokingState)
     }
@@ -1833,6 +2578,158 @@ export class NumberContext extends ParserRuleContext {
     public accept<Result>(visitor: WenyanVisitor<Result>): Result {
         if (visitor.visitNumber) {
             return visitor.visitNumber(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+
+
+export class DigitsContext extends ParserRuleContext {
+    constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+        super(parent, invokingState)
+    }
+    // @Override
+    public get ruleIndex(): number { return WenyanParser.RULE_digits }
+    public copyFrom(ctx: DigitsContext): void {
+        super.copyFrom(ctx)
+    }
+}
+export class NumberIntegerContext extends DigitsContext {
+    public IntegerDigit(): TerminalNode[]
+    public IntegerDigit(i: number): TerminalNode
+    public IntegerDigit(i?: number): TerminalNode | TerminalNode[] {
+        if (i === undefined) {
+            return this.getTokens(WenyanParser.IntegerDigit)
+        } else {
+            return this.getToken(WenyanParser.IntegerDigit, i)
+        }
+    }
+    constructor(ctx: DigitsContext) {
+        super(ctx.parent, ctx.invokingState)
+        this.copyFrom(ctx)
+    }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterNumberInteger) {
+            listener.enterNumberInteger(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitNumberInteger) {
+            listener.exitNumberInteger(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitNumberInteger) {
+            return visitor.visitNumberInteger(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+export class NumberIntegerCNContext extends DigitsContext {
+    public IntegerDigitCN(): TerminalNode[]
+    public IntegerDigitCN(i: number): TerminalNode
+    public IntegerDigitCN(i?: number): TerminalNode | TerminalNode[] {
+        if (i === undefined) {
+            return this.getTokens(WenyanParser.IntegerDigitCN)
+        } else {
+            return this.getToken(WenyanParser.IntegerDigitCN, i)
+        }
+    }
+    constructor(ctx: DigitsContext) {
+        super(ctx.parent, ctx.invokingState)
+        this.copyFrom(ctx)
+    }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterNumberIntegerCN) {
+            listener.enterNumberIntegerCN(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitNumberIntegerCN) {
+            listener.exitNumberIntegerCN(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitNumberIntegerCN) {
+            return visitor.visitNumberIntegerCN(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+export class NumberFloatContext extends DigitsContext {
+    public FloatDigit(): TerminalNode[]
+    public FloatDigit(i: number): TerminalNode
+    public FloatDigit(i?: number): TerminalNode | TerminalNode[] {
+        if (i === undefined) {
+            return this.getTokens(WenyanParser.FloatDigit)
+        } else {
+            return this.getToken(WenyanParser.FloatDigit, i)
+        }
+    }
+    constructor(ctx: DigitsContext) {
+        super(ctx.parent, ctx.invokingState)
+        this.copyFrom(ctx)
+    }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterNumberFloat) {
+            listener.enterNumberFloat(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitNumberFloat) {
+            listener.exitNumberFloat(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitNumberFloat) {
+            return visitor.visitNumberFloat(this)
+        } else {
+            return visitor.visitChildren(this)
+        }
+    }
+}
+export class NumberFloatCNContext extends DigitsContext {
+    public FloatDigitCN(): TerminalNode[]
+    public FloatDigitCN(i: number): TerminalNode
+    public FloatDigitCN(i?: number): TerminalNode | TerminalNode[] {
+        if (i === undefined) {
+            return this.getTokens(WenyanParser.FloatDigitCN)
+        } else {
+            return this.getToken(WenyanParser.FloatDigitCN, i)
+        }
+    }
+    constructor(ctx: DigitsContext) {
+        super(ctx.parent, ctx.invokingState)
+        this.copyFrom(ctx)
+    }
+    // @Override
+    public enterRule(listener: WenyanListener): void {
+        if (listener.enterNumberFloatCN) {
+            listener.enterNumberFloatCN(this)
+        }
+    }
+    // @Override
+    public exitRule(listener: WenyanListener): void {
+        if (listener.exitNumberFloatCN) {
+            listener.exitNumberFloatCN(this)
+        }
+    }
+    // @Override
+    public accept<Result>(visitor: WenyanVisitor<Result>): Result {
+        if (visitor.visitNumberFloatCN) {
+            return visitor.visitNumberFloatCN(this)
         } else {
             return visitor.visitChildren(this)
         }

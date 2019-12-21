@@ -1,4 +1,4 @@
-// Generated from Wenyan.g4 by ANTLR 4.7.3-SNAPSHOT
+// Generated from packages/Wenyan.g4 by ANTLR 4.7.3-SNAPSHOT
 
 
 import { ParseTreeVisitor } from 'antlr4ts/tree/ParseTreeVisitor'
@@ -6,6 +6,10 @@ import { ParseTreeVisitor } from 'antlr4ts/tree/ParseTreeVisitor'
 import { StringRemove0Context } from './WenyanParser'
 import { StringRemove2Context } from './WenyanParser'
 import { StringRemove1Context } from './WenyanParser'
+import { NumberIntegerContext } from './WenyanParser'
+import { NumberIntegerCNContext } from './WenyanParser'
+import { NumberFloatContext } from './WenyanParser'
+import { NumberFloatCNContext } from './WenyanParser'
 import { ProgramContext } from './WenyanParser'
 import { StatementContext } from './WenyanParser'
 import { IfStatementContext } from './WenyanParser'
@@ -15,13 +19,21 @@ import { ModuleContext } from './WenyanParser'
 import { DeclaremoduleContext } from './WenyanParser'
 import { DeclareStringContext } from './WenyanParser'
 import { StringContext } from './WenyanParser'
-import { DeclareNumberContext } from './WenyanParser'
-import { DeclareBooleanContext } from './WenyanParser'
 import { VariableContext } from './WenyanParser'
+import { ApplyContext } from './WenyanParser'
+import { ApplyFunctionContext } from './WenyanParser'
+import { ApplyStackContext } from './WenyanParser'
+import { StackInContext } from './WenyanParser'
+import { StackPopOneContext } from './WenyanParser'
+import { StackPopContext } from './WenyanParser'
+import { StackOutContext } from './WenyanParser'
+import { StackReturnContext } from './WenyanParser'
 import { DeclarefunctionContext } from './WenyanParser'
 import { VariablesContext } from './WenyanParser'
-import { ApplyContext } from './WenyanParser'
+import { DeclareNumberContext } from './WenyanParser'
+import { DeclareBooleanContext } from './WenyanParser'
 import { NumberContext } from './WenyanParser'
+import { DigitsContext } from './WenyanParser'
 import { SkipStatementContext } from './WenyanParser'
 
 
@@ -56,6 +68,38 @@ export interface WenyanVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
     visitStringRemove1?: (ctx: StringRemove1Context) => Result
+
+    /**
+	 * Visit a parse tree produced by the `NumberInteger`
+	 * labeled alternative in `WenyanParser.digits`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitNumberInteger?: (ctx: NumberIntegerContext) => Result
+
+    /**
+	 * Visit a parse tree produced by the `NumberIntegerCN`
+	 * labeled alternative in `WenyanParser.digits`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitNumberIntegerCN?: (ctx: NumberIntegerCNContext) => Result
+
+    /**
+	 * Visit a parse tree produced by the `NumberFloat`
+	 * labeled alternative in `WenyanParser.digits`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitNumberFloat?: (ctx: NumberFloatContext) => Result
+
+    /**
+	 * Visit a parse tree produced by the `NumberFloatCN`
+	 * labeled alternative in `WenyanParser.digits`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitNumberFloatCN?: (ctx: NumberFloatCNContext) => Result
 
     /**
 	 * Visit a parse tree produced by `WenyanParser.program`.
@@ -121,25 +165,67 @@ export interface WenyanVisitor<Result> extends ParseTreeVisitor<Result> {
     visitString?: (ctx: StringContext) => Result
 
     /**
-	 * Visit a parse tree produced by `WenyanParser.declareNumber`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-    visitDeclareNumber?: (ctx: DeclareNumberContext) => Result
-
-    /**
-	 * Visit a parse tree produced by `WenyanParser.declareBoolean`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-    visitDeclareBoolean?: (ctx: DeclareBooleanContext) => Result
-
-    /**
 	 * Visit a parse tree produced by `WenyanParser.variable`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
     visitVariable?: (ctx: VariableContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.apply`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitApply?: (ctx: ApplyContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.applyFunction`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitApplyFunction?: (ctx: ApplyFunctionContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.applyStack`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitApplyStack?: (ctx: ApplyStackContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.stackIn`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitStackIn?: (ctx: StackInContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.stackPopOne`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitStackPopOne?: (ctx: StackPopOneContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.stackPop`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitStackPop?: (ctx: StackPopContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.stackOut`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitStackOut?: (ctx: StackOutContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.stackReturn`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitStackReturn?: (ctx: StackReturnContext) => Result
 
     /**
 	 * Visit a parse tree produced by `WenyanParser.declarefunction`.
@@ -156,11 +242,18 @@ export interface WenyanVisitor<Result> extends ParseTreeVisitor<Result> {
     visitVariables?: (ctx: VariablesContext) => Result
 
     /**
-	 * Visit a parse tree produced by `WenyanParser.apply`.
+	 * Visit a parse tree produced by `WenyanParser.declareNumber`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-    visitApply?: (ctx: ApplyContext) => Result
+    visitDeclareNumber?: (ctx: DeclareNumberContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.declareBoolean`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitDeclareBoolean?: (ctx: DeclareBooleanContext) => Result
 
     /**
 	 * Visit a parse tree produced by `WenyanParser.number`.
@@ -168,6 +261,13 @@ export interface WenyanVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
     visitNumber?: (ctx: NumberContext) => Result
+
+    /**
+	 * Visit a parse tree produced by `WenyanParser.digits`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+    visitDigits?: (ctx: DigitsContext) => Result
 
     /**
 	 * Visit a parse tree produced by `WenyanParser.skipStatement`.
