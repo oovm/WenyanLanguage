@@ -156,7 +156,7 @@ class WenyanParser ( Parser ):
                       "FunctionStart", "FunctionEnd", "VariableStart", "VariableEnd", 
                       "DeclareMethod", "ThisIs", "Is", "Said", "MethodOf", 
                       "DeclareDigit", "DeclareDigitIs", "DeclareBoolean", 
-                      "DeclareBooleanIs", "Boolean", "True", "False", "IntegerDigit", 
+                      "DeclareBooleanIs", "Boolean", "TRUE", "FALSE", "IntegerDigit", 
                       "FloatDigit", "IntegerDigitCN", "FloatDigitCN", "Equal", 
                       "Unequal", "Identifier", "Character", "LineComment", 
                       "PartComment", "WhiteSpace" ]
@@ -241,8 +241,8 @@ class WenyanParser ( Parser ):
     DeclareBoolean=44
     DeclareBooleanIs=45
     Boolean=46
-    True=47
-    False=48
+    TRUE=47
+    FALSE=48
     IntegerDigit=49
     FloatDigit=50
     IntegerDigitCN=51

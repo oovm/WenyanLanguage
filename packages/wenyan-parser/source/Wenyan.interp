@@ -108,8 +108,8 @@ DeclareDigitIs
 DeclareBoolean
 DeclareBooleanIs
 Boolean
-True
-False
+TRUE
+FALSE
 IntegerDigit
 FloatDigit
 IntegerDigitCN
@@ -133,7 +133,7 @@ declaremodule
 declareString
 string
 variable
-apply
+applyStatement
 applyFunction
 applyStack
 stackIn

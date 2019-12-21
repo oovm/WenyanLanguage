@@ -20,7 +20,7 @@ import { DeclaremoduleContext } from './WenyanParser'
 import { DeclareStringContext } from './WenyanParser'
 import { StringContext } from './WenyanParser'
 import { VariableContext } from './WenyanParser'
-import { ApplyContext } from './WenyanParser'
+import { ApplyStatementContext } from './WenyanParser'
 import { ApplyFunctionContext } from './WenyanParser'
 import { ApplyStackContext } from './WenyanParser'
 import { StackInContext } from './WenyanParser'
@@ -244,15 +244,15 @@ export interface WenyanListener extends ParseTreeListener {
     exitVariable?: (ctx: VariableContext) => void
 
     /**
-	 * Enter a parse tree produced by `WenyanParser.apply`.
+	 * Enter a parse tree produced by `WenyanParser.applyStatement`.
 	 * @param ctx the parse tree
 	 */
-    enterApply?: (ctx: ApplyContext) => void
+    enterApplyStatement?: (ctx: ApplyStatementContext) => void
     /**
-	 * Exit a parse tree produced by `WenyanParser.apply`.
+	 * Exit a parse tree produced by `WenyanParser.applyStatement`.
 	 * @param ctx the parse tree
 	 */
-    exitApply?: (ctx: ApplyContext) => void
+    exitApplyStatement?: (ctx: ApplyStatementContext) => void
 
     /**
 	 * Enter a parse tree produced by `WenyanParser.applyFunction`.

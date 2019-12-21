@@ -74,8 +74,8 @@ export class WenyanParser extends Parser {
     public static readonly DeclareBoolean = 44
     public static readonly DeclareBooleanIs = 45
     public static readonly Boolean = 46
-    public static readonly True = 47
-    public static readonly False = 48
+    public static readonly TRUE = 47
+    public static readonly FALSE = 48
     public static readonly IntegerDigit = 49
     public static readonly FloatDigit = 50
     public static readonly IntegerDigitCN = 51
@@ -97,7 +97,7 @@ export class WenyanParser extends Parser {
     public static readonly RULE_declareString = 7
     public static readonly RULE_string = 8
     public static readonly RULE_variable = 9
-    public static readonly RULE_apply = 10
+    public static readonly RULE_applyStatement = 10
     public static readonly RULE_applyFunction = 11
     public static readonly RULE_applyStack = 12
     public static readonly RULE_stackIn = 13
@@ -115,10 +115,10 @@ export class WenyanParser extends Parser {
     // tslint:disable:no-trailing-whitespace
     public static readonly ruleNames: string[] = [
         'program', 'statement', 'ifStatement', 'data', 'declareData', 'module', 
-        'declaremodule', 'declareString', 'string', 'variable', 'apply', 'applyFunction', 
-        'applyStack', 'stackIn', 'stackPopOne', 'stackPop', 'stackOut', 'stackReturn', 
-        'declarefunction', 'variables', 'declareNumber', 'declareBoolean', 'number', 
-        'digits', 'skipStatement',
+        'declaremodule', 'declareString', 'string', 'variable', 'applyStatement', 
+        'applyFunction', 'applyStack', 'stackIn', 'stackPopOne', 'stackPop', 'stackOut', 
+        'stackReturn', 'declarefunction', 'variables', 'declareNumber', 'declareBoolean', 
+        'number', 'digits', 'skipStatement',
     ]
 
     private static readonly _LITERAL_NAMES: Array<string | undefined> = [
@@ -135,7 +135,7 @@ export class WenyanParser extends Parser {
         'Apply', 'At', 'StackIn', 'Take', 'StackPop', 'Get', 'The', 'End', 'FunctionStart', 
         'FunctionEnd', 'VariableStart', 'VariableEnd', 'DeclareMethod', 'ThisIs', 
         'Is', 'Said', 'MethodOf', 'DeclareDigit', 'DeclareDigitIs', 'DeclareBoolean', 
-        'DeclareBooleanIs', 'Boolean', 'True', 'False', 'IntegerDigit', 'FloatDigit', 
+        'DeclareBooleanIs', 'Boolean', 'TRUE', 'FALSE', 'IntegerDigit', 'FloatDigit', 
         'IntegerDigitCN', 'FloatDigitCN', 'Equal', 'Unequal', 'Identifier', 'Character', 
         'LineComment', 'PartComment', 'WhiteSpace',
     ]
@@ -266,7 +266,7 @@ export class WenyanParser extends Parser {
                 this.enterOuterAlt(_localctx, 8)
                 {
                 this.state = 65
-                this.apply()
+                this.applyStatement()
                 }
                 break
             case WenyanParser.StringEmpty:
@@ -696,9 +696,9 @@ export class WenyanParser extends Parser {
         return _localctx
     }
     // @RuleVersion(0)
-    public apply(): ApplyContext {
-        let _localctx: ApplyContext = new ApplyContext(this._ctx, this.state)
-        this.enterRule(_localctx, 20, WenyanParser.RULE_apply)
+    public applyStatement(): ApplyStatementContext {
+        let _localctx: ApplyStatementContext = new ApplyStatementContext(this._ctx, this.state)
+        this.enterRule(_localctx, 20, WenyanParser.RULE_applyStatement)
         try {
             this.state = 136
             this._errHandler.sync(this)
@@ -1672,8 +1672,8 @@ export class StatementContext extends ParserRuleContext {
     public ifStatement(): IfStatementContext | undefined {
         return this.tryGetRuleContext(0, IfStatementContext)
     }
-    public apply(): ApplyContext | undefined {
-        return this.tryGetRuleContext(0, ApplyContext)
+    public applyStatement(): ApplyStatementContext | undefined {
+        return this.tryGetRuleContext(0, ApplyStatementContext)
     }
     public data(): DataContext | undefined {
         return this.tryGetRuleContext(0, DataContext)
@@ -2067,7 +2067,7 @@ export class VariableContext extends ParserRuleContext {
 }
 
 
-export class ApplyContext extends ParserRuleContext {
+export class ApplyStatementContext extends ParserRuleContext {
     public applyFunction(): ApplyFunctionContext | undefined {
         return this.tryGetRuleContext(0, ApplyFunctionContext)
     }
@@ -2078,23 +2078,23 @@ export class ApplyContext extends ParserRuleContext {
         super(parent, invokingState)
     }
     // @Override
-    public get ruleIndex(): number { return WenyanParser.RULE_apply }
+    public get ruleIndex(): number { return WenyanParser.RULE_applyStatement }
     // @Override
     public enterRule(listener: WenyanListener): void {
-        if (listener.enterApply) {
-            listener.enterApply(this)
+        if (listener.enterApplyStatement) {
+            listener.enterApplyStatement(this)
         }
     }
     // @Override
     public exitRule(listener: WenyanListener): void {
-        if (listener.exitApply) {
-            listener.exitApply(this)
+        if (listener.exitApplyStatement) {
+            listener.exitApplyStatement(this)
         }
     }
     // @Override
     public accept<Result>(visitor: WenyanVisitor<Result>): Result {
-        if (visitor.visitApply) {
-            return visitor.visitApply(this)
+        if (visitor.visitApplyStatement) {
+            return visitor.visitApplyStatement(this)
         } else {
             return visitor.visitChildren(this)
         }

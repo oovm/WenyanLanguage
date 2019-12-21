@@ -22,6 +22,11 @@ class Translator(WenyanVisitor):
     # endregion
 
     # region Atom
+    def visitVariable(self, ctx: WenyanParser.VariableContext):
+        t = ctx.getText()
+        print(t)
+        return t[1:-1]
+
     def visitStringRemove0(self, ctx: WenyanParser.StringRemove0Context):
         return ''
 
@@ -54,3 +59,4 @@ class FastTests(TestCase):
     def test_ast_print(self):
         ast = self.aster("「齐谐」者，「「志怪」」者也！")
         print(ast)
+        return True

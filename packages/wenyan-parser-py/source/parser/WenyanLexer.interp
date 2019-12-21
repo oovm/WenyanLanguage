@@ -108,8 +108,8 @@ DeclareDigitIs
 DeclareBoolean
 DeclareBooleanIs
 Boolean
-True
-False
+TRUE
+FALSE
 IntegerDigit
 FloatDigit
 IntegerDigitCN
@@ -209,8 +209,8 @@ DeclareBoolean
 DeclareBooleanIs
 Bo
 Boolean
-True
-False
+TRUE
+FALSE
 IntegerDigit
 FloatDigit
 IntegerDigitCN

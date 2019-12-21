@@ -20,7 +20,7 @@ import { DeclaremoduleContext } from './WenyanParser'
 import { DeclareStringContext } from './WenyanParser'
 import { StringContext } from './WenyanParser'
 import { VariableContext } from './WenyanParser'
-import { ApplyContext } from './WenyanParser'
+import { ApplyStatementContext } from './WenyanParser'
 import { ApplyFunctionContext } from './WenyanParser'
 import { ApplyStackContext } from './WenyanParser'
 import { StackInContext } from './WenyanParser'
@@ -172,11 +172,11 @@ export interface WenyanVisitor<Result> extends ParseTreeVisitor<Result> {
     visitVariable?: (ctx: VariableContext) => Result
 
     /**
-	 * Visit a parse tree produced by `WenyanParser.apply`.
+	 * Visit a parse tree produced by `WenyanParser.applyStatement`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-    visitApply?: (ctx: ApplyContext) => Result
+    visitApplyStatement?: (ctx: ApplyStatementContext) => Result
 
     /**
 	 * Visit a parse tree produced by `WenyanParser.applyFunction`.

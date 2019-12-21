@@ -11,7 +11,7 @@ statement
     | declarefunction
     | declareData
     | ifStatement
-    | apply
+    | applyStatement
     | data
     | skipStatement;
 /*====================================================================================================================*/
@@ -99,7 +99,7 @@ Right    : '」';
 Left3    : '[';
 Right3   : ']';
 /*====================================================================================================================*/
-apply : applyFunction | applyStack;
+applyStatement : applyFunction | applyStack;
 //施「翻倍」於「大衍」
 applyFunction : Apply f = variable At x = variable;
 Apply         : Shi2; //施
@@ -173,9 +173,9 @@ DeclareBoolean   : IHave Bo;
 DeclareBooleanIs : DeclareDigit ValueIs?; //吾有一爻
 fragment Bo      : '爻';
 
-Boolean : True | False;
-True    : '阳' | '陽';
-False   : '阴' | '陰';
+Boolean : TRUE | FALSE;
+TRUE    : '阳' | '陽';
+FALSE   : '阴' | '陰';
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
 number: Left3 n = digits Right3 | n = digits;

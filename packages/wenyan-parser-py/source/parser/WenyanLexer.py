@@ -349,8 +349,8 @@ class WenyanLexer(Lexer):
     DeclareBoolean = 44
     DeclareBooleanIs = 45
     Boolean = 46
-    True = 47
-    False = 48
+    TRUE = 47
+    FALSE = 48
     IntegerDigit = 49
     FloatDigit = 50
     IntegerDigitCN = 51
@@ -380,7 +380,7 @@ class WenyanLexer(Lexer):
             "Get", "The", "End", "FunctionStart", "FunctionEnd", "VariableStart", 
             "VariableEnd", "DeclareMethod", "ThisIs", "Is", "Said", "MethodOf", 
             "DeclareDigit", "DeclareDigitIs", "DeclareBoolean", "DeclareBooleanIs", 
-            "Boolean", "True", "False", "IntegerDigit", "FloatDigit", "IntegerDigitCN", 
+            "Boolean", "TRUE", "FALSE", "IntegerDigit", "FloatDigit", "IntegerDigitCN", 
             "FloatDigitCN", "Equal", "Unequal", "Identifier", "Character", 
             "LineComment", "PartComment", "WhiteSpace" ]
 
@@ -398,7 +398,7 @@ class WenyanLexer(Lexer):
                   "VariableEnd", "Yu2", "Xing", "DeclareMethod", "Shu2", 
                   "ThisIs", "Is", "Said", "MethodOf", "Shi", "Of", "Ye", 
                   "DeclareDigit", "DeclareDigitIs", "Shu", "DeclareBoolean", 
-                  "DeclareBooleanIs", "Bo", "Boolean", "True", "False", 
+                  "DeclareBooleanIs", "Bo", "Boolean", "TRUE", "FALSE", 
                   "IntegerDigit", "FloatDigit", "IntegerDigitCN", "FloatDigitCN", 
                   "Equal", "Unequal", "Bu", "Den", "Yu", "Identifier", "Character", 
                   "ForbiddenHead", "LineComment", "PartComment", "WhiteSpace", 
