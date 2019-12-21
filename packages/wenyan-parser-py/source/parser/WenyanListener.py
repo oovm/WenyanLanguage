@@ -35,24 +35,6 @@ class WenyanListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by WenyanParser#data.
-    def enterData(self, ctx:WenyanParser.DataContext):
-        pass
-
-    # Exit a parse tree produced by WenyanParser#data.
-    def exitData(self, ctx:WenyanParser.DataContext):
-        pass
-
-
-    # Enter a parse tree produced by WenyanParser#declareData.
-    def enterDeclareData(self, ctx:WenyanParser.DeclareDataContext):
-        pass
-
-    # Exit a parse tree produced by WenyanParser#declareData.
-    def exitDeclareData(self, ctx:WenyanParser.DeclareDataContext):
-        pass
-
-
     # Enter a parse tree produced by WenyanParser#module.
     def enterModule(self, ctx:WenyanParser.ModuleContext):
         pass
@@ -71,42 +53,6 @@ class WenyanListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by WenyanParser#declareString.
-    def enterDeclareString(self, ctx:WenyanParser.DeclareStringContext):
-        pass
-
-    # Exit a parse tree produced by WenyanParser#declareString.
-    def exitDeclareString(self, ctx:WenyanParser.DeclareStringContext):
-        pass
-
-
-    # Enter a parse tree produced by WenyanParser#StringRemove0.
-    def enterStringRemove0(self, ctx:WenyanParser.StringRemove0Context):
-        pass
-
-    # Exit a parse tree produced by WenyanParser#StringRemove0.
-    def exitStringRemove0(self, ctx:WenyanParser.StringRemove0Context):
-        pass
-
-
-    # Enter a parse tree produced by WenyanParser#StringRemove2.
-    def enterStringRemove2(self, ctx:WenyanParser.StringRemove2Context):
-        pass
-
-    # Exit a parse tree produced by WenyanParser#StringRemove2.
-    def exitStringRemove2(self, ctx:WenyanParser.StringRemove2Context):
-        pass
-
-
-    # Enter a parse tree produced by WenyanParser#StringRemove1.
-    def enterStringRemove1(self, ctx:WenyanParser.StringRemove1Context):
-        pass
-
-    # Exit a parse tree produced by WenyanParser#StringRemove1.
-    def exitStringRemove1(self, ctx:WenyanParser.StringRemove1Context):
-        pass
-
-
     # Enter a parse tree produced by WenyanParser#variable.
     def enterVariable(self, ctx:WenyanParser.VariableContext):
         pass
@@ -116,12 +62,12 @@ class WenyanListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by WenyanParser#apply.
-    def enterApply(self, ctx:WenyanParser.ApplyContext):
+    # Enter a parse tree produced by WenyanParser#applyStatement.
+    def enterApplyStatement(self, ctx:WenyanParser.ApplyStatementContext):
         pass
 
-    # Exit a parse tree produced by WenyanParser#apply.
-    def exitApply(self, ctx:WenyanParser.ApplyContext):
+    # Exit a parse tree produced by WenyanParser#applyStatement.
+    def exitApplyStatement(self, ctx:WenyanParser.ApplyStatementContext):
         pass
 
 
@@ -203,6 +149,60 @@ class WenyanListener(ParseTreeListener):
 
     # Exit a parse tree produced by WenyanParser#variables.
     def exitVariables(self, ctx:WenyanParser.VariablesContext):
+        pass
+
+
+    # Enter a parse tree produced by WenyanParser#data.
+    def enterData(self, ctx:WenyanParser.DataContext):
+        pass
+
+    # Exit a parse tree produced by WenyanParser#data.
+    def exitData(self, ctx:WenyanParser.DataContext):
+        pass
+
+
+    # Enter a parse tree produced by WenyanParser#declareData.
+    def enterDeclareData(self, ctx:WenyanParser.DeclareDataContext):
+        pass
+
+    # Exit a parse tree produced by WenyanParser#declareData.
+    def exitDeclareData(self, ctx:WenyanParser.DeclareDataContext):
+        pass
+
+
+    # Enter a parse tree produced by WenyanParser#declareString.
+    def enterDeclareString(self, ctx:WenyanParser.DeclareStringContext):
+        pass
+
+    # Exit a parse tree produced by WenyanParser#declareString.
+    def exitDeclareString(self, ctx:WenyanParser.DeclareStringContext):
+        pass
+
+
+    # Enter a parse tree produced by WenyanParser#StringRemove0.
+    def enterStringRemove0(self, ctx:WenyanParser.StringRemove0Context):
+        pass
+
+    # Exit a parse tree produced by WenyanParser#StringRemove0.
+    def exitStringRemove0(self, ctx:WenyanParser.StringRemove0Context):
+        pass
+
+
+    # Enter a parse tree produced by WenyanParser#StringRemove2.
+    def enterStringRemove2(self, ctx:WenyanParser.StringRemove2Context):
+        pass
+
+    # Exit a parse tree produced by WenyanParser#StringRemove2.
+    def exitStringRemove2(self, ctx:WenyanParser.StringRemove2Context):
+        pass
+
+
+    # Enter a parse tree produced by WenyanParser#StringRemove1.
+    def enterStringRemove1(self, ctx:WenyanParser.StringRemove1Context):
+        pass
+
+    # Exit a parse tree produced by WenyanParser#StringRemove1.
+    def exitStringRemove1(self, ctx:WenyanParser.StringRemove1Context):
         pass
 
 

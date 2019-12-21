@@ -6,7 +6,8 @@ from .build_ast import Import, Literal, Expression, Define, Type, ast_build
 class Translator(WenyanVisitor):
     def visitProgram(self, ctx: WenyanParser.ProgramContext):
         stats = list(map(self.visit, ctx.statement()))
-        return ast_build(stats)
+        # return ast_build(stats)
+        return ''
 
     def visitStatement(self, ctx: WenyanParser.StatementContext):
         # debug_print("Statement", self.visitChildren(ctx))
@@ -21,24 +22,40 @@ class Translator(WenyanVisitor):
     # region Function
     # endregion
 
+    # region Declaration
+    def visitDeclareData(self, ctx: WenyanParser.DeclareDataContext):
+        v = self.visit(ctx.variable())
+        d = self.visit(ctx.data())
+        # TODO: toAST
+        print(v)
+        print(d)
+        return ''
+
+    def visitDeclareString(self, ctx: WenyanParser.DeclareStringContext):
+        v = self.visit(ctx.v)
+        s = self.visit(ctx.s)
+        # TODO: toAST
+        print(v)
+        print(s)
+        return ''
+
+    # endregion
+
     # region Atom
     def visitVariable(self, ctx: WenyanParser.VariableContext):
-        t = ctx.getText()
-        print(t)
-        return t[1:-1]
+        # TODO: toAST
+        return ctx.v.text
 
     def visitStringRemove0(self, ctx: WenyanParser.StringRemove0Context):
-        return ''
+        return Literal.from_escape_single('')
 
     def visitStringRemove1(self, ctx: WenyanParser.StringRemove1Context):
         t = ctx.getText()
-        print(t)
-        return t[1:-1]
+        return Literal.from_escape_single(t[1:-1])
 
     def visitStringRemove2(self, ctx: WenyanParser.StringRemove1Context):
         t = ctx.getText()
-        print(t)
-        return t[2:-2]
+        return Literal.from_escape_single(t[2:-2])
     # endregion
 
 
@@ -58,5 +75,4 @@ class FastTests(TestCase):
 
     def test_ast_print(self):
         ast = self.aster("「齐谐」者，「「志怪」」者也！")
-        print(ast)
         return True

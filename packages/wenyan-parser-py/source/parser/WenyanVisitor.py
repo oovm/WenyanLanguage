@@ -24,16 +24,6 @@ class WenyanVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by WenyanParser#data.
-    def visitData(self, ctx:WenyanParser.DataContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by WenyanParser#declareData.
-    def visitDeclareData(self, ctx:WenyanParser.DeclareDataContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by WenyanParser#module.
     def visitModule(self, ctx:WenyanParser.ModuleContext):
         return self.visitChildren(ctx)
@@ -44,33 +34,13 @@ class WenyanVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by WenyanParser#declareString.
-    def visitDeclareString(self, ctx:WenyanParser.DeclareStringContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by WenyanParser#StringRemove0.
-    def visitStringRemove0(self, ctx:WenyanParser.StringRemove0Context):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by WenyanParser#StringRemove2.
-    def visitStringRemove2(self, ctx:WenyanParser.StringRemove2Context):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by WenyanParser#StringRemove1.
-    def visitStringRemove1(self, ctx:WenyanParser.StringRemove1Context):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by WenyanParser#variable.
     def visitVariable(self, ctx:WenyanParser.VariableContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by WenyanParser#apply.
-    def visitApply(self, ctx:WenyanParser.ApplyContext):
+    # Visit a parse tree produced by WenyanParser#applyStatement.
+    def visitApplyStatement(self, ctx:WenyanParser.ApplyStatementContext):
         return self.visitChildren(ctx)
 
 
@@ -116,6 +86,36 @@ class WenyanVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by WenyanParser#variables.
     def visitVariables(self, ctx:WenyanParser.VariablesContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by WenyanParser#data.
+    def visitData(self, ctx:WenyanParser.DataContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by WenyanParser#declareData.
+    def visitDeclareData(self, ctx:WenyanParser.DeclareDataContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by WenyanParser#declareString.
+    def visitDeclareString(self, ctx:WenyanParser.DeclareStringContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by WenyanParser#StringRemove0.
+    def visitStringRemove0(self, ctx:WenyanParser.StringRemove0Context):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by WenyanParser#StringRemove2.
+    def visitStringRemove2(self, ctx:WenyanParser.StringRemove2Context):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by WenyanParser#StringRemove1.
+    def visitStringRemove1(self, ctx:WenyanParser.StringRemove1Context):
         return self.visitChildren(ctx)
 
 
