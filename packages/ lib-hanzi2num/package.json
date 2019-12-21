@@ -7,7 +7,7 @@
     "license": "MPL-2.0",
     "scripts": {
         "build": "tsc -b",
-        "test": "mocha -r ts-node/register 'tests/*.ts'"
+        "test": "mocha -r ts-node/register 'test/*.ts'"
     },
     "devDependencies": {
         "should": "^13.2.3"
