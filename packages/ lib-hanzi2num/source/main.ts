@@ -1,27 +1,32 @@
+import { NORM, UNIT_S, UNIT_M, UNIT_L } from './constant'
 
-//小写：〇、一、二、三、四、五、六、七、八、九、十、百、千、万、亿、兆、京、垓、秭、穰、沟、涧、正、载、极
-//大写：零、壹、贰、叁、肆、伍、陆、柒、捌、玖、拾、佰、仟、万、亿、兆、京、垓、秭、穰、沟、涧、正、载、极
-//正體：〇、壹、二、三、四、五、六、七、八、九、十、百、千、萬、億、兆、京、垓、秭、穰、溝、澗、正、載、極
+type Nullable<T> = T | null
 
-const Norm: Record<string, string> = {
-    '〇': '零',
-    '壹': '一',
-    '贰': '二',
-    '叁': '三',
-    '肆': '四',
-    '伍': '五',
-    '陆': '六',
-    '柒': '七',
-    '捌': '八',
-    '玖': '九',
-    '拾': '十',
-    '佰': '百',
-    '仟': '千',
-    '萬': '万',
-    '億': '亿',
+const NormRegex = new RegExp(Object.keys(NORM).join('|'), 'g')
+export function hanzi_norm(str: string) {
+    return str.replace(NormRegex, match => NORM[match])
 }
-const NormRegex = new RegExp(Object.keys(Norm).join('|'), 'g')
 
-export function norm(str: string) {
-    return str.replace(NormRegex, match => Norm[match])
+export function parseInt_s(str: string): Nullable<bigint> {
+    return null
+}
+
+export function parseInt_m(str: string): Nullable<bigint> {
+    return null
+}
+
+export function parseInt_l(str: string): Nullable<bigint> {
+    return null
+}
+
+export function parseFloat_s(str: string): number {
+    return NaN
+}
+
+export function parseFloat_m(str: string): number {
+    return NaN
+}
+
+export function parseFloat_l(str: string): number {
+    return NaN
 }
