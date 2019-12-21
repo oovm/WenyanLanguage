@@ -117,7 +117,6 @@ StackPop    : Qiu; //求
 Get         : De2; //得
 
 fragment Shi2 : '施';
-fragment Yu   : '於' | '于';
 fragment Ru   : '入';
 fragment Qiu  : '求';
 fragment Qu   : '取';
@@ -188,14 +187,15 @@ digits
 // $antlr-format alignColons trailing;
 IntegerDigit   : [0-9];
 FloatDigit     : [.]| IntegerDigit;
-IntegerDigitCN : [零一二三四五六七八九十]| [百千万亿兆];
-FloatDigitCN   : [点又有]| IntegerDigitCN;
+IntegerDigitCN : [零一二三四五六七八九十百千万亿兆];
+FloatDigitCN   : [点又有] | IntegerDigitCN;
 /*====================================================================================================================*/
 Equal   : '=' | Den Yu;
 Unequal : '≠' | '!=' | Bu Den Yu;
 
 fragment Bu  : '不';
 fragment Den : '等';
+fragment Yu   : '於' | '于';
 /*====================================================================================================================*/
 skipStatement : Identifier | Character;
 Identifier    : ForbiddenHead Character*;
