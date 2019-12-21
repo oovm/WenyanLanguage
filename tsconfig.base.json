@@ -1,9 +1,12 @@
 {
     "compilerOptions": {
+        "watch": true,
+        "sourceMap": true,
         "declaration": true,
+        "noImplicitAny": true,
+        "removeComments": true,
         "module": "commonjs",
         "target": "ESNext"
     },
     "compileOnSave": true
 }
-

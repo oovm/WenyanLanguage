@@ -28,7 +28,7 @@ fragment Nai : '乃';
 fragment De  : '得';
 fragment Zhe : '者';
 /*====================================================================================================================*/
-data        : string | Number | Boolean;
+data        : string | digits | Boolean;
 declareData : variable EndDeclare data EndStatment;
 
 EndStatment : Zhe? Ye;
@@ -95,8 +95,8 @@ fragment NonEscape : '\\' (["\\/0bfnrt]) | ~[\\];
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
 declareNumber
-    : DeclareDigit ValueIs? number NameAs v = variable EndStatment?
-    | DeclareDigitIs number NameAs v = variable EndStatment?;
+    : DeclareDigit ValueIs? n = number NameAs v = variable EndStatment?
+    | DeclareDigitIs n = number NameAs v = variable EndStatment?;
 // $antlr-format alignColons trailing;
 DeclareDigit   : IHave Shu;
 DeclareDigitIs : DeclareDigit ValueIs?; //吾有一数
@@ -115,7 +115,7 @@ Boolean : True | False;
 True    : '阳' | '陽';
 False   : '阴' | '陰';
 /*====================================================================================================================*/
-variable : Left v = Identifier Right | Left3  v = Identifier Right3;
+variable : Left v = Identifier Right | Left3 v = Identifier Right3;
 Left     : '「';
 Right    : '」';
 Left3    : '[';
@@ -134,7 +134,7 @@ FunctionEnd   : ThisIs . MethodOf; //是谓「XX」之术也
 //欲行是術必先得六數
 variables : VariableStart (NameAs variable)+ VariableEnd;
 
-VariableStart : Yu2 Xing Is Shu2 '必先得' Number Shu;
+VariableStart : Yu2 Xing Is Shu2 '必先得' Shu;
 VariableEnd   : Nai Xing;
 fragment Yu2  : '欲';
 fragment Xing : '行';
@@ -162,9 +162,18 @@ fragment Yu   : '於' | '于';
 End          : Yun Yun; //云云
 fragment Yun : '云' | '雲';
 /*====================================================================================================================*/
-number : Left3 n = Number Right3 | n = Number;
-Number : [0-9]+ | Digit+;
-Digit  : [零一二三四五六七八九十]| [百千万亿兆];
+// $antlr-format alignColons hanging;
+number: Left3 n = digits Right3 | n = digits;
+digits
+    : IntegerDigit+   # NumberInteger
+    | IntegerDigitCN+ # NumberIntegerCN
+    | FloatDigit+     # NumberFloat
+    | FloatDigitCN+   # NumberFloatCN;
+// $antlr-format alignColons trailing;
+IntegerDigit   : [0-9];
+FloatDigit     : [.]| IntegerDigit;
+IntegerDigitCN : [零一二三四五六七八九十]| [百千万亿兆];
+FloatDigitCN   : [点又有]| IntegerDigitCN;
 /*====================================================================================================================*/
 Equal   : '=' | Den Yu;
 Unequal : '≠' | '!=' | Bu Den Yu;
@@ -174,8 +183,7 @@ fragment Den : '等';
 /*====================================================================================================================*/
 skipStatement : Identifier | Character;
 Identifier    : ForbiddenHead Character*;
-Character     : Underline | [\p{Latin}]| [\p{Han}] | [\p{Hiragana}] | [\p{Katakana}];
-Underline     : '_' | '-';
+Character     : [\p{Latin}]| [\p{Han}] | [\p{Hiragana}] | [\p{Katakana}];
 //[阴阳零一二三四五六七八九十百千万亿兆陰陽壹萬億]|
 fragment ForbiddenHead:
     ~(

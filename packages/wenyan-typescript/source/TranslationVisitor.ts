@@ -24,7 +24,6 @@ export default class WenyanTranslationVisitor
 
     visitProgram(ctx: wy.ProgramContext) {
         let val: Node[] = []
-        console.log(ctx.childCount)
         for (let i = 0; i < ctx.childCount - 1; i++) {
             let node = this.visit(ctx.statement(i))
             val.concat(node)
@@ -38,6 +37,7 @@ export default class WenyanTranslationVisitor
 
 
 
+
     visitDeclareString(ctx: wy.DeclareStringContext) {
         let pub: Boolean = true
         const conditions = ['吾', '私']
@@ -46,12 +46,12 @@ export default class WenyanTranslationVisitor
         if (conditions.some(el => str.includes(el))) {
             pub = false
         }
-        const declear = ts.createVariableDeclaration(
+        const declare = ts.createVariableDeclaration(
             this.visit(ctx._v) as any,
             ts.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
             this.visit(ctx._s) as any
         )
-        return wrap_declear(declear, pub)
+        return this.defaultResult()
     }
     visitStringRemove0(ctx: wy.StringRemove0Context) {
         return ts.createStringLiteral('')
@@ -68,9 +68,28 @@ export default class WenyanTranslationVisitor
     }
 
 
-    visitNumber(ctx: wy.NumberContext) {
-        console.log('visitNumber')
-        return ts.createEmptyStatement()
+
+
+    visitDeclareNumber(ctx: wy.DeclareNumberContext) {
+        const declare = ts.createVariableDeclaration(
+            this.visit(ctx._v) as any,
+            ts.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword),
+            this.visit(ctx._n) as any,
+        )
+        return this.defaultResult()
     }
+    visitNumberInteger(ctx: wy.NumberIntegerContext) {
+        return ts.createNumericLiteral(ctx.text)
+    }
+    visitNumberIntegerCN(ctx: wy.NumberIntegerCNContext) {
+        return ts.createNumericLiteral('0')
+    }
+    visitNumberFloat(ctx: wy.NumberFloatContext) {
+        return ts.createNumericLiteral(ctx.text)
+    }
+    visitNumberFloatCN(ctx: wy.NumberFloatCNContext) {
+        return ts.createNumericLiteral('0')
+    }
+
 }
 
