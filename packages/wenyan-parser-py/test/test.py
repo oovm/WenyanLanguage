@@ -75,5 +75,5 @@ class ParserTests(TestCase):
         listener = WenyanListener()
         walker = ParseTreeWalker()
         walker.walk(listener, tree)
-        self.assertEqual(len(self.errorListener.symbol), 2)
+        self.assertEqual(len(self.errorListener.symbol), 0)
         aster(path)
