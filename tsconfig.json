@@ -1,6 +1,9 @@
 {
     "references": [
         {
+            "path": "./packages/lib-hanzi2num"
+        },
+        {
             "path": "./packages/wenyan-parser"
         },
         {
