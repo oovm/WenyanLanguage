@@ -4,7 +4,7 @@ from antlr4 import *
 from antlr4.error.ErrorListener import *
 from unittest import TestCase
 import io
-from .source.parser import WenyanParser, WenyanLexer, WenyanListener
+from source.parser import WenyanParser, WenyanLexer, WenyanListener
 from antlr4.tree.Trees import Trees
 
 

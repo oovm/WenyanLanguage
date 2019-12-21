@@ -27,10 +27,12 @@ class Translator(WenyanVisitor):
 
     def visitStringRemove1(self, ctx: WenyanParser.StringRemove1Context):
         t = ctx.getText()
+        print(t)
         return t[1:-1]
 
     def visitStringRemove2(self, ctx: WenyanParser.StringRemove1Context):
         t = ctx.getText()
+        print(t)
         return t[2:-2]
     # endregion
 

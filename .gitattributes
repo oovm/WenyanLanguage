@@ -1,3 +1,4 @@
 *.md linguist-language=arc
 *.interp linguist-language=arc
 *.tokens linguist-language=arc
+*.py linguist-language=swift

@@ -27,6 +27,7 @@ module.exports = {
                     ['/basic/list.md', 'List'],
                     ['/basic/dict.md', 'Dict'],
                     ['/basic/function.md', 'Function'],
+                    ['/basic/module.md', 'Module'],
                 ]
             },
         ]
