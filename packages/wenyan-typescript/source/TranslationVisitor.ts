@@ -39,12 +39,19 @@ export default class WenyanTranslationVisitor
 
 
     visitDeclareString(ctx: wy.DeclareStringContext) {
+        let pub: Boolean = true
+        const conditions = ['吾', '私']
+
+        const str = ctx.DeclareString().text
+        if (conditions.some(el => str.includes(el))) {
+            pub = false
+        }
         const declear = ts.createVariableDeclaration(
             this.visit(ctx._v) as any,
             ts.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
             this.visit(ctx._s) as any
         )
-        return wrap_declear(declear, false)
+        return wrap_declear(declear, pub)
     }
     visitStringRemove0(ctx: wy.StringRemove0Context) {
         return ts.createStringLiteral('')
