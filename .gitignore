@@ -3,6 +3,7 @@
 .vscode/
 .vs/
 *.iml
+__pycache__
 
 # Java
 target/

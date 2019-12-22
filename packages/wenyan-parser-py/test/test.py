@@ -45,7 +45,8 @@ class ErrorListener(ErrorListener):
 
 class ParserTests(TestCase):
     def setup(self, path):
-        file_in = FileStream(path, encoding='utf8')
+        # Lotayou 20191222: Bug fix on encoding format
+        file_in = FileStream(path, encoding='utf-8')
         lexer = WenyanLexer(file_in)
         stream = CommonTokenStream(lexer)
 
@@ -77,3 +78,8 @@ class ParserTests(TestCase):
         walker.walk(listener, tree)
         self.assertEqual(len(self.errorListener.symbol), 0)
         aster(path)
+
+
+if __name__ == '__main__':
+    test_parser = ParserTests()
+    test_parser.test_import()
