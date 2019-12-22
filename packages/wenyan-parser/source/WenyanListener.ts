@@ -13,12 +13,8 @@ import { NumberFloatCNContext } from './WenyanParser'
 import { ProgramContext } from './WenyanParser'
 import { StatementContext } from './WenyanParser'
 import { IfStatementContext } from './WenyanParser'
-import { DataContext } from './WenyanParser'
-import { DeclareDataContext } from './WenyanParser'
-import { ModuleContext } from './WenyanParser'
 import { DeclaremoduleContext } from './WenyanParser'
-import { DeclareStringContext } from './WenyanParser'
-import { StringContext } from './WenyanParser'
+import { ModuleNameContext } from './WenyanParser'
 import { VariableContext } from './WenyanParser'
 import { ApplyStatementContext } from './WenyanParser'
 import { ApplyFunctionContext } from './WenyanParser'
@@ -30,10 +26,15 @@ import { StackOutContext } from './WenyanParser'
 import { StackReturnContext } from './WenyanParser'
 import { DeclarefunctionContext } from './WenyanParser'
 import { VariablesContext } from './WenyanParser'
+import { DataContext } from './WenyanParser'
+import { DeclareDataContext } from './WenyanParser'
+import { DeclareStringContext } from './WenyanParser'
+import { StringContext } from './WenyanParser'
 import { DeclareNumberContext } from './WenyanParser'
-import { DeclareBooleanContext } from './WenyanParser'
 import { NumberContext } from './WenyanParser'
 import { DigitsContext } from './WenyanParser'
+import { DeclareBooleanContext } from './WenyanParser'
+import { BooleanContext } from './WenyanParser'
 import { SkipStatementContext } from './WenyanParser'
 
 
@@ -167,39 +168,6 @@ export interface WenyanListener extends ParseTreeListener {
     exitIfStatement?: (ctx: IfStatementContext) => void
 
     /**
-	 * Enter a parse tree produced by `WenyanParser.data`.
-	 * @param ctx the parse tree
-	 */
-    enterData?: (ctx: DataContext) => void
-    /**
-	 * Exit a parse tree produced by `WenyanParser.data`.
-	 * @param ctx the parse tree
-	 */
-    exitData?: (ctx: DataContext) => void
-
-    /**
-	 * Enter a parse tree produced by `WenyanParser.declareData`.
-	 * @param ctx the parse tree
-	 */
-    enterDeclareData?: (ctx: DeclareDataContext) => void
-    /**
-	 * Exit a parse tree produced by `WenyanParser.declareData`.
-	 * @param ctx the parse tree
-	 */
-    exitDeclareData?: (ctx: DeclareDataContext) => void
-
-    /**
-	 * Enter a parse tree produced by `WenyanParser.module`.
-	 * @param ctx the parse tree
-	 */
-    enterModule?: (ctx: ModuleContext) => void
-    /**
-	 * Exit a parse tree produced by `WenyanParser.module`.
-	 * @param ctx the parse tree
-	 */
-    exitModule?: (ctx: ModuleContext) => void
-
-    /**
 	 * Enter a parse tree produced by `WenyanParser.declaremodule`.
 	 * @param ctx the parse tree
 	 */
@@ -211,26 +179,15 @@ export interface WenyanListener extends ParseTreeListener {
     exitDeclaremodule?: (ctx: DeclaremoduleContext) => void
 
     /**
-	 * Enter a parse tree produced by `WenyanParser.declareString`.
+	 * Enter a parse tree produced by `WenyanParser.moduleName`.
 	 * @param ctx the parse tree
 	 */
-    enterDeclareString?: (ctx: DeclareStringContext) => void
+    enterModuleName?: (ctx: ModuleNameContext) => void
     /**
-	 * Exit a parse tree produced by `WenyanParser.declareString`.
+	 * Exit a parse tree produced by `WenyanParser.moduleName`.
 	 * @param ctx the parse tree
 	 */
-    exitDeclareString?: (ctx: DeclareStringContext) => void
-
-    /**
-	 * Enter a parse tree produced by `WenyanParser.string`.
-	 * @param ctx the parse tree
-	 */
-    enterString?: (ctx: StringContext) => void
-    /**
-	 * Exit a parse tree produced by `WenyanParser.string`.
-	 * @param ctx the parse tree
-	 */
-    exitString?: (ctx: StringContext) => void
+    exitModuleName?: (ctx: ModuleNameContext) => void
 
     /**
 	 * Enter a parse tree produced by `WenyanParser.variable`.
@@ -354,6 +311,50 @@ export interface WenyanListener extends ParseTreeListener {
     exitVariables?: (ctx: VariablesContext) => void
 
     /**
+	 * Enter a parse tree produced by `WenyanParser.data`.
+	 * @param ctx the parse tree
+	 */
+    enterData?: (ctx: DataContext) => void
+    /**
+	 * Exit a parse tree produced by `WenyanParser.data`.
+	 * @param ctx the parse tree
+	 */
+    exitData?: (ctx: DataContext) => void
+
+    /**
+	 * Enter a parse tree produced by `WenyanParser.declareData`.
+	 * @param ctx the parse tree
+	 */
+    enterDeclareData?: (ctx: DeclareDataContext) => void
+    /**
+	 * Exit a parse tree produced by `WenyanParser.declareData`.
+	 * @param ctx the parse tree
+	 */
+    exitDeclareData?: (ctx: DeclareDataContext) => void
+
+    /**
+	 * Enter a parse tree produced by `WenyanParser.declareString`.
+	 * @param ctx the parse tree
+	 */
+    enterDeclareString?: (ctx: DeclareStringContext) => void
+    /**
+	 * Exit a parse tree produced by `WenyanParser.declareString`.
+	 * @param ctx the parse tree
+	 */
+    exitDeclareString?: (ctx: DeclareStringContext) => void
+
+    /**
+	 * Enter a parse tree produced by `WenyanParser.string`.
+	 * @param ctx the parse tree
+	 */
+    enterString?: (ctx: StringContext) => void
+    /**
+	 * Exit a parse tree produced by `WenyanParser.string`.
+	 * @param ctx the parse tree
+	 */
+    exitString?: (ctx: StringContext) => void
+
+    /**
 	 * Enter a parse tree produced by `WenyanParser.declareNumber`.
 	 * @param ctx the parse tree
 	 */
@@ -363,17 +364,6 @@ export interface WenyanListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
     exitDeclareNumber?: (ctx: DeclareNumberContext) => void
-
-    /**
-	 * Enter a parse tree produced by `WenyanParser.declareBoolean`.
-	 * @param ctx the parse tree
-	 */
-    enterDeclareBoolean?: (ctx: DeclareBooleanContext) => void
-    /**
-	 * Exit a parse tree produced by `WenyanParser.declareBoolean`.
-	 * @param ctx the parse tree
-	 */
-    exitDeclareBoolean?: (ctx: DeclareBooleanContext) => void
 
     /**
 	 * Enter a parse tree produced by `WenyanParser.number`.
@@ -396,6 +386,28 @@ export interface WenyanListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
     exitDigits?: (ctx: DigitsContext) => void
+
+    /**
+	 * Enter a parse tree produced by `WenyanParser.declareBoolean`.
+	 * @param ctx the parse tree
+	 */
+    enterDeclareBoolean?: (ctx: DeclareBooleanContext) => void
+    /**
+	 * Exit a parse tree produced by `WenyanParser.declareBoolean`.
+	 * @param ctx the parse tree
+	 */
+    exitDeclareBoolean?: (ctx: DeclareBooleanContext) => void
+
+    /**
+	 * Enter a parse tree produced by `WenyanParser.boolean`.
+	 * @param ctx the parse tree
+	 */
+    enterBoolean?: (ctx: BooleanContext) => void
+    /**
+	 * Exit a parse tree produced by `WenyanParser.boolean`.
+	 * @param ctx the parse tree
+	 */
+    exitBoolean?: (ctx: BooleanContext) => void
 
     /**
 	 * Enter a parse tree produced by `WenyanParser.skipStatement`.

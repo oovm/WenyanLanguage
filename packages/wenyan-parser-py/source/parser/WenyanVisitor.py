@@ -24,13 +24,13 @@ class WenyanVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by WenyanParser#module.
-    def visitModule(self, ctx:WenyanParser.ModuleContext):
+    # Visit a parse tree produced by WenyanParser#declaremodule.
+    def visitDeclaremodule(self, ctx:WenyanParser.DeclaremoduleContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by WenyanParser#declaremodule.
-    def visitDeclaremodule(self, ctx:WenyanParser.DeclaremoduleContext):
+    # Visit a parse tree produced by WenyanParser#moduleName.
+    def visitModuleName(self, ctx:WenyanParser.ModuleNameContext):
         return self.visitChildren(ctx)
 
 
@@ -124,11 +124,6 @@ class WenyanVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by WenyanParser#declareBoolean.
-    def visitDeclareBoolean(self, ctx:WenyanParser.DeclareBooleanContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by WenyanParser#number.
     def visitNumber(self, ctx:WenyanParser.NumberContext):
         return self.visitChildren(ctx)
@@ -151,6 +146,16 @@ class WenyanVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by WenyanParser#NumberFloatCN.
     def visitNumberFloatCN(self, ctx:WenyanParser.NumberFloatCNContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by WenyanParser#declareBoolean.
+    def visitDeclareBoolean(self, ctx:WenyanParser.DeclareBooleanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by WenyanParser#boolean.
+    def visitBoolean(self, ctx:WenyanParser.BooleanContext):
         return self.visitChildren(ctx)
 
 

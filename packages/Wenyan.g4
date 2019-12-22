@@ -29,8 +29,11 @@ fragment De  : '得';
 fragment Zhe : '者';
 /*====================================================================================================================*/
 // 有一书名曰 《九章算数》, 载 「求和」之术, 今名之曰 「加」
-module        : Left Identifier Right | Left5 Identifier Right5 | Left6 Identifier Right6;
-declaremodule : DeclareModule m = module RanameAs v = variable;
+declaremodule : DeclareModule m = moduleName RanameAs v = variable;
+moduleName:
+    DeclareModule Left Identifier Right
+    | DeclareModule Left5 Identifier Right5
+    | DeclareModule Left6 Identifier Right6;
 
 DeclareModule : You Yi? Shu3 Ming Yue; //有一书名曰
 RanameAs      : Jin NameAs; //今名之曰
@@ -40,9 +43,10 @@ Right5        : '》';
 Left6         : '<<';
 Right6        : '>>';
 fragment Zai  : '载';
-fragment Shu3 : '书';
+fragment Shu3 : '书' | '書';
 /*====================================================================================================================*/
-variable : Left4 v = Identifier Right4 | Left v = Identifier Right;
+variable : Variable;
+Variable : Left4 Character+ Right4 | Left Character+ Right;
 Left     : '[';
 Right    : ']';
 Left4    : '「';
@@ -104,7 +108,7 @@ fragment Shi : '是';
 fragment Of  : '之';
 fragment Ye  : '也';
 /*====================================================================================================================*/
-data        : string | digits | Boolean;
+data        : string | digits | boolean | Identifier;
 declareData : variable EndDeclare data EndStatment;
 
 EndStatment : Zhe? Ye;
@@ -167,19 +171,6 @@ DeclareDigitIs : DeclareDigit ValueIs?; //吾有一数
 fragment Shu   : '數' | '数';
 /*====================================================================================================================*/
 // $antlr-format alignColons hanging;
-declareBoolean
-    : DeclareBoolean ValueIs? number NameAs v = variable EndStatment?
-    | DeclareBooleanIs number NameAs v = variable EndStatment?;
-// $antlr-format alignColons trailing;
-DeclareBoolean   : IHave Bo;
-DeclareBooleanIs : DeclareDigit ValueIs?; //吾有一爻
-fragment Bo      : '爻';
-
-Boolean : TRUE | FALSE;
-TRUE    : '阳' | '陽';
-FALSE   : '阴' | '陰';
-/*====================================================================================================================*/
-// $antlr-format alignColons hanging;
 number: Left n = digits Right | n = digits;
 digits
     : IntegerDigit+   # NumberInteger
@@ -192,6 +183,20 @@ FloatDigit     : [.]| IntegerDigit;
 IntegerDigitCN : [零一二三四五六七八九十百千万亿兆];
 FloatDigitCN   : [点又有] | IntegerDigitCN;
 /*====================================================================================================================*/
+// $antlr-format alignColons hanging;
+declareBoolean
+    : DeclareBoolean ValueIs? b = boolean NameAs v = variable EndStatment?
+    | DeclareBooleanIs b = boolean NameAs v = variable EndStatment?;
+// $antlr-format alignColons trailing;
+DeclareBoolean   : IHave Bo;
+DeclareBooleanIs : DeclareDigit ValueIs?; //吾有一爻
+fragment Bo      : '爻';
+
+boolean : Boolean;
+Boolean : TRUE | FALSE;
+TRUE    : '阳' | '陽';
+FALSE   : '阴' | '陰';
+/*====================================================================================================================*/
 Equal   : '=' | Den Yu;
 Unequal : '≠' | '!=' | Bu Den Yu;
 
@@ -202,10 +207,10 @@ fragment Yu  : '於' | '于';
 skipStatement : Identifier | Character;
 Identifier    : ForbiddenHead Character*;
 Character     : [\p{Latin}]| [\p{Han}] | [\p{Hiragana}] | [\p{Katakana}];
-//[阴阳零一二三四五六七八九十百千万亿兆陰陽壹萬億]|
 fragment ForbiddenHead:
     ~(
-        [有曰吾若]
+        [阴阳零一二三四五六七八九十百千万亿兆陰陽壹萬億]
+        | [有曰吾若]
         | '\u0000' ..'\u2E7F' //Supplemental Punctuation 扇区
         | '\u3000' ..'\u303F' //CJK Symbols and Punctuation 扇区
         | '\uFF01' ..'\uFF11' //Halfwidth and Fullwidth Forms 扇区

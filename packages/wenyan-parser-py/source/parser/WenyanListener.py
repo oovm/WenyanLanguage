@@ -35,21 +35,21 @@ class WenyanListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by WenyanParser#module.
-    def enterModule(self, ctx:WenyanParser.ModuleContext):
-        pass
-
-    # Exit a parse tree produced by WenyanParser#module.
-    def exitModule(self, ctx:WenyanParser.ModuleContext):
-        pass
-
-
     # Enter a parse tree produced by WenyanParser#declaremodule.
     def enterDeclaremodule(self, ctx:WenyanParser.DeclaremoduleContext):
         pass
 
     # Exit a parse tree produced by WenyanParser#declaremodule.
     def exitDeclaremodule(self, ctx:WenyanParser.DeclaremoduleContext):
+        pass
+
+
+    # Enter a parse tree produced by WenyanParser#moduleName.
+    def enterModuleName(self, ctx:WenyanParser.ModuleNameContext):
+        pass
+
+    # Exit a parse tree produced by WenyanParser#moduleName.
+    def exitModuleName(self, ctx:WenyanParser.ModuleNameContext):
         pass
 
 
@@ -215,15 +215,6 @@ class WenyanListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by WenyanParser#declareBoolean.
-    def enterDeclareBoolean(self, ctx:WenyanParser.DeclareBooleanContext):
-        pass
-
-    # Exit a parse tree produced by WenyanParser#declareBoolean.
-    def exitDeclareBoolean(self, ctx:WenyanParser.DeclareBooleanContext):
-        pass
-
-
     # Enter a parse tree produced by WenyanParser#number.
     def enterNumber(self, ctx:WenyanParser.NumberContext):
         pass
@@ -266,6 +257,24 @@ class WenyanListener(ParseTreeListener):
 
     # Exit a parse tree produced by WenyanParser#NumberFloatCN.
     def exitNumberFloatCN(self, ctx:WenyanParser.NumberFloatCNContext):
+        pass
+
+
+    # Enter a parse tree produced by WenyanParser#declareBoolean.
+    def enterDeclareBoolean(self, ctx:WenyanParser.DeclareBooleanContext):
+        pass
+
+    # Exit a parse tree produced by WenyanParser#declareBoolean.
+    def exitDeclareBoolean(self, ctx:WenyanParser.DeclareBooleanContext):
+        pass
+
+
+    # Enter a parse tree produced by WenyanParser#boolean.
+    def enterBoolean(self, ctx:WenyanParser.BooleanContext):
+        pass
+
+    # Exit a parse tree produced by WenyanParser#boolean.
+    def exitBoolean(self, ctx:WenyanParser.BooleanContext):
         pass
 
 
