@@ -1,14 +1,11 @@
 from ast import Num, Name, Load, Store, Str
+from typing import Union
 
 
 class Literal:
     @staticmethod
-    def from_int_dec(raw: str):
-        return Num(n=int(raw))
-
-    @staticmethod
-    def from_float(raw: str):
-        return Num(n=float(raw))
+    def from_number(raw: Union[int, float]):
+        return Num(n=raw)
 
     @staticmethod
     def from_symbol_get(raw: str):

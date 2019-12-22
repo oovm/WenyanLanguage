@@ -1,5 +1,6 @@
 from .build_ast import Import, Literal, Expression, Define, Type, ast_build
 from .parser import WenyanParser, WenyanVisitor
+from .hanzi2num import parse_int_m
 from .utils import debug_print
 
 
@@ -52,16 +53,16 @@ class Translator(WenyanVisitor):
         return ctx.v.text
 
     def visitNumberInteger(self, ctx: WenyanParser.NumberIntegerContext):
-        n = ctx.getText()
-        return Literal.from_int_dec(n)
+        n = int(ctx.getText())
+        return Literal.from_number(n)
 
     def visitNumberIntegerCN(self, ctx: WenyanParser.NumberIntegerCNContext):
-        # TODO: parse_int
-        return ''
+        n = parse_int_m(ctx.getText())
+        return Literal.from_number(n)
 
     def visitNumberFloat(self, ctx: WenyanParser.NumberFloatContext):
-        n = ctx.getText()
-        return Literal.from_float(n)
+        n = float(ctx.getText())
+        return Literal.from_number(n)
 
     def visitNumberFloatCN(self, ctx: WenyanParser.NumberFloatCNContext):
         # TODO: parse_float
