@@ -1,6 +1,6 @@
-from .parser import WenyanParser, WenyanVisitor
-
 from .build_ast import Import, Literal, Expression, Define, Type, ast_build
+from .parser import WenyanParser, WenyanVisitor
+from .utils import debug_print
 
 
 class Translator(WenyanVisitor):
@@ -10,7 +10,7 @@ class Translator(WenyanVisitor):
         return ''
 
     def visitStatement(self, ctx: WenyanParser.StatementContext):
-        # debug_print("Statement", self.visitChildren(ctx))
+        debug_print("Statement", self.visitChildren(ctx))
         return self.visitChildren(ctx)
 
     # region Import
@@ -31,6 +31,11 @@ class Translator(WenyanVisitor):
         print(d)
         return ''
 
+    def visitDeclareBoolean(self, ctx: WenyanParser.DeclareBooleanContext):
+        # TODO: toAST
+        print(ctx.getText())
+        return ''
+
     def visitDeclareString(self, ctx: WenyanParser.DeclareStringContext):
         v = self.visit(ctx.v)
         s = self.visit(ctx.s)
@@ -45,6 +50,22 @@ class Translator(WenyanVisitor):
     def visitVariable(self, ctx: WenyanParser.VariableContext):
         # TODO: toAST
         return ctx.v.text
+
+    def visitNumberInteger(self, ctx: WenyanParser.NumberIntegerContext):
+        n = ctx.getText()
+        return Literal.from_int_dec(n)
+
+    def visitNumberIntegerCN(self, ctx: WenyanParser.NumberIntegerCNContext):
+        # TODO: parse_int
+        return ''
+
+    def visitNumberFloat(self, ctx: WenyanParser.NumberFloatContext):
+        n = ctx.getText()
+        return Literal.from_float(n)
+
+    def visitNumberFloatCN(self, ctx: WenyanParser.NumberFloatCNContext):
+        # TODO: parse_float
+        return ''
 
     def visitStringRemove0(self, ctx: WenyanParser.StringRemove0Context):
         return Literal.from_escape_single('')

@@ -4,11 +4,11 @@ from ast import Num, Name, Load, Store, Str
 class Literal:
     @staticmethod
     def from_int_dec(raw: str):
-        return Num(n=int(raw.strip('_')))
+        return Num(n=int(raw))
 
     @staticmethod
     def from_float(raw: str):
-        return Num(n=float(raw.strip('_')))
+        return Num(n=float(raw))
 
     @staticmethod
     def from_symbol_get(raw: str):
