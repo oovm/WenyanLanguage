@@ -28,7 +28,7 @@ class Translator(WenyanVisitor):
         d = self.visit(ctx.data())
         # TODO: toAST
         print(v)
-        print(d)
+        print(ast_build([d]))
         return ''
 
     def visitDeclareBoolean(self, ctx: WenyanParser.DeclareBooleanContext):

@@ -70,7 +70,7 @@ class ParserTests(TestCase):
         return parser
 
     def test_import(self):
-        path = "../../../tests/string.wy"
+        path = "../../../tests/module.wy"
         parser = self.setup(path)
         tree = parser.program()
         listener = WenyanListener()
