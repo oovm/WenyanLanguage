@@ -7,7 +7,7 @@ from .utils import debug_print
 class Translator(WenyanVisitor):
     def visitProgram(self, ctx: WenyanParser.ProgramContext):
         stats = list(map(self.visit, ctx.statement()))
-        return ''
+        return stats
 
     def visitStatement(self, ctx: WenyanParser.StatementContext):
         s = self.visitChildren(ctx)

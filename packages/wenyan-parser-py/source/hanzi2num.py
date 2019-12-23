@@ -66,43 +66,58 @@ def hanzi_norm(string: str) -> str:
     return NORM_PATTERN.sub(lambda x: NORM[x.group(0)], string)
 
 
+def integer_fix(a: str) -> str:
+    # remove char not in digit_map
+    b = a
+
+    if not b.startswith(tuple("零一二三四五六七八九")):
+        # 十万 -> 一十万
+        c = "一" + b
+    else:
+        c = a
+
+    # 一千三 -> 一千三百
+    d = c
+    return d
+
+
 def parse_int_base(a: str, digit_map=None):
     if digit_map is None:
         digit_map = DIGIT_MAP_M
-    count = len(a) - 1
-    result = 0
-    tmp = 0
-    while count >= 0:
-        # TODO: skip char not in digit_map
-        tmp_chr = a[count:count + 1]
-        tmp_num = digit_map[tmp_chr]
-        if tmp_num > 10:
-            # 获取0的个数
-            tmp = tmp_num - 10
+    switch = False
+    multiply = 0
+    value = 0
+    for i in a[::-1]:
+        n = digit_map[i]
+        if n > 10 and switch:
+            # 如果这次是倍数, 之前也是倍数
+            multiply += n - 10
+            switch = True
+        elif n > 10:
+            # 如果这次是倍数, 但上次不是倍数
+            multiply = n - 10
+            switch = True
         else:
             # 如果是个位数
-            if tmp == 0:
-                result += tmp_num
-            else:
-                result += pow(10, tmp) * tmp_num
-            tmp = tmp + 1
-        count = count - 1
-    if a.startswith('负'):
-        return -result
-    else:
-        return result
+            value += pow(10, multiply) * n
+            multiply += 1
+            switch = False
+    return value
 
 
 def parse_int_s(digit: str) -> int:
-    n: str = hanzi_norm(digit)
-    return parse_int_base(n, digit_map=DIGIT_MAP_S)
+    n = hanzi_norm(digit)
+    r = parse_int_base(integer_fix(n), digit_map=DIGIT_MAP_S)
+    return -r if n.startswith('负') else r
 
 
 def parse_int_m(digit: str) -> int:
-    n: str = hanzi_norm(digit)
-    return parse_int_base(n, digit_map=DIGIT_MAP_M)
+    n = hanzi_norm(digit)
+    r = parse_int_base(integer_fix(n), digit_map=DIGIT_MAP_M)
+    return -r if n.startswith('负') else r
 
 
 def parse_int_l(digit: str) -> int:
-    n: str = hanzi_norm(digit)
-    return parse_int_base(n, digit_map=DIGIT_MAP_L)
+    n = hanzi_norm(digit)
+    r = parse_int_base(integer_fix(n), digit_map=DIGIT_MAP_L)
+    return -r if n.startswith('负') else r
