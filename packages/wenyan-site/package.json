@@ -11,6 +11,6 @@
         "deploy": "vuepress build ."
     },
     "dependencies": {
-        "vuepress": "^1.2.0"
+        "vuepress": "^1.5.2"
     }
 }

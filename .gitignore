@@ -11,7 +11,10 @@ target/
 
 # Node
 node_modules/
+package-lock.json
 yarn-error.log
+yarn.lock
+
 
 # Build
 packages/wenyan-site/.build/*
